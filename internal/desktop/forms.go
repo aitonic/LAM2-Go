@@ -17,11 +17,19 @@ import (
 
 func (u *UI) newProfile() {
 	u.configTemplate = ""
-	u.profileDraft = model.Profile{AuthMode: u.settings.AccountMode, Proxy: model.Proxy{Mode: "inherit"}}
+	mode := u.settings.AccountMode
+	if mode == "" {
+		mode = "profile"
+	}
+	u.profileDraft = model.Profile{AuthMode: mode, Proxy: model.Proxy{Mode: "inherit"}}
 	u.profileHome = ""
 	u.profileImportJSON = ""
 	u.profileCreateMethodTab = 1
-	u.profileCreateModeTab = 0
+	if mode == "pat" {
+		u.profileCreateModeTab = 1
+	} else {
+		u.profileCreateModeTab = 0
+	}
 	u.profileOverwriteWrapper = false
 	u.profileEdit = false
 	u.profileOpen = true
@@ -123,10 +131,8 @@ func (u *UI) dialogs(c *ui.Context) {
 			if !u.profileEdit {
 				// Preserve the original Profile Account / PAT Account rail.
 				availability := u.settings.ModeAvailability
-				if availability == "" {
-					availability = "profile"
-				}
-				if availability == "both" {
+				showTabs := availability == "both" || u.settings.AccountMode == "pat"
+				if showTabs {
 					ui.Tabs(c, &u.profileCreateModeTab, "Profile Account", "PAT Account")
 					if u.profileCreateModeTab == 1 {
 						u.profileDraft.AuthMode = "pat"
@@ -134,7 +140,7 @@ func (u *UI) dialogs(c *ui.Context) {
 						u.profileDraft.AuthMode = "profile"
 					}
 				} else {
-					if availability == "pat" {
+					if availability == "pat" || u.settings.AccountMode == "pat" {
 						u.profileDraft.AuthMode = "pat"
 					} else {
 						u.profileDraft.AuthMode = "profile"

@@ -126,3 +126,71 @@ func TestTrayExposesCodexAndAntigravityWithPerAccountAction(t *testing.T) {
 		}
 	}
 }
+
+func TestAuthModeTabsSwitchBetweenProfileAndPAT(t *testing.T) {
+	u := New(nil)
+	u.locale = "en"
+	u.settings.AccountMode = "profile"
+	tt := ui.NewTester(u.view, 1280, 850)
+
+	if !tt.HasText("Profile Mode") || !tt.HasText("PAT Mode") {
+		t.Fatalf("titlebar missing auth mode tabs: %v", tt.Texts())
+	}
+	if !tt.HasText("Codex profile mode") {
+		t.Fatalf("expected profile active source: %v", tt.Texts())
+	}
+
+	// Click PAT Mode tab
+	if err := tt.Click("PAT Mode"); err != nil {
+		t.Fatal("failed to click PAT Mode tab:", err)
+	}
+	if u.settings.AccountMode != "pat" {
+		t.Fatalf("expected AccountMode to be 'pat', got %q", u.settings.AccountMode)
+	}
+	if u.settings.ModeAvailability != "both" {
+		t.Fatalf("expected ModeAvailability to upgrade to 'both', got %q", u.settings.ModeAvailability)
+	}
+
+	// Verify Overview Active source now indicates PAT mode
+	ttPat := ui.NewTester(u.view, 1280, 850)
+	if !ttPat.HasText("PAT mode · No active account") {
+		t.Fatalf("expected PAT mode active source indicator: %v", ttPat.Texts())
+	}
+
+	// Click back to Profile Mode tab
+	if err := ttPat.Click("Profile Mode"); err != nil {
+		t.Fatal("failed to click Profile Mode tab:", err)
+	}
+	if u.settings.AccountMode != "profile" {
+		t.Fatalf("expected AccountMode to be 'profile', got %q", u.settings.AccountMode)
+	}
+}
+
+func TestPATModeAccountCardsExposeActiveBadgeAndSwitchPAT(t *testing.T) {
+	u := New(nil)
+	u.locale = "en"
+	u.settings.AccountMode = "pat"
+	u.basic.State.Settings.AccountMode = "pat"
+	u.basic.Profiles = []model.Profile{
+		{ID: "main", Name: "main", Home: "/tmp/codex-main", Managed: true},
+		{ID: "pat-1", Name: "Team PAT", Home: "/tmp/codex-pat1", Managed: true},
+	}
+	u.basic.State.Profiles["main"] = u.basic.Profiles[0]
+	u.basic.State.Profiles["pat-1"] = u.basic.Profiles[1]
+
+	// Before activation: Team PAT should show "Switch PAT" button
+	tt := ui.NewTester(u.view, 1280, 850)
+	if !tt.HasText("Switch PAT") {
+		t.Fatalf("expected 'Switch PAT' button on unactivated PAT card: %v", tt.Texts())
+	}
+
+	// After activation: Active PAT should show "ACTIVE" badge
+	u.basic.State.ActivePAT = "pat-1"
+	ttActive := ui.NewTester(u.view, 1280, 850)
+	if !ttActive.HasText("ACTIVE") {
+		t.Fatalf("expected 'ACTIVE' badge on active PAT card: %v", ttActive.Texts())
+	}
+	if !ttActive.HasText("PAT · pat-1") {
+		t.Fatalf("expected 'PAT · pat-1' in active source bar: %v", ttActive.Texts())
+	}
+}

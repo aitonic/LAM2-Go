@@ -83,7 +83,13 @@ func (u *UI) overview(c *ui.Context) {
 			ui.Text(c, "Active source").FontSize(12).TextColor(p.Muted)
 			ui.Spacer(c).Width(9)
 			source := "Codex profile mode"
-			if u.basic.State.ActivePAT != "" {
+			if u.settings.AccountMode == "pat" || u.basic.State.Settings.AccountMode == "pat" {
+				if u.basic.State.ActivePAT != "" {
+					source = "PAT · " + u.basic.State.ActivePAT
+				} else {
+					source = "PAT mode · No active account"
+				}
+			} else if u.basic.State.ActivePAT != "" {
 				source = "PAT · " + u.basic.State.ActivePAT
 			}
 			ui.Text(c, source).FontSize(12).Bold().TextColor(p.Ink)
@@ -161,6 +167,9 @@ func (u *UI) accountTile(c *ui.Context, p palette, i int) {
 			if acct.ID == "main" {
 				pill(c, p, "MAIN", p.Accent, p.AccentSoft)
 			}
+			if u.basic.State.ActivePAT == acct.ID {
+				pill(c, p, "ACTIVE", p.Green, p.GreenSoft)
+			}
 			if !registered {
 				pill(c, p, "DISCOVERED", p.Amber, p.AmberSoft)
 			}
@@ -215,12 +224,20 @@ func (u *UI) accountTile(c *ui.Context, p palette, i int) {
 			infoLine(c, p, "Quota not available — refresh to retry")
 		}
 		// The original card has Relay Latest (or Switch Model for an API
-		// account) plus Handoff. The management entry is the header ellipsis.
+		// account) plus Handoff. In PAT mode, unactivated accounts present Switch PAT.
 		ui.Row(c).Gap(8).Children(func() {
 			_, isAPI := u.basic.State.Bindings[acct.ID]
+			isPATMode := u.settings.AccountMode == "pat" || u.basic.State.Settings.AccountMode == "pat"
+			canSwitchPAT := isPATMode && !isAPI && registered && acct.ID != "main" && u.basic.State.ActivePAT != acct.ID
+			canRestorePAT := isPATMode && !isAPI && acct.ID == "main" && u.basic.State.ActivePAT != ""
+
 			action := "▷ Relay Latest"
 			if isAPI {
 				action = "Switch Model"
+			} else if canSwitchPAT {
+				action = "Switch PAT"
+			} else if canRestorePAT {
+				action = "Restore PAT"
 			}
 			if ui.PrimaryButton(c, action).Disabled(!registered || u.busy).Grow(1).Clicked() {
 				u.profileRow = i
@@ -230,6 +247,15 @@ func (u *UI) accountTile(c *ui.Context, p palette, i int) {
 					u.bindProvider = b.ProviderID
 					u.bindModel = b.Model
 					u.bindOpen = true
+				} else if canSwitchPAT {
+					id := acct.ID
+					u.confirm("Switch PAT", "Replace the shared Codex authentication; other running clients may be affected.", func() {
+						u.task("Switch PAT", func(ctx context.Context) (any, error) { return nil, u.core.Accounts.ActivatePAT(ctx, id, true) }, u.changed)
+					})
+				} else if canRestorePAT {
+					u.confirm("Restore PAT", "Restore the saved shared authentication baseline.", func() {
+						u.task("Restore PAT", func(ctx context.Context) (any, error) { return nil, u.core.Accounts.RestorePAT(ctx, true) }, u.changed)
+					})
 				} else {
 					u.relayLatestTo(acct.ID)
 				}

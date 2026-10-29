@@ -279,6 +279,13 @@ func accountCardBorder(p palette, hover bool) ui.Color {
 	return ui.RGBA(29, 70, 162, .226)
 }
 
+func rootShadowSm(p palette) ui.Color {
+	if p.Dark {
+		return ui.RGBA(0, 0, 0, .25)
+	}
+	return ui.RGBA(15, 23, 42, .05)
+}
+
 func rootShadowMd(p palette) ui.Color {
 	if p.Dark {
 		return ui.RGBA(0, 0, 0, .35)

@@ -90,10 +90,12 @@ func (u *UI) settingsPage(c *ui.Context) {
 							switch choice {
 							case "PAT Only":
 								u.settings.ModeAvailability = "pat"
+								u.settings.AccountMode = "pat"
 							case "Profile & PAT":
 								u.settings.ModeAvailability = "both"
 							default:
 								u.settings.ModeAvailability = "profile"
+								u.settings.AccountMode = "profile"
 							}
 							u.settingsDirty = true
 						}
@@ -142,6 +144,9 @@ func (u *UI) settingsPage(c *ui.Context) {
 				case 1:
 
 					if ui.Select(c, &u.settings.AccountMode, []string{"profile", "pat"}).Label("Default account mode").Changed() {
+						if u.settings.AccountMode == "pat" && u.settings.ModeAvailability == "profile" {
+							u.settings.ModeAvailability = "both"
+						}
 						u.settingsDirty = true
 					}
 					ui.Row(c).Gap(8).Children(func() {

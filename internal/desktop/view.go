@@ -109,13 +109,7 @@ func (u *UI) titlebar(c *ui.Context, p palette) {
 			})
 		})
 		ui.Row(c).Grow(1).Center().Children(func() {
-			ui.Row(c).Padding(3).Gap(2).Radius(8).Background(p.SurfaceAlt).Border(1, p.Border).Children(func() {
-				if u.settings.AccountMode == "pat" {
-					pill(c, p, "PAT Mode", p.Accent, p.Surface)
-				} else {
-					pill(c, p, "Profile Mode", p.Accent, p.Surface)
-				}
-			})
+			u.authModeTabs(c, p)
 		})
 		actions := ui.Row(c).Gap(visualspec.TitlebarActionsGap)
 		if narrow {
@@ -152,6 +146,49 @@ func (u *UI) titlebar(c *ui.Context, p palette) {
 		})
 	})
 }
+
+// authModeTabs implements the original .authModeTabs switch between Profile and PAT mode.
+func (u *UI) authModeTabs(c *ui.Context, p palette) {
+	options := []struct {
+		mode, label, tip string
+	}{
+		{"profile", "Profile Mode", "Independent CODEX_HOME per profile. No shared credentials."},
+		{"pat", "PAT Mode", "Shared Codex home with switchable personal access tokens."},
+	}
+	ui.Row(c).Padding(3).Gap(2).Radius(8).Background(p.SurfaceAlt).Border(1, p.Border).Children(func() {
+		for _, opt := range options {
+			selected := u.settings.AccountMode == opt.mode
+			fg := p.Muted
+			bg := p.SurfaceAlt
+			if selected {
+				fg = p.Accent
+				bg = p.Surface
+			}
+			btn := ui.Button(c, opt.label).Tooltip(opt.tip).TextColor(fg).Background(bg).Radius(5).Padding(4, 12).FontSize(11.5)
+			if selected {
+				btn.Shadow(0, 1, 3, 0, rootShadowSm(p))
+			}
+			if btn.Clicked() && !selected && !u.busy {
+				u.switchAccountMode(opt.mode)
+			}
+		}
+	})
+}
+
+// switchAccountMode transitions between Profile and PAT mode and persists the state.
+func (u *UI) switchAccountMode(target string) {
+	if u.busy || u.settings.AccountMode == target {
+		return
+	}
+	next := u.settings
+	next.AccountMode = target
+	if next.ModeAvailability != "both" {
+		next.ModeAvailability = "both"
+	}
+	u.settings = next
+	u.saveSettings(next)
+}
+
 func (u *UI) dock(c *ui.Context, p palette) {
 	// The floating navigation is always present, regardless of the OS Dock icon preference.
 	// Original .bottomDock is position:fixed; island bottom is 36px from
