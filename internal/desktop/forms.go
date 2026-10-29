@@ -320,6 +320,9 @@ func (u *UI) dialogs(c *ui.Context) {
 						})
 					})
 				})
+				softCard(c, p).Children(func() {
+					cardHeader(c, p, "3 · Review API Account", "Review provider endpoints and capabilities before saving")
+				})
 			})
 			u.formError(c)
 			ui.Row(c).Gap(8).Children(func() {
@@ -327,7 +330,11 @@ func (u *UI) dialogs(c *ui.Context) {
 					u.providerOpen = false
 					u.secretDraft = ""
 				}
-				if ui.PrimaryButton(c, u.t("save")).Disabled(u.busy).Clicked() {
+				saveLabel := "Create API Account"
+				if u.providerDraft.ID != "" {
+					saveLabel = "Save Changes"
+				}
+				if ui.PrimaryButton(c, saveLabel).Disabled(u.busy).Clicked() {
 					p := u.providerDraft
 					old := map[string]model.ProviderModel{}
 					for _, m := range p.Models {

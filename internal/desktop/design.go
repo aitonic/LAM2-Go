@@ -104,14 +104,15 @@ func pill(c *ui.Context, p palette, label string, fg, bg ui.Color) {
 func infoLine(c *ui.Context, p palette, value string) {
 	ui.Text(c, value).FontSize(12).TextColor(p.Muted)
 }
-func metricCard(c *ui.Context, p palette, title, value, footer string, accent, tint ui.Color) {
+func metricCard(c *ui.Context, p palette, title, value, footer string, accent, tint ui.Color) ui.Element {
 	// Original .metricCard has no height declaration: its height comes from
 	// the 42px icon, 16px vertical padding and intrinsic text line boxes.
 	// Do not freeze this box to 85 DIP.
-	ui.Row(c).Grow(1).
+	card := ui.Row(c).Grow(1).
 		Padding(16, 18).Gap(visualspec.OverviewStatGap).
 		Radius(visualspec.OverviewStatRadius).Background(p.Surface).
-		Border(1, p.Border).Shadow(0, 1, 2, 0, p.Shadow).Children(func() {
+		Border(1, p.Border).Shadow(0, 1, 2, 0, p.Shadow)
+	card.Children(func() {
 		icon := "accounts"
 		switch title {
 		case "Sessions":
@@ -129,6 +130,7 @@ func metricCard(c *ui.Context, p palette, title, value, footer string, accent, t
 			ui.Text(c, value).Bold().FontSize(visualspec.OverviewStatValueFontSize).LetterSpacing(-0.02 * visualspec.OverviewStatValueFontSize).TextColor(p.Ink).FontFeatures("tnum")
 		})
 	})
+	return card
 }
 func errorBanner(c *ui.Context, p palette, message string) {
 	ui.Row(c).Padding(12).Gap(8).Radius(10).

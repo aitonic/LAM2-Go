@@ -18,10 +18,21 @@ var darkCanvasSVG []byte
 var originalLightCanvas = ui.MustParseSVG(lightCanvasSVG)
 var originalDarkCanvas = ui.MustParseSVG(darkCanvasSVG)
 
-func originalCanvas(c *ui.Context, dark bool) {
-	image := originalLightCanvas
+func originalCanvasGradient(dark bool) ui.LinearGradient {
 	if dark {
-		image = originalDarkCanvas
+		return ui.LinearGradient{Angle: 180, Stops: []ui.GradientStop{
+			{Color: ui.Hex("#161a24"), At: 0},
+			{Color: ui.Hex("#0b0d12"), At: 1},
+		}}
 	}
-	ui.Image(c, image).Absolute().Left(0).Right(0).Top(0).Bottom(0).Fit(ui.FillBox)
+	return ui.LinearGradient{Angle: 180, Stops: []ui.GradientStop{
+		{Color: ui.Hex("#ffffff"), At: 0},
+		{Color: ui.Hex("#eef0f4"), At: 1},
+	}}
+}
+
+func originalCanvas(c *ui.Context, dark bool) {
+	// Canvas background gradient is applied directly to the root element.
+	// We deliberately avoid creating a full-screen absolute image overlay
+	// that sits above sibling elements in MyGo and intercepts pointer events.
 }

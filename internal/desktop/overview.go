@@ -31,8 +31,14 @@ func (u *UI) overview(c *ui.Context) {
 			if u.sessions.Total > 0 {
 				sessionsValue = fmt.Sprint(u.sessions.Total)
 			}
-			metricCard(c, p, "Sessions", sessionsValue, "View Sessions for live total", p.Green, p.GreenSoft)
-			metricCard(c, p, "Providers", fmt.Sprint(len(u.basic.Providers)), "Configured upstreams", p.Purple, p.PurpleSoft)
+			if metricCard(c, p, "Sessions", sessionsValue, "View Sessions for live total", p.Green, p.GreenSoft).Clicked() {
+				u.router.Push("/sessions")
+				u.reload()
+			}
+			if metricCard(c, p, "Providers", fmt.Sprint(len(u.basic.Providers)), "Configured upstreams", p.Purple, p.PurpleSoft).Clicked() {
+				u.router.Push("/providers")
+				u.reload()
+			}
 			active := 0
 			for _, q := range u.basic.Quotas {
 				if !q.Stale && q.Status == "ready" {
@@ -160,7 +166,6 @@ func (u *UI) accountTile(c *ui.Context, p palette, i int) {
 			}
 			anchor := ui.Button(c, "⋮").Tooltip("Account actions").Padding(2, 6)
 			if anchor.Clicked() {
-				println("DEBUG: ANCHOR CLICKED, i =", i)
 				if u.profileRow == i {
 					u.accountMenuOpen = !u.accountMenuOpen
 				} else {

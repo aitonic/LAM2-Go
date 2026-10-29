@@ -21,7 +21,7 @@ import (
 // hierarchy rather than MyGo's unstyled default Sidebar demo.
 func (u *UI) view(c *ui.Context) {
 	p := applyLAMTheme(c)
-	ui.Column(c).Fill().Gap(0).LineHeight(visualspec.RootLineHeight).Background(p.Canvas).Children(func() {
+	ui.Column(c).Fill().Gap(0).LineHeight(visualspec.RootLineHeight).LinearGradient(originalCanvasGradient(p.Dark)).Children(func() {
 		originalCanvas(c, p.Dark)
 		u.titlebar(c, p)
 		// Original CSS: .content occupies the canvas while .bottomDock is an
@@ -228,11 +228,11 @@ func (u *UI) dock(c *ui.Context, p palette) {
 							Padding(0).Radius(float32(iconRadius)).
 							Tooltip(u.t(nav.key))
 						button.Children(func() { originalIcon(c, nav.key, 16, ui.Hex("#ffffff")) })
-						if button.Clicked() && !selected {
+						label := ui.Text(c, u.t(nav.key)).FontSize(float32(labelSize)).TextColor(labelColor).SingleLine()
+						if (button.Clicked() || label.Clicked() || navItem.Clicked()) && !selected {
 							u.router.Push("/" + nav.key)
 							u.reload()
 						}
-						ui.Text(c, u.t(nav.key)).FontSize(float32(labelSize)).TextColor(labelColor).SingleLine()
 					})
 				}
 			})
