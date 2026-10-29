@@ -1,0 +1,659 @@
+{"Time":"2026-10-27T11:33:50.558239298Z","Action":"start","Package":"lam.local/lam2/internal/account"}
+{"Time":"2026-10-27T11:33:50.560317046Z","Action":"run","Package":"lam.local/lam2/internal/account","Test":"TestProfilesAreIsolated"}
+{"Time":"2026-10-27T11:33:50.560377988Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestProfilesAreIsolated","Output":"=== RUN   TestProfilesAreIsolated\n"}
+{"Time":"2026-10-27T11:33:50.590543786Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestProfilesAreIsolated","Output":"--- PASS: TestProfilesAreIsolated (0.03s)\n"}
+{"Time":"2026-10-27T11:33:50.590595614Z","Action":"pass","Package":"lam.local/lam2/internal/account","Test":"TestProfilesAreIsolated","Elapsed":0.03}
+{"Time":"2026-10-27T11:33:50.590609836Z","Action":"run","Package":"lam.local/lam2/internal/account","Test":"TestInvalidNameAndRevision"}
+{"Time":"2026-10-27T11:33:50.590613301Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestInvalidNameAndRevision","Output":"=== RUN   TestInvalidNameAndRevision\n"}
+{"Time":"2026-10-27T11:33:50.593056625Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestInvalidNameAndRevision","Output":"--- PASS: TestInvalidNameAndRevision (0.00s)\n"}
+{"Time":"2026-10-27T11:33:50.593097817Z","Action":"pass","Package":"lam.local/lam2/internal/account","Test":"TestInvalidNameAndRevision","Elapsed":0}
+{"Time":"2026-10-27T11:33:50.593104687Z","Action":"run","Package":"lam.local/lam2/internal/account","Test":"TestImportCPAAndExportRequireConsent"}
+{"Time":"2026-10-27T11:33:50.593108162Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestImportCPAAndExportRequireConsent","Output":"=== RUN   TestImportCPAAndExportRequireConsent\n"}
+{"Time":"2026-10-27T11:33:50.61898581Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestImportCPAAndExportRequireConsent","Output":"--- PASS: TestImportCPAAndExportRequireConsent (0.03s)\n"}
+{"Time":"2026-10-27T11:33:50.619027483Z","Action":"pass","Package":"lam.local/lam2/internal/account","Test":"TestImportCPAAndExportRequireConsent","Elapsed":0.03}
+{"Time":"2026-10-27T11:33:50.619039261Z","Action":"run","Package":"lam.local/lam2/internal/account","Test":"TestPATSwitchIsExplicitAndRecoverable"}
+{"Time":"2026-10-27T11:33:50.619044899Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestPATSwitchIsExplicitAndRecoverable","Output":"=== RUN   TestPATSwitchIsExplicitAndRecoverable\n"}
+{"Time":"2026-10-27T11:33:50.675923539Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestPATSwitchIsExplicitAndRecoverable","Output":"--- PASS: TestPATSwitchIsExplicitAndRecoverable (0.06s)\n"}
+{"Time":"2026-10-27T11:33:50.676066775Z","Action":"pass","Package":"lam.local/lam2/internal/account","Test":"TestPATSwitchIsExplicitAndRecoverable","Elapsed":0.06}
+{"Time":"2026-10-27T11:33:50.676105704Z","Action":"run","Package":"lam.local/lam2/internal/account","Test":"TestDiscoveryDoesNotWriteAndDeletePreservesHome"}
+{"Time":"2026-10-27T11:33:50.676109179Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestDiscoveryDoesNotWriteAndDeletePreservesHome","Output":"=== RUN   TestDiscoveryDoesNotWriteAndDeletePreservesHome\n"}
+{"Time":"2026-10-27T11:33:50.704321491Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestDiscoveryDoesNotWriteAndDeletePreservesHome","Output":"--- PASS: TestDiscoveryDoesNotWriteAndDeletePreservesHome (0.03s)\n"}
+{"Time":"2026-10-27T11:33:50.704362303Z","Action":"pass","Package":"lam.local/lam2/internal/account","Test":"TestDiscoveryDoesNotWriteAndDeletePreservesHome","Elapsed":0.03}
+{"Time":"2026-10-27T11:33:50.704370305Z","Action":"run","Package":"lam.local/lam2/internal/account","Test":"TestProxyValidationAndCredentialRejection"}
+{"Time":"2026-10-27T11:33:50.704374481Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestProxyValidationAndCredentialRejection","Output":"=== RUN   TestProxyValidationAndCredentialRejection\n"}
+{"Time":"2026-10-27T11:33:50.704379479Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestProxyValidationAndCredentialRejection","Output":"--- PASS: TestProxyValidationAndCredentialRejection (0.00s)\n"}
+{"Time":"2026-10-27T11:33:50.704388673Z","Action":"pass","Package":"lam.local/lam2/internal/account","Test":"TestProxyValidationAndCredentialRejection","Elapsed":0}
+{"Time":"2026-10-27T11:33:50.704391958Z","Action":"run","Package":"lam.local/lam2/internal/account","Test":"TestPersonalAccessTokenAndSeparateQuotaCredential"}
+{"Time":"2026-10-27T11:33:50.704397245Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestPersonalAccessTokenAndSeparateQuotaCredential","Output":"=== RUN   TestPersonalAccessTokenAndSeparateQuotaCredential\n"}
+{"Time":"2026-10-27T11:33:50.767355772Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestPersonalAccessTokenAndSeparateQuotaCredential","Output":"--- PASS: TestPersonalAccessTokenAndSeparateQuotaCredential (0.06s)\n"}
+{"Time":"2026-10-27T11:33:50.76765927Z","Action":"pass","Package":"lam.local/lam2/internal/account","Test":"TestPersonalAccessTokenAndSeparateQuotaCredential","Elapsed":0.06}
+{"Time":"2026-10-27T11:33:50.767666441Z","Action":"run","Package":"lam.local/lam2/internal/account","Test":"TestPersonalAccessTokenImportDoesNotNeedFakeOAuthTokens"}
+{"Time":"2026-10-27T11:33:50.767668964Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestPersonalAccessTokenImportDoesNotNeedFakeOAuthTokens","Output":"=== RUN   TestPersonalAccessTokenImportDoesNotNeedFakeOAuthTokens\n"}
+{"Time":"2026-10-27T11:33:50.767675835Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestPersonalAccessTokenImportDoesNotNeedFakeOAuthTokens","Output":"--- PASS: TestPersonalAccessTokenImportDoesNotNeedFakeOAuthTokens (0.00s)\n"}
+{"Time":"2026-10-27T11:33:50.767678649Z","Action":"pass","Package":"lam.local/lam2/internal/account","Test":"TestPersonalAccessTokenImportDoesNotNeedFakeOAuthTokens","Elapsed":0}
+{"Time":"2026-10-27T11:33:50.767681724Z","Action":"run","Package":"lam.local/lam2/internal/account","Test":"TestProviderAPIKeyNeverUsesOAuthOrQuotaCredentials"}
+{"Time":"2026-10-27T11:33:50.767688454Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestProviderAPIKeyNeverUsesOAuthOrQuotaCredentials","Output":"=== RUN   TestProviderAPIKeyNeverUsesOAuthOrQuotaCredentials\n"}
+{"Time":"2026-10-27T11:33:50.817547926Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestProviderAPIKeyNeverUsesOAuthOrQuotaCredentials","Output":"--- PASS: TestProviderAPIKeyNeverUsesOAuthOrQuotaCredentials (0.05s)\n"}
+{"Time":"2026-10-27T11:33:50.81759036Z","Action":"pass","Package":"lam.local/lam2/internal/account","Test":"TestProviderAPIKeyNeverUsesOAuthOrQuotaCredentials","Elapsed":0.05}
+{"Time":"2026-10-27T11:33:50.817602979Z","Action":"run","Package":"lam.local/lam2/internal/account","Test":"TestNativeAuthPreservesUnknownFieldsAndRefresh"}
+{"Time":"2026-10-27T11:33:50.817606945Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestNativeAuthPreservesUnknownFieldsAndRefresh","Output":"=== RUN   TestNativeAuthPreservesUnknownFieldsAndRefresh\n"}
+{"Time":"2026-10-27T11:33:50.817613314Z","Action":"output","Package":"lam.local/lam2/internal/account","Test":"TestNativeAuthPreservesUnknownFieldsAndRefresh","Output":"--- PASS: TestNativeAuthPreservesUnknownFieldsAndRefresh (0.00s)\n"}
+{"Time":"2026-10-27T11:33:50.817616709Z","Action":"pass","Package":"lam.local/lam2/internal/account","Test":"TestNativeAuthPreservesUnknownFieldsAndRefresh","Elapsed":0}
+{"Time":"2026-10-27T11:33:50.817619513Z","Action":"output","Package":"lam.local/lam2/internal/account","Output":"PASS\n"}
+{"Time":"2026-10-27T11:33:50.818534523Z","Action":"output","Package":"lam.local/lam2/internal/account","Output":"coverage: 62.7% of statements\n"}
+{"Time":"2026-10-27T11:33:50.819919802Z","Action":"output","Package":"lam.local/lam2/internal/account","Output":"ok  \tlam.local/lam2/internal/account\t0.261s\tcoverage: 62.7% of statements\n"}
+{"Time":"2026-10-27T11:33:50.819953593Z","Action":"pass","Package":"lam.local/lam2/internal/account","Elapsed":0.262}
+{"Time":"2026-10-27T11:33:50.953096832Z","Action":"start","Package":"lam.local/lam2/internal/codex"}
+{"Time":"2026-10-27T11:33:50.953254646Z","Action":"start","Package":"lam.local/lam2/internal/commands"}
+{"Time":"2026-10-27T11:33:50.953327991Z","Action":"start","Package":"lam.local/lam2/internal/fault"}
+{"Time":"2026-10-27T11:33:50.954745127Z","Action":"run","Package":"lam.local/lam2/internal/fault","Test":"TestErrorDoesNotExposeCause"}
+{"Time":"2026-10-27T11:33:50.954781592Z","Action":"output","Package":"lam.local/lam2/internal/fault","Test":"TestErrorDoesNotExposeCause","Output":"=== RUN   TestErrorDoesNotExposeCause\n"}
+{"Time":"2026-10-27T11:33:50.95481309Z","Action":"output","Package":"lam.local/lam2/internal/fault","Test":"TestErrorDoesNotExposeCause","Output":"--- PASS: TestErrorDoesNotExposeCause (0.00s)\n"}
+{"Time":"2026-10-27T11:33:50.954817607Z","Action":"pass","Package":"lam.local/lam2/internal/fault","Test":"TestErrorDoesNotExposeCause","Elapsed":0}
+{"Time":"2026-10-27T11:33:50.954823746Z","Action":"run","Package":"lam.local/lam2/internal/fault","Test":"TestUnknownErrorIsSanitized"}
+{"Time":"2026-10-27T11:33:50.954825769Z","Action":"output","Package":"lam.local/lam2/internal/fault","Test":"TestUnknownErrorIsSanitized","Output":"=== RUN   TestUnknownErrorIsSanitized\n"}
+{"Time":"2026-10-27T11:33:50.954831207Z","Action":"output","Package":"lam.local/lam2/internal/fault","Test":"TestUnknownErrorIsSanitized","Output":"--- PASS: TestUnknownErrorIsSanitized (0.00s)\n"}
+{"Time":"2026-10-27T11:33:50.954834753Z","Action":"pass","Package":"lam.local/lam2/internal/fault","Test":"TestUnknownErrorIsSanitized","Elapsed":0}
+{"Time":"2026-10-27T11:33:50.954837537Z","Action":"output","Package":"lam.local/lam2/internal/fault","Output":"PASS\n"}
+{"Time":"2026-10-27T11:33:50.955108756Z","Action":"run","Package":"lam.local/lam2/internal/commands","Test":"TestParseModesAndPassthrough"}
+{"Time":"2026-10-27T11:33:50.955115025Z","Action":"output","Package":"lam.local/lam2/internal/commands","Test":"TestParseModesAndPassthrough","Output":"=== RUN   TestParseModesAndPassthrough\n"}
+{"Time":"2026-10-27T11:33:50.955213043Z","Action":"output","Package":"lam.local/lam2/internal/commands","Test":"TestParseModesAndPassthrough","Output":"--- PASS: TestParseModesAndPassthrough (0.00s)\n"}
+{"Time":"2026-10-27T11:33:50.955255106Z","Action":"pass","Package":"lam.local/lam2/internal/commands","Test":"TestParseModesAndPassthrough","Elapsed":0}
+{"Time":"2026-10-27T11:33:50.955258862Z","Action":"run","Package":"lam.local/lam2/internal/commands","Test":"TestRejectUnknownFlagsAndOperations"}
+{"Time":"2026-10-27T11:33:50.955261035Z","Action":"output","Package":"lam.local/lam2/internal/commands","Test":"TestRejectUnknownFlagsAndOperations","Output":"=== RUN   TestRejectUnknownFlagsAndOperations\n"}
+{"Time":"2026-10-27T11:33:50.957378478Z","Action":"run","Package":"lam.local/lam2/internal/codex","Test":"TestConfigCASUsesServerVersion"}
+{"Time":"2026-10-27T11:33:50.957369269Z","Action":"output","Package":"lam.local/lam2/internal/fault","Output":"coverage: 68.8% of statements\n"}
+{"Time":"2026-10-27T11:33:50.957388363Z","Action":"output","Package":"lam.local/lam2/internal/codex","Test":"TestConfigCASUsesServerVersion","Output":"=== RUN   TestConfigCASUsesServerVersion\n"}
+{"Time":"2026-10-27T11:33:50.957414362Z","Action":"output","Package":"lam.local/lam2/internal/codex","Test":"TestConfigCASUsesServerVersion","Output":"--- PASS: TestConfigCASUsesServerVersion (0.00s)\n"}
+{"Time":"2026-10-27T11:33:50.957419039Z","Action":"pass","Package":"lam.local/lam2/internal/codex","Test":"TestConfigCASUsesServerVersion","Elapsed":0}
+{"Time":"2026-10-27T11:33:50.957424237Z","Action":"run","Package":"lam.local/lam2/internal/codex","Test":"TestConfigRefusesMissingVersionAndExternalChange"}
+{"Time":"2026-10-27T11:33:50.957428032Z","Action":"output","Package":"lam.local/lam2/internal/codex","Test":"TestConfigRefusesMissingVersionAndExternalChange","Output":"=== RUN   TestConfigRefusesMissingVersionAndExternalChange\n"}
+{"Time":"2026-10-27T11:33:50.957444793Z","Action":"output","Package":"lam.local/lam2/internal/commands","Test":"TestRejectUnknownFlagsAndOperations","Output":"--- PASS: TestRejectUnknownFlagsAndOperations (0.00s)\n"}
+{"Time":"2026-10-27T11:33:50.957450131Z","Action":"pass","Package":"lam.local/lam2/internal/commands","Test":"TestRejectUnknownFlagsAndOperations","Elapsed":0}
+{"Time":"2026-10-27T11:33:50.957455109Z","Action":"run","Package":"lam.local/lam2/internal/commands","Test":"TestPlansRequireExplicitConfirmation"}
+{"Time":"2026-10-27T11:33:50.957458874Z","Action":"output","Package":"lam.local/lam2/internal/commands","Test":"TestPlansRequireExplicitConfirmation","Output":"=== RUN   TestPlansRequireExplicitConfirmation\n"}
+{"Time":"2026-10-27T11:33:50.957463662Z","Action":"output","Package":"lam.local/lam2/internal/commands","Test":"TestPlansRequireExplicitConfirmation","Output":"--- PASS: TestPlansRequireExplicitConfirmation (0.00s)\n"}
+{"Time":"2026-10-27T11:33:50.957467678Z","Action":"pass","Package":"lam.local/lam2/internal/commands","Test":"TestPlansRequireExplicitConfirmation","Elapsed":0}
+{"Time":"2026-10-27T11:33:50.957471944Z","Action":"output","Package":"lam.local/lam2/internal/commands","Output":"PASS\n"}
+{"Time":"2026-10-27T11:33:50.957475099Z","Action":"output","Package":"lam.local/lam2/internal/commands","Output":"coverage: 91.3% of statements\n"}
+{"Time":"2026-10-27T11:33:50.957571679Z","Action":"output","Package":"lam.local/lam2/internal/fault","Output":"ok  \tlam.local/lam2/internal/fault\t0.004s\tcoverage: 68.8% of statements\n"}
+{"Time":"2026-10-27T11:33:50.957582185Z","Action":"pass","Package":"lam.local/lam2/internal/fault","Elapsed":0.004}
+{"Time":"2026-10-27T11:33:50.957650824Z","Action":"output","Package":"lam.local/lam2/internal/commands","Output":"ok  \tlam.local/lam2/internal/commands\t0.004s\tcoverage: 91.3% of statements\n"}
+{"Time":"2026-10-27T11:33:50.957657534Z","Action":"pass","Package":"lam.local/lam2/internal/commands","Elapsed":0.004}
+{"Time":"2026-10-27T11:33:50.958720611Z","Action":"output","Package":"lam.local/lam2/internal/codex","Test":"TestConfigRefusesMissingVersionAndExternalChange","Output":"--- PASS: TestConfigRefusesMissingVersionAndExternalChange (0.00s)\n"}
+{"Time":"2026-10-27T11:33:50.958734262Z","Action":"pass","Package":"lam.local/lam2/internal/codex","Test":"TestConfigRefusesMissingVersionAndExternalChange","Elapsed":0}
+{"Time":"2026-10-27T11:33:50.95873954Z","Action":"run","Package":"lam.local/lam2/internal/codex","Test":"TestPoolIsolatesProfilesAndBoundsProcesses"}
+{"Time":"2026-10-27T11:33:50.958742975Z","Action":"output","Package":"lam.local/lam2/internal/codex","Test":"TestPoolIsolatesProfilesAndBoundsProcesses","Output":"=== RUN   TestPoolIsolatesProfilesAndBoundsProcesses\n"}
+{"Time":"2026-10-27T11:33:50.958747241Z","Action":"output","Package":"lam.local/lam2/internal/codex","Test":"TestPoolIsolatesProfilesAndBoundsProcesses","Output":"--- PASS: TestPoolIsolatesProfilesAndBoundsProcesses (0.00s)\n"}
+{"Time":"2026-10-27T11:33:50.958752239Z","Action":"pass","Package":"lam.local/lam2/internal/codex","Test":"TestPoolIsolatesProfilesAndBoundsProcesses","Elapsed":0}
+{"Time":"2026-10-27T11:33:50.958755864Z","Action":"run","Package":"lam.local/lam2/internal/codex","Test":"TestPoolRejectsMissingHomeAndReturnsSafeErrors"}
+{"Time":"2026-10-27T11:33:50.958758649Z","Action":"output","Package":"lam.local/lam2/internal/codex","Test":"TestPoolRejectsMissingHomeAndReturnsSafeErrors","Output":"=== RUN   TestPoolRejectsMissingHomeAndReturnsSafeErrors\n"}
+{"Time":"2026-10-27T11:33:50.958762474Z","Action":"output","Package":"lam.local/lam2/internal/codex","Test":"TestPoolRejectsMissingHomeAndReturnsSafeErrors","Output":"--- PASS: TestPoolRejectsMissingHomeAndReturnsSafeErrors (0.00s)\n"}
+{"Time":"2026-10-27T11:33:50.958765779Z","Action":"pass","Package":"lam.local/lam2/internal/codex","Test":"TestPoolRejectsMissingHomeAndReturnsSafeErrors","Elapsed":0}
+{"Time":"2026-10-27T11:33:50.958768994Z","Action":"run","Package":"lam.local/lam2/internal/codex","Test":"TestPoolConcurrentSameProfileCreatesOnce"}
+{"Time":"2026-10-27T11:33:50.958775083Z","Action":"output","Package":"lam.local/lam2/internal/codex","Test":"TestPoolConcurrentSameProfileCreatesOnce","Output":"=== RUN   TestPoolConcurrentSameProfileCreatesOnce\n"}
+{"Time":"2026-10-27T11:33:50.969797683Z","Action":"output","Package":"lam.local/lam2/internal/codex","Test":"TestPoolConcurrentSameProfileCreatesOnce","Output":"--- PASS: TestPoolConcurrentSameProfileCreatesOnce (0.01s)\n"}
+{"Time":"2026-10-27T11:33:50.969831334Z","Action":"pass","Package":"lam.local/lam2/internal/codex","Test":"TestPoolConcurrentSameProfileCreatesOnce","Elapsed":0.01}
+{"Time":"2026-10-27T11:33:50.969841639Z","Action":"output","Package":"lam.local/lam2/internal/codex","Output":"PASS\n"}
+{"Time":"2026-10-27T11:33:50.970675597Z","Action":"output","Package":"lam.local/lam2/internal/codex","Output":"coverage: 59.2% of statements\n"}
+{"Time":"2026-10-27T11:33:50.971974776Z","Action":"output","Package":"lam.local/lam2/internal/codex","Output":"ok  \tlam.local/lam2/internal/codex\t0.018s\tcoverage: 59.2% of statements\n"}
+{"Time":"2026-10-27T11:33:50.971991271Z","Action":"pass","Package":"lam.local/lam2/internal/codex","Elapsed":0.019}
+{"Time":"2026-10-27T11:33:51.710517763Z","Action":"start","Package":"lam.local/lam2/internal/gateway"}
+{"Time":"2026-10-27T11:33:51.710598705Z","Action":"start","Package":"lam.local/lam2/internal/handoff"}
+{"Time":"2026-10-27T11:33:51.710698861Z","Action":"start","Package":"lam.local/lam2/internal/migration"}
+{"Time":"2026-10-27T11:33:51.711205079Z","Action":"start","Package":"lam.local/lam2/internal/model"}
+{"Time":"2026-10-27T11:33:51.712270065Z","Action":"run","Package":"lam.local/lam2/internal/handoff","Test":"TestHandoffCopiesOnlySession"}
+{"Time":"2026-10-27T11:33:51.712282754Z","Action":"output","Package":"lam.local/lam2/internal/handoff","Test":"TestHandoffCopiesOnlySession","Output":"=== RUN   TestHandoffCopiesOnlySession\n"}
+{"Time":"2026-10-27T11:33:51.713817378Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestSSEFraming"}
+{"Time":"2026-10-27T11:33:51.713866502Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestSSEFraming","Output":"=== RUN   TestSSEFraming\n"}
+{"Time":"2026-10-27T11:33:51.713907914Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestSSEFraming","Output":"--- PASS: TestSSEFraming (0.00s)\n"}
+{"Time":"2026-10-27T11:33:51.71391192Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestSSEFraming","Elapsed":0}
+{"Time":"2026-10-27T11:33:51.71391808Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestSSEOversizeAndIncomplete"}
+{"Time":"2026-10-27T11:33:51.713920623Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestSSEOversizeAndIncomplete","Output":"=== RUN   TestSSEOversizeAndIncomplete\n"}
+{"Time":"2026-10-27T11:33:51.713960474Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestSSEOversizeAndIncomplete","Output":"--- PASS: TestSSEOversizeAndIncomplete (0.00s)\n"}
+{"Time":"2026-10-27T11:33:51.71396479Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestSSEOversizeAndIncomplete","Elapsed":0}
+{"Time":"2026-10-27T11:33:51.713969597Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestLimiterQueuesAndCancellation"}
+{"Time":"2026-10-27T11:33:51.713972191Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestLimiterQueuesAndCancellation","Output":"=== RUN   TestLimiterQueuesAndCancellation\n"}
+{"Time":"2026-10-27T11:33:51.713983398Z","Action":"run","Package":"lam.local/lam2/internal/migration","Test":"TestLegacyFixtures"}
+{"Time":"2026-10-27T11:33:51.713986993Z","Action":"output","Package":"lam.local/lam2/internal/migration","Test":"TestLegacyFixtures","Output":"=== RUN   TestLegacyFixtures\n"}
+{"Time":"2026-10-27T11:33:51.71426988Z","Action":"output","Package":"lam.local/lam2/internal/migration","Test":"TestLegacyFixtures","Output":"--- PASS: TestLegacyFixtures (0.00s)\n"}
+{"Time":"2026-10-27T11:33:51.714304132Z","Action":"pass","Package":"lam.local/lam2/internal/migration","Test":"TestLegacyFixtures","Elapsed":0}
+{"Time":"2026-10-27T11:33:51.714310381Z","Action":"run","Package":"lam.local/lam2/internal/migration","Test":"TestPreviewDoesNotWriteLegacyAndCommitIsIdempotent"}
+{"Time":"2026-10-27T11:33:51.714313406Z","Action":"output","Package":"lam.local/lam2/internal/migration","Test":"TestPreviewDoesNotWriteLegacyAndCommitIsIdempotent","Output":"=== RUN   TestPreviewDoesNotWriteLegacyAndCommitIsIdempotent\n"}
+{"Time":"2026-10-27T11:33:51.715149827Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestLimiterQueuesAndCancellation","Output":"--- PASS: TestLimiterQueuesAndCancellation (0.00s)\n"}
+{"Time":"2026-10-27T11:33:51.715162616Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestLimiterQueuesAndCancellation","Elapsed":0}
+{"Time":"2026-10-27T11:33:51.715197749Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestUnauthorizedNeverContactsUpstream"}
+{"Time":"2026-10-27T11:33:51.715201785Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestUnauthorizedNeverContactsUpstream","Output":"=== RUN   TestUnauthorizedNeverContactsUpstream\n"}
+{"Time":"2026-10-27T11:33:51.715482198Z","Action":"run","Package":"lam.local/lam2/internal/model","Test":"TestTokenAccounting"}
+{"Time":"2026-10-27T11:33:51.715491061Z","Action":"output","Package":"lam.local/lam2/internal/model","Test":"TestTokenAccounting","Output":"=== RUN   TestTokenAccounting\n"}
+{"Time":"2026-10-27T11:33:51.715597782Z","Action":"output","Package":"lam.local/lam2/internal/model","Test":"TestTokenAccounting","Output":"--- PASS: TestTokenAccounting (0.00s)\n"}
+{"Time":"2026-10-27T11:33:51.71560298Z","Action":"pass","Package":"lam.local/lam2/internal/model","Test":"TestTokenAccounting","Elapsed":0}
+{"Time":"2026-10-27T11:33:51.715606846Z","Action":"run","Package":"lam.local/lam2/internal/model","Test":"TestStateAndSecretReference"}
+{"Time":"2026-10-27T11:33:51.71560965Z","Action":"output","Package":"lam.local/lam2/internal/model","Test":"TestStateAndSecretReference","Output":"=== RUN   TestStateAndSecretReference\n"}
+{"Time":"2026-10-27T11:33:51.716298819Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestUnauthorizedNeverContactsUpstream","Output":"--- PASS: TestUnauthorizedNeverContactsUpstream (0.00s)\n"}
+{"Time":"2026-10-27T11:33:51.716311558Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestUnauthorizedNeverContactsUpstream","Elapsed":0}
+{"Time":"2026-10-27T11:33:51.71631929Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestNonStreamTransport"}
+{"Time":"2026-10-27T11:33:51.716321954Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestNonStreamTransport","Output":"=== RUN   TestNonStreamTransport\n"}
+{"Time":"2026-10-27T11:33:51.716584981Z","Action":"output","Package":"lam.local/lam2/internal/model","Test":"TestStateAndSecretReference","Output":"--- PASS: TestStateAndSecretReference (0.00s)\n"}
+{"Time":"2026-10-27T11:33:51.716649868Z","Action":"pass","Package":"lam.local/lam2/internal/model","Test":"TestStateAndSecretReference","Elapsed":0}
+{"Time":"2026-10-27T11:33:51.716654626Z","Action":"run","Package":"lam.local/lam2/internal/model","Test":"TestPriceIsVersionedAndUnknownIsNotFree"}
+{"Time":"2026-10-27T11:33:51.716658461Z","Action":"output","Package":"lam.local/lam2/internal/model","Test":"TestPriceIsVersionedAndUnknownIsNotFree","Output":"=== RUN   TestPriceIsVersionedAndUnknownIsNotFree\n"}
+{"Time":"2026-10-27T11:33:51.71666417Z","Action":"output","Package":"lam.local/lam2/internal/model","Test":"TestPriceIsVersionedAndUnknownIsNotFree","Output":"--- PASS: TestPriceIsVersionedAndUnknownIsNotFree (0.00s)\n"}
+{"Time":"2026-10-27T11:33:51.716669107Z","Action":"pass","Package":"lam.local/lam2/internal/model","Test":"TestPriceIsVersionedAndUnknownIsNotFree","Elapsed":0}
+{"Time":"2026-10-27T11:33:51.716673023Z","Action":"output","Package":"lam.local/lam2/internal/model","Output":"PASS\n"}
+{"Time":"2026-10-27T11:33:51.71690325Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestNonStreamTransport","Output":"--- PASS: TestNonStreamTransport (0.00s)\n"}
+{"Time":"2026-10-27T11:33:51.716909189Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestNonStreamTransport","Elapsed":0}
+{"Time":"2026-10-27T11:33:51.71694262Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestStreamingTerminalExactlyOnce"}
+{"Time":"2026-10-27T11:33:51.716945875Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestStreamingTerminalExactlyOnce","Output":"=== RUN   TestStreamingTerminalExactlyOnce\n"}
+{"Time":"2026-10-27T11:33:51.717515744Z","Action":"output","Package":"lam.local/lam2/internal/model","Output":"coverage: 14.9% of statements\n"}
+{"Time":"2026-10-27T11:33:51.71801088Z","Action":"output","Package":"lam.local/lam2/internal/model","Output":"ok  \tlam.local/lam2/internal/model\t0.006s\tcoverage: 14.9% of statements\n"}
+{"Time":"2026-10-27T11:33:51.718027596Z","Action":"pass","Package":"lam.local/lam2/internal/model","Elapsed":0.007}
+{"Time":"2026-10-27T11:33:51.71840216Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestStreamingTerminalExactlyOnce","Output":"--- PASS: TestStreamingTerminalExactlyOnce (0.00s)\n"}
+{"Time":"2026-10-27T11:33:51.718414369Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestStreamingTerminalExactlyOnce","Elapsed":0}
+{"Time":"2026-10-27T11:33:51.718487849Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestMissingTerminalIsErrorNotSuccess"}
+{"Time":"2026-10-27T11:33:51.718492416Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestMissingTerminalIsErrorNotSuccess","Output":"=== RUN   TestMissingTerminalIsErrorNotSuccess\n"}
+{"Time":"2026-10-27T11:33:51.720048923Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestMissingTerminalIsErrorNotSuccess","Output":"--- PASS: TestMissingTerminalIsErrorNotSuccess (0.00s)\n"}
+{"Time":"2026-10-27T11:33:51.720114903Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestMissingTerminalIsErrorNotSuccess","Elapsed":0}
+{"Time":"2026-10-27T11:33:51.720123626Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestUpstreamStatusRedaction"}
+{"Time":"2026-10-27T11:33:51.720127051Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestUpstreamStatusRedaction","Output":"=== RUN   TestUpstreamStatusRedaction\n"}
+{"Time":"2026-10-27T11:33:51.721124505Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestUpstreamStatusRedaction","Output":"--- PASS: TestUpstreamStatusRedaction (0.00s)\n"}
+{"Time":"2026-10-27T11:33:51.721141811Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestUpstreamStatusRedaction","Elapsed":0}
+{"Time":"2026-10-27T11:33:51.721146358Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestProtocolPreflightRejectsLoss"}
+{"Time":"2026-10-27T11:33:51.721149803Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestProtocolPreflightRejectsLoss","Output":"=== RUN   TestProtocolPreflightRejectsLoss\n"}
+{"Time":"2026-10-27T11:33:51.721374522Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestProtocolPreflightRejectsLoss","Output":"--- PASS: TestProtocolPreflightRejectsLoss (0.00s)\n"}
+{"Time":"2026-10-27T11:33:51.721411988Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestProtocolPreflightRejectsLoss","Elapsed":0}
+{"Time":"2026-10-27T11:33:51.721416215Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestRequestModelIsolation"}
+{"Time":"2026-10-27T11:33:51.721420511Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestRequestModelIsolation","Output":"=== RUN   TestRequestModelIsolation\n"}
+{"Time":"2026-10-27T11:33:51.722032304Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestRequestModelIsolation","Output":"--- PASS: TestRequestModelIsolation (0.00s)\n"}
+{"Time":"2026-10-27T11:33:51.722048959Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestRequestModelIsolation","Elapsed":0}
+{"Time":"2026-10-27T11:33:51.722054717Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestInputValidation"}
+{"Time":"2026-10-27T11:33:51.722057802Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestInputValidation","Output":"=== RUN   TestInputValidation\n"}
+{"Time":"2026-10-27T11:33:51.722194118Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestInputValidation","Output":"--- PASS: TestInputValidation (0.00s)\n"}
+{"Time":"2026-10-27T11:33:51.722200287Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestInputValidation","Elapsed":0}
+{"Time":"2026-10-27T11:33:51.722204664Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestBodyLimit"}
+{"Time":"2026-10-27T11:33:51.722207768Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestBodyLimit","Output":"=== RUN   TestBodyLimit\n"}
+{"Time":"2026-10-27T11:33:51.752502751Z","Action":"output","Package":"lam.local/lam2/internal/migration","Test":"TestPreviewDoesNotWriteLegacyAndCommitIsIdempotent","Output":"--- PASS: TestPreviewDoesNotWriteLegacyAndCommitIsIdempotent (0.04s)\n"}
+{"Time":"2026-10-27T11:33:51.752566648Z","Action":"pass","Package":"lam.local/lam2/internal/migration","Test":"TestPreviewDoesNotWriteLegacyAndCommitIsIdempotent","Elapsed":0.04}
+{"Time":"2026-10-27T11:33:51.752612958Z","Action":"output","Package":"lam.local/lam2/internal/handoff","Test":"TestHandoffCopiesOnlySession","Output":"--- PASS: TestHandoffCopiesOnlySession (0.04s)\n"}
+{"Time":"2026-10-27T11:33:51.75266087Z","Action":"run","Package":"lam.local/lam2/internal/migration","Test":"TestSourceChangeAndFutureSchema"}
+{"Time":"2026-10-27T11:33:51.752663995Z","Action":"output","Package":"lam.local/lam2/internal/migration","Test":"TestSourceChangeAndFutureSchema","Output":"=== RUN   TestSourceChangeAndFutureSchema\n"}
+{"Time":"2026-10-27T11:33:51.752668562Z","Action":"pass","Package":"lam.local/lam2/internal/handoff","Test":"TestHandoffCopiesOnlySession","Elapsed":0.04}
+{"Time":"2026-10-27T11:33:51.752675973Z","Action":"run","Package":"lam.local/lam2/internal/handoff","Test":"TestHandoffConflictAndSourceChange"}
+{"Time":"2026-10-27T11:33:51.752678747Z","Action":"output","Package":"lam.local/lam2/internal/handoff","Test":"TestHandoffConflictAndSourceChange","Output":"=== RUN   TestHandoffConflictAndSourceChange\n"}
+{"Time":"2026-10-27T11:33:51.757769262Z","Action":"output","Package":"lam.local/lam2/internal/migration","Test":"TestSourceChangeAndFutureSchema","Output":"--- PASS: TestSourceChangeAndFutureSchema (0.01s)\n"}
+{"Time":"2026-10-27T11:33:51.75781436Z","Action":"pass","Package":"lam.local/lam2/internal/migration","Test":"TestSourceChangeAndFutureSchema","Elapsed":0.01}
+{"Time":"2026-10-27T11:33:51.757839939Z","Action":"run","Package":"lam.local/lam2/internal/migration","Test":"TestV2PreservesCredentialReferences"}
+{"Time":"2026-10-27T11:33:51.757842683Z","Action":"output","Package":"lam.local/lam2/internal/migration","Test":"TestV2PreservesCredentialReferences","Output":"=== RUN   TestV2PreservesCredentialReferences\n"}
+{"Time":"2026-10-27T11:33:51.757928773Z","Action":"output","Package":"lam.local/lam2/internal/migration","Test":"TestV2PreservesCredentialReferences","Output":"--- PASS: TestV2PreservesCredentialReferences (0.00s)\n"}
+{"Time":"2026-10-27T11:33:51.757952519Z","Action":"pass","Package":"lam.local/lam2/internal/migration","Test":"TestV2PreservesCredentialReferences","Elapsed":0}
+{"Time":"2026-10-27T11:33:51.758055103Z","Action":"run","Package":"lam.local/lam2/internal/migration","Test":"TestLegacyDatabasePublicationResumesAfterInterruptedPublish"}
+{"Time":"2026-10-27T11:33:51.758060291Z","Action":"output","Package":"lam.local/lam2/internal/migration","Test":"TestLegacyDatabasePublicationResumesAfterInterruptedPublish","Output":"=== RUN   TestLegacyDatabasePublicationResumesAfterInterruptedPublish\n"}
+{"Time":"2026-10-27T11:33:51.796956429Z","Action":"output","Package":"lam.local/lam2/internal/migration","Test":"TestLegacyDatabasePublicationResumesAfterInterruptedPublish","Output":"--- PASS: TestLegacyDatabasePublicationResumesAfterInterruptedPublish (0.04s)\n"}
+{"Time":"2026-10-27T11:33:51.797056029Z","Action":"pass","Package":"lam.local/lam2/internal/migration","Test":"TestLegacyDatabasePublicationResumesAfterInterruptedPublish","Elapsed":0.04}
+{"Time":"2026-10-27T11:33:51.797144983Z","Action":"run","Package":"lam.local/lam2/internal/migration","Test":"TestSettingsNotesProxyTimelineAndExpiryAreNotLost"}
+{"Time":"2026-10-27T11:33:51.797151133Z","Action":"output","Package":"lam.local/lam2/internal/migration","Test":"TestSettingsNotesProxyTimelineAndExpiryAreNotLost","Output":"=== RUN   TestSettingsNotesProxyTimelineAndExpiryAreNotLost\n"}
+{"Time":"2026-10-27T11:33:51.79785935Z","Action":"output","Package":"lam.local/lam2/internal/handoff","Test":"TestHandoffConflictAndSourceChange","Output":"--- PASS: TestHandoffConflictAndSourceChange (0.05s)\n"}
+{"Time":"2026-10-27T11:33:51.797956287Z","Action":"pass","Package":"lam.local/lam2/internal/handoff","Test":"TestHandoffConflictAndSourceChange","Elapsed":0.05}
+{"Time":"2026-10-27T11:33:51.798172543Z","Action":"run","Package":"lam.local/lam2/internal/handoff","Test":"TestHandoffRejectsSameProfileAndSymlink"}
+{"Time":"2026-10-27T11:33:51.798183089Z","Action":"output","Package":"lam.local/lam2/internal/handoff","Test":"TestHandoffRejectsSameProfileAndSymlink","Output":"=== RUN   TestHandoffRejectsSameProfileAndSymlink\n"}
+{"Time":"2026-10-27T11:33:51.841474105Z","Action":"output","Package":"lam.local/lam2/internal/handoff","Test":"TestHandoffRejectsSameProfileAndSymlink","Output":"--- PASS: TestHandoffRejectsSameProfileAndSymlink (0.04s)\n"}
+{"Time":"2026-10-27T11:33:51.841603821Z","Action":"pass","Package":"lam.local/lam2/internal/handoff","Test":"TestHandoffRejectsSameProfileAndSymlink","Elapsed":0.04}
+{"Time":"2026-10-27T11:33:51.841614737Z","Action":"run","Package":"lam.local/lam2/internal/handoff","Test":"TestHandoffForkHasNewIdentity"}
+{"Time":"2026-10-27T11:33:51.841705815Z","Action":"output","Package":"lam.local/lam2/internal/handoff","Test":"TestHandoffForkHasNewIdentity","Output":"=== RUN   TestHandoffForkHasNewIdentity\n"}
+{"Time":"2026-10-27T11:33:51.851195171Z","Action":"output","Package":"lam.local/lam2/internal/migration","Test":"TestSettingsNotesProxyTimelineAndExpiryAreNotLost","Output":"--- PASS: TestSettingsNotesProxyTimelineAndExpiryAreNotLost (0.05s)\n"}
+{"Time":"2026-10-27T11:33:51.851231245Z","Action":"pass","Package":"lam.local/lam2/internal/migration","Test":"TestSettingsNotesProxyTimelineAndExpiryAreNotLost","Elapsed":0.05}
+{"Time":"2026-10-27T11:33:51.851237585Z","Action":"run","Package":"lam.local/lam2/internal/migration","Test":"TestBindingMappingsSurviveImportWithoutRunningLegacyHelpers"}
+{"Time":"2026-10-27T11:33:51.851240839Z","Action":"output","Package":"lam.local/lam2/internal/migration","Test":"TestBindingMappingsSurviveImportWithoutRunningLegacyHelpers","Output":"=== RUN   TestBindingMappingsSurviveImportWithoutRunningLegacyHelpers\n"}
+{"Time":"2026-10-27T11:33:51.879642669Z","Action":"output","Package":"lam.local/lam2/internal/migration","Test":"TestBindingMappingsSurviveImportWithoutRunningLegacyHelpers","Output":"--- PASS: TestBindingMappingsSurviveImportWithoutRunningLegacyHelpers (0.03s)\n"}
+{"Time":"2026-10-27T11:33:51.879735609Z","Action":"pass","Package":"lam.local/lam2/internal/migration","Test":"TestBindingMappingsSurviveImportWithoutRunningLegacyHelpers","Elapsed":0.03}
+{"Time":"2026-10-27T11:33:51.879744012Z","Action":"run","Package":"lam.local/lam2/internal/migration","Test":"TestLegacyUsagePreservesHistoricalFields"}
+{"Time":"2026-10-27T11:33:51.879747917Z","Action":"output","Package":"lam.local/lam2/internal/migration","Test":"TestLegacyUsagePreservesHistoricalFields","Output":"=== RUN   TestLegacyUsagePreservesHistoricalFields\n"}
+{"Time":"2026-10-27T11:33:51.879818063Z","Action":"output","Package":"lam.local/lam2/internal/migration","Test":"TestLegacyUsagePreservesHistoricalFields","Output":"--- PASS: TestLegacyUsagePreservesHistoricalFields (0.00s)\n"}
+{"Time":"2026-10-27T11:33:51.879825544Z","Action":"pass","Package":"lam.local/lam2/internal/migration","Test":"TestLegacyUsagePreservesHistoricalFields","Elapsed":0}
+{"Time":"2026-10-27T11:33:51.879830021Z","Action":"run","Package":"lam.local/lam2/internal/migration","Test":"TestLogicalImportIncludesAllTablesAndRejectsMovingSnapshot"}
+{"Time":"2026-10-27T11:33:51.879833837Z","Action":"output","Package":"lam.local/lam2/internal/migration","Test":"TestLogicalImportIncludesAllTablesAndRejectsMovingSnapshot","Output":"=== RUN   TestLogicalImportIncludesAllTablesAndRejectsMovingSnapshot\n"}
+{"Time":"2026-10-27T11:33:51.879890112Z","Action":"output","Package":"lam.local/lam2/internal/migration","Test":"TestLogicalImportIncludesAllTablesAndRejectsMovingSnapshot","Output":"--- PASS: TestLogicalImportIncludesAllTablesAndRejectsMovingSnapshot (0.00s)\n"}
+{"Time":"2026-10-27T11:33:51.879895009Z","Action":"pass","Package":"lam.local/lam2/internal/migration","Test":"TestLogicalImportIncludesAllTablesAndRejectsMovingSnapshot","Elapsed":0}
+{"Time":"2026-10-27T11:33:51.879898234Z","Action":"output","Package":"lam.local/lam2/internal/migration","Output":"PASS\n"}
+{"Time":"2026-10-27T11:33:51.880676297Z","Action":"output","Package":"lam.local/lam2/internal/migration","Output":"coverage: 75.1% of statements\n"}
+{"Time":"2026-10-27T11:33:51.886123029Z","Action":"output","Package":"lam.local/lam2/internal/migration","Output":"ok  \tlam.local/lam2/internal/migration\t0.175s\tcoverage: 75.1% of statements\n"}
+{"Time":"2026-10-27T11:33:51.886145784Z","Action":"pass","Package":"lam.local/lam2/internal/migration","Elapsed":0.175}
+{"Time":"2026-10-27T11:33:51.889221931Z","Action":"output","Package":"lam.local/lam2/internal/handoff","Test":"TestHandoffForkHasNewIdentity","Output":"--- PASS: TestHandoffForkHasNewIdentity (0.05s)\n"}
+{"Time":"2026-10-27T11:33:51.889239147Z","Action":"pass","Package":"lam.local/lam2/internal/handoff","Test":"TestHandoffForkHasNewIdentity","Elapsed":0.05}
+{"Time":"2026-10-27T11:33:51.889243264Z","Action":"output","Package":"lam.local/lam2/internal/handoff","Output":"PASS\n"}
+{"Time":"2026-10-27T11:33:51.890190402Z","Action":"output","Package":"lam.local/lam2/internal/handoff","Output":"coverage: 62.9% of statements\n"}
+{"Time":"2026-10-27T11:33:51.893534213Z","Action":"output","Package":"lam.local/lam2/internal/handoff","Output":"ok  \tlam.local/lam2/internal/handoff\t0.183s\tcoverage: 62.9% of statements\n"}
+{"Time":"2026-10-27T11:33:51.893554373Z","Action":"pass","Package":"lam.local/lam2/internal/handoff","Elapsed":0.183}
+# lam.local/lam2/internal/runtime [lam.local/lam2/internal/runtime.test]
+internal/runtime/runtime_test.go:170:11: undefined: resolveExecutable
+internal/runtime/runtime_test.go:171:9: undefined: resolveExecutable
+{"Time":"2026-10-27T11:33:52.225521789Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestBodyLimit","Output":"--- PASS: TestBodyLimit (0.50s)\n"}
+{"Time":"2026-10-27T11:33:52.225598305Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestBodyLimit","Elapsed":0.5}
+{"Time":"2026-10-27T11:33:52.225604504Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestUnknownRoutes"}
+{"Time":"2026-10-27T11:33:52.225607328Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestUnknownRoutes","Output":"=== RUN   TestUnknownRoutes\n"}
+{"Time":"2026-10-27T11:33:52.225621129Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestUnknownRoutes","Output":"--- PASS: TestUnknownRoutes (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.225627879Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestUnknownRoutes","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.225630283Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestHealthChallenge"}
+{"Time":"2026-10-27T11:33:52.225637975Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestHealthChallenge","Output":"=== RUN   TestHealthChallenge\n"}
+{"Time":"2026-10-27T11:33:52.225640488Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestHealthChallenge","Output":"--- PASS: TestHealthChallenge (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.225642552Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestHealthChallenge","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.225644334Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestCancelReleasesUpstream"}
+{"Time":"2026-10-27T11:33:52.225646287Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestCancelReleasesUpstream","Output":"=== RUN   TestCancelReleasesUpstream\n"}
+{"Time":"2026-10-27T11:33:52.275887237Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestCancelReleasesUpstream","Output":"--- PASS: TestCancelReleasesUpstream (0.05s)\n"}
+{"Time":"2026-10-27T11:33:52.275931434Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestCancelReleasesUpstream","Elapsed":0.05}
+{"Time":"2026-10-27T11:33:52.275941919Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestCodexModelCatalogUsesBoundExplicitMetadata"}
+{"Time":"2026-10-27T11:33:52.275944133Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestCodexModelCatalogUsesBoundExplicitMetadata","Output":"=== RUN   TestCodexModelCatalogUsesBoundExplicitMetadata\n"}
+{"Time":"2026-10-27T11:33:52.276232608Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestCodexModelCatalogUsesBoundExplicitMetadata","Output":"--- PASS: TestCodexModelCatalogUsesBoundExplicitMetadata (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.276237445Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestCodexModelCatalogUsesBoundExplicitMetadata","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.276241261Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestCodexModelCatalogNeverInventsCapabilities"}
+{"Time":"2026-10-27T11:33:52.276243274Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestCodexModelCatalogNeverInventsCapabilities","Output":"=== RUN   TestCodexModelCatalogNeverInventsCapabilities\n"}
+{"Time":"2026-10-27T11:33:52.276321842Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestCodexModelCatalogNeverInventsCapabilities","Output":"--- PASS: TestCodexModelCatalogNeverInventsCapabilities (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.276339949Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestCodexModelCatalogNeverInventsCapabilities","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.276342914Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement"}
+{"Time":"2026-10-27T11:33:52.276345097Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement","Output":"=== RUN   TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement\n"}
+{"Time":"2026-10-27T11:33:52.276503105Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/function-tool-followup-request.json"}
+{"Time":"2026-10-27T11:33:52.27651283Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/function-tool-followup-request.json","Output":"=== RUN   TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/function-tool-followup-request.json\n"}
+{"Time":"2026-10-27T11:33:52.277579964Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/function-tool-followup-request.json","Output":"--- PASS: TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/function-tool-followup-request.json (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.277611141Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/function-tool-followup-request.json","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.277620094Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/function-tool-initial-request.json"}
+{"Time":"2026-10-27T11:33:52.277622508Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/function-tool-initial-request.json","Output":"=== RUN   TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/function-tool-initial-request.json\n"}
+{"Time":"2026-10-27T11:33:52.278530367Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/function-tool-initial-request.json","Output":"--- PASS: TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/function-tool-initial-request.json (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.27853911Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/function-tool-initial-request.json","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.278542865Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/resume-initial-request.json"}
+{"Time":"2026-10-27T11:33:52.278544878Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/resume-initial-request.json","Output":"=== RUN   TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/resume-initial-request.json\n"}
+{"Time":"2026-10-27T11:33:52.279590199Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/resume-initial-request.json","Output":"--- PASS: TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/resume-initial-request.json (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.279604551Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/resume-initial-request.json","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.279609188Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/resume-request.json"}
+{"Time":"2026-10-27T11:33:52.279615227Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/resume-request.json","Output":"=== RUN   TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/resume-request.json\n"}
+{"Time":"2026-10-27T11:33:52.280581223Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/resume-request.json","Output":"--- PASS: TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/resume-request.json (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.280593532Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/resume-request.json","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.280596777Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/text-stream-request.json"}
+{"Time":"2026-10-27T11:33:52.28059908Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/text-stream-request.json","Output":"=== RUN   TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/text-stream-request.json\n"}
+{"Time":"2026-10-27T11:33:52.281949336Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/text-stream-request.json","Output":"--- PASS: TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/text-stream-request.json (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.281957208Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement/text-stream-request.json","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.281961745Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement","Output":"--- PASS: TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement (0.01s)\n"}
+{"Time":"2026-10-27T11:33:52.281964869Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestLegacyCapturedRequestEnvelopesWithExplicitRedactedSchemaReplacement","Elapsed":0.01}
+{"Time":"2026-10-27T11:33:52.281967794Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestCustomNamespaceToolHistoryAndResponse"}
+{"Time":"2026-10-27T11:33:52.281969596Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestCustomNamespaceToolHistoryAndResponse","Output":"=== RUN   TestCustomNamespaceToolHistoryAndResponse\n"}
+{"Time":"2026-10-27T11:33:52.282153564Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestCustomNamespaceToolHistoryAndResponse","Output":"--- PASS: TestCustomNamespaceToolHistoryAndResponse (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.282157349Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestCustomNamespaceToolHistoryAndResponse","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.282160324Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestCustomStreamingNeverLeaksWrapperArguments"}
+{"Time":"2026-10-27T11:33:52.282162167Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestCustomStreamingNeverLeaksWrapperArguments","Output":"=== RUN   TestCustomStreamingNeverLeaksWrapperArguments\n"}
+{"Time":"2026-10-27T11:33:52.282319594Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestCustomStreamingNeverLeaksWrapperArguments","Output":"--- PASS: TestCustomStreamingNeverLeaksWrapperArguments (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.282322118Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestCustomStreamingNeverLeaksWrapperArguments","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.282324201Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestToolNameCollisionAndOversizeAreRefused"}
+{"Time":"2026-10-27T11:33:52.282326034Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestToolNameCollisionAndOversizeAreRefused","Output":"=== RUN   TestToolNameCollisionAndOversizeAreRefused\n"}
+{"Time":"2026-10-27T11:33:52.282399174Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestToolNameCollisionAndOversizeAreRefused","Output":"--- PASS: TestToolNameCollisionAndOversizeAreRefused (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.28240335Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestToolNameCollisionAndOversizeAreRefused","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.282406836Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestHostedWebSearchAndAdditionalHistoryParity"}
+{"Time":"2026-10-27T11:33:52.282409099Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestHostedWebSearchAndAdditionalHistoryParity","Output":"=== RUN   TestHostedWebSearchAndAdditionalHistoryParity\n"}
+{"Time":"2026-10-27T11:33:52.282460627Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestHostedWebSearchAndAdditionalHistoryParity","Output":"--- PASS: TestHostedWebSearchAndAdditionalHistoryParity (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.282474187Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestHostedWebSearchAndAdditionalHistoryParity","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.282481037Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestResponsesProviderPassthroughUsesResponsesRoute"}
+{"Time":"2026-10-27T11:33:52.282483201Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestResponsesProviderPassthroughUsesResponsesRoute","Output":"=== RUN   TestResponsesProviderPassthroughUsesResponsesRoute\n"}
+{"Time":"2026-10-27T11:33:52.28969235Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestResponsesProviderPassthroughUsesResponsesRoute","Output":"--- PASS: TestResponsesProviderPassthroughUsesResponsesRoute (0.01s)\n"}
+{"Time":"2026-10-27T11:33:52.289714002Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestResponsesProviderPassthroughUsesResponsesRoute","Elapsed":0.01}
+{"Time":"2026-10-27T11:33:52.28971927Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestModelsCatalogFallbackMatchesLegacy"}
+{"Time":"2026-10-27T11:33:52.289721644Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestModelsCatalogFallbackMatchesLegacy","Output":"=== RUN   TestModelsCatalogFallbackMatchesLegacy\n"}
+{"Time":"2026-10-27T11:33:52.289824499Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestModelsCatalogFallbackMatchesLegacy","Output":"--- PASS: TestModelsCatalogFallbackMatchesLegacy (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.289827824Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestModelsCatalogFallbackMatchesLegacy","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.289830308Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestReasoningHistoryIsBoundedAndIsolated"}
+{"Time":"2026-10-27T11:33:52.28983206Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestReasoningHistoryIsBoundedAndIsolated","Output":"=== RUN   TestReasoningHistoryIsBoundedAndIsolated\n"}
+{"Time":"2026-10-27T11:33:52.289835315Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestReasoningHistoryIsBoundedAndIsolated","Output":"--- PASS: TestReasoningHistoryIsBoundedAndIsolated (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.289837458Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestReasoningHistoryIsBoundedAndIsolated","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.289839842Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestDeepSeekHistoryAndStreamReasoningCapture"}
+{"Time":"2026-10-27T11:33:52.289841575Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestDeepSeekHistoryAndStreamReasoningCapture","Output":"=== RUN   TestDeepSeekHistoryAndStreamReasoningCapture\n"}
+{"Time":"2026-10-27T11:33:52.289992172Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestDeepSeekHistoryAndStreamReasoningCapture","Output":"--- PASS: TestDeepSeekHistoryAndStreamReasoningCapture (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.290012272Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestDeepSeekHistoryAndStreamReasoningCapture","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.290015467Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestRequestRejectsTrailingJSON"}
+{"Time":"2026-10-27T11:33:52.29001792Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestRequestRejectsTrailingJSON","Output":"=== RUN   TestRequestRejectsTrailingJSON\n"}
+{"Time":"2026-10-27T11:33:52.290020524Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestRequestRejectsTrailingJSON","Output":"--- PASS: TestRequestRejectsTrailingJSON (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.290022337Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestRequestRejectsTrailingJSON","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.290024851Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestStateResolverRejectsCrossBindingAndFreezesCredential"}
+{"Time":"2026-10-27T11:33:52.290032252Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestStateResolverRejectsCrossBindingAndFreezesCredential","Output":"=== RUN   TestStateResolverRejectsCrossBindingAndFreezesCredential\n"}
+{"Time":"2026-10-27T11:33:52.313398614Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestStateResolverRejectsCrossBindingAndFreezesCredential","Output":"--- PASS: TestStateResolverRejectsCrossBindingAndFreezesCredential (0.02s)\n"}
+{"Time":"2026-10-27T11:33:52.313433807Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestStateResolverRejectsCrossBindingAndFreezesCredential","Elapsed":0.02}
+{"Time":"2026-10-27T11:33:52.313439806Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestSupervisorHealthDetectsStranger"}
+{"Time":"2026-10-27T11:33:52.31344241Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestSupervisorHealthDetectsStranger","Output":"=== RUN   TestSupervisorHealthDetectsStranger\n"}
+{"Time":"2026-10-27T11:33:52.32762623Z","Action":"start","Package":"lam.local/lam2/internal/provider"}
+{"Time":"2026-10-27T11:33:52.331014343Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestAPIAccountCreateSwitchAndDelete"}
+{"Time":"2026-10-27T11:33:52.331046131Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestAPIAccountCreateSwitchAndDelete","Output":"=== RUN   TestAPIAccountCreateSwitchAndDelete\n"}
+{"Time":"2026-10-27T11:33:52.335827259Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestSupervisorHealthDetectsStranger","Output":"--- PASS: TestSupervisorHealthDetectsStranger (0.02s)\n"}
+{"Time":"2026-10-27T11:33:52.335849622Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestSupervisorHealthDetectsStranger","Elapsed":0.02}
+{"Time":"2026-10-27T11:33:52.335857094Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestRunDaemonCancellationRemovesOwnedIdentity"}
+{"Time":"2026-10-27T11:33:52.335860278Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestRunDaemonCancellationRemovesOwnedIdentity","Output":"=== RUN   TestRunDaemonCancellationRemovesOwnedIdentity\n"}
+{"Time":"2026-10-27T11:33:52.364786658Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestRunDaemonCancellationRemovesOwnedIdentity","Output":"--- PASS: TestRunDaemonCancellationRemovesOwnedIdentity (0.03s)\n"}
+{"Time":"2026-10-27T11:33:52.364854691Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestRunDaemonCancellationRemovesOwnedIdentity","Elapsed":0.03}
+{"Time":"2026-10-27T11:33:52.364869493Z","Action":"run","Package":"lam.local/lam2/internal/gateway","Test":"TestStopAndWaitLeavesNoDaemonAndNoForeignKill"}
+{"Time":"2026-10-27T11:33:52.364872538Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestStopAndWaitLeavesNoDaemonAndNoForeignKill","Output":"=== RUN   TestStopAndWaitLeavesNoDaemonAndNoForeignKill\n"}
+{"Time":"2026-10-27T11:33:52.421632897Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Test":"TestStopAndWaitLeavesNoDaemonAndNoForeignKill","Output":"--- PASS: TestStopAndWaitLeavesNoDaemonAndNoForeignKill (0.06s)\n"}
+{"Time":"2026-10-27T11:33:52.421670553Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Test":"TestStopAndWaitLeavesNoDaemonAndNoForeignKill","Elapsed":0.06}
+{"Time":"2026-10-27T11:33:52.421677804Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Output":"PASS\n"}
+{"Time":"2026-10-27T11:33:52.423430927Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Output":"coverage: 67.9% of statements\n"}
+{"Time":"2026-10-27T11:33:52.425266714Z","Action":"output","Package":"lam.local/lam2/internal/gateway","Output":"ok  \tlam.local/lam2/internal/gateway\t0.714s\tcoverage: 67.9% of statements\n"}
+{"Time":"2026-10-27T11:33:52.425285032Z","Action":"pass","Package":"lam.local/lam2/internal/gateway","Elapsed":0.715}
+{"Time":"2026-10-27T11:33:52.460147702Z","Action":"start","Package":"lam.local/lam2/internal/quota"}
+{"Time":"2026-10-27T11:33:52.460328115Z","Action":"start","Package":"lam.local/lam2/internal/runtime"}
+{"Time":"2026-10-27T11:33:52.460345681Z","Action":"output","Package":"lam.local/lam2/internal/runtime","Output":"FAIL\tlam.local/lam2/internal/runtime [build failed]\n"}
+{"Time":"2026-10-27T11:33:52.460383869Z","Action":"fail","Package":"lam.local/lam2/internal/runtime","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.463263986Z","Action":"run","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityProcessDiscoveryMatchesLegacy"}
+{"Time":"2026-10-27T11:33:52.463297346Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityProcessDiscoveryMatchesLegacy","Output":"=== RUN   TestAntigravityProcessDiscoveryMatchesLegacy\n"}
+{"Time":"2026-10-27T11:33:52.463347172Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityProcessDiscoveryMatchesLegacy","Output":"--- PASS: TestAntigravityProcessDiscoveryMatchesLegacy (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.463353661Z","Action":"pass","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityProcessDiscoveryMatchesLegacy","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.463360071Z","Action":"run","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityKeepsGroupsModelsAndDisabledMetadata"}
+{"Time":"2026-10-27T11:33:52.463363596Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityKeepsGroupsModelsAndDisabledMetadata","Output":"=== RUN   TestAntigravityKeepsGroupsModelsAndDisabledMetadata\n"}
+{"Time":"2026-10-27T11:33:52.463600473Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityKeepsGroupsModelsAndDisabledMetadata","Output":"--- PASS: TestAntigravityKeepsGroupsModelsAndDisabledMetadata (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.463610378Z","Action":"pass","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityKeepsGroupsModelsAndDisabledMetadata","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.463615075Z","Action":"run","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityConfiguredPortAndAutomaticTokenWithLocalTLS"}
+{"Time":"2026-10-27T11:33:52.463618431Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityConfiguredPortAndAutomaticTokenWithLocalTLS","Output":"=== RUN   TestAntigravityConfiguredPortAndAutomaticTokenWithLocalTLS\n"}
+{"Time":"2026-10-27T11:33:52.467725713Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityConfiguredPortAndAutomaticTokenWithLocalTLS","Output":"--- PASS: TestAntigravityConfiguredPortAndAutomaticTokenWithLocalTLS (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.467740074Z","Action":"pass","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityConfiguredPortAndAutomaticTokenWithLocalTLS","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.467747546Z","Action":"run","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityMissingPortDoesNotScan"}
+{"Time":"2026-10-27T11:33:52.4677503Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityMissingPortDoesNotScan","Output":"=== RUN   TestAntigravityMissingPortDoesNotScan\n"}
+{"Time":"2026-10-27T11:33:52.467753555Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityMissingPortDoesNotScan","Output":"--- PASS: TestAntigravityMissingPortDoesNotScan (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.467756059Z","Action":"pass","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityMissingPortDoesNotScan","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.467758072Z","Action":"run","Package":"lam.local/lam2/internal/quota","Test":"TestParseCodexQuotaNoInventedWindow"}
+{"Time":"2026-10-27T11:33:52.467760635Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestParseCodexQuotaNoInventedWindow","Output":"=== RUN   TestParseCodexQuotaNoInventedWindow\n"}
+{"Time":"2026-10-27T11:33:52.468007768Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestParseCodexQuotaNoInventedWindow","Output":"--- PASS: TestParseCodexQuotaNoInventedWindow (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.46803598Z","Action":"pass","Package":"lam.local/lam2/internal/quota","Test":"TestParseCodexQuotaNoInventedWindow","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.468042861Z","Action":"run","Package":"lam.local/lam2/internal/quota","Test":"TestMultipleBucketsDoNotDoubleCount"}
+{"Time":"2026-10-27T11:33:52.468046456Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestMultipleBucketsDoNotDoubleCount","Output":"=== RUN   TestMultipleBucketsDoNotDoubleCount\n"}
+{"Time":"2026-10-27T11:33:52.468053487Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestMultipleBucketsDoNotDoubleCount","Output":"--- PASS: TestMultipleBucketsDoNotDoubleCount (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.468056872Z","Action":"pass","Package":"lam.local/lam2/internal/quota","Test":"TestMultipleBucketsDoNotDoubleCount","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.468060056Z","Action":"run","Package":"lam.local/lam2/internal/quota","Test":"TestUnknownQuotaNotZero"}
+{"Time":"2026-10-27T11:33:52.46806252Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestUnknownQuotaNotZero","Output":"=== RUN   TestUnknownQuotaNotZero\n"}
+{"Time":"2026-10-27T11:33:52.468068089Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestUnknownQuotaNotZero","Output":"--- PASS: TestUnknownQuotaNotZero (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.468071534Z","Action":"pass","Package":"lam.local/lam2/internal/quota","Test":"TestUnknownQuotaNotZero","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.468100858Z","Action":"run","Package":"lam.local/lam2/internal/quota","Test":"TestRefreshSingleFlight"}
+{"Time":"2026-10-27T11:33:52.468103782Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestRefreshSingleFlight","Output":"=== RUN   TestRefreshSingleFlight\n"}
+{"Time":"2026-10-27T11:33:52.483261394Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestAPIAccountCreateSwitchAndDelete","Output":"--- PASS: TestAPIAccountCreateSwitchAndDelete (0.15s)\n"}
+{"Time":"2026-10-27T11:33:52.483334123Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestAPIAccountCreateSwitchAndDelete","Elapsed":0.15}
+{"Time":"2026-10-27T11:33:52.483344669Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestAPIAccountBindingFailureDoesNotLeaveHalfAccount"}
+{"Time":"2026-10-27T11:33:52.483348265Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestAPIAccountBindingFailureDoesNotLeaveHalfAccount","Output":"=== RUN   TestAPIAccountBindingFailureDoesNotLeaveHalfAccount\n"}
+{"Time":"2026-10-27T11:33:52.498705819Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestRefreshSingleFlight","Output":"--- PASS: TestRefreshSingleFlight (0.03s)\n"}
+{"Time":"2026-10-27T11:33:52.49880623Z","Action":"pass","Package":"lam.local/lam2/internal/quota","Test":"TestRefreshSingleFlight","Elapsed":0.03}
+{"Time":"2026-10-27T11:33:52.498816105Z","Action":"run","Package":"lam.local/lam2/internal/quota","Test":"TestFailurePreservesStaleSnapshot"}
+{"Time":"2026-10-27T11:33:52.498820962Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestFailurePreservesStaleSnapshot","Output":"=== RUN   TestFailurePreservesStaleSnapshot\n"}
+{"Time":"2026-10-27T11:33:52.535986674Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestFailurePreservesStaleSnapshot","Output":"--- PASS: TestFailurePreservesStaleSnapshot (0.04s)\n"}
+{"Time":"2026-10-27T11:33:52.536015798Z","Action":"pass","Package":"lam.local/lam2/internal/quota","Test":"TestFailurePreservesStaleSnapshot","Elapsed":0.04}
+{"Time":"2026-10-27T11:33:52.536024571Z","Action":"run","Package":"lam.local/lam2/internal/quota","Test":"TestResetIdempotencyPersistsAcrossRetry"}
+{"Time":"2026-10-27T11:33:52.536028477Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestResetIdempotencyPersistsAcrossRetry","Output":"=== RUN   TestResetIdempotencyPersistsAcrossRetry\n"}
+{"Time":"2026-10-27T11:33:52.573032695Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestAPIAccountBindingFailureDoesNotLeaveHalfAccount","Output":"--- PASS: TestAPIAccountBindingFailureDoesNotLeaveHalfAccount (0.09s)\n"}
+{"Time":"2026-10-27T11:33:52.573099165Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestAPIAccountBindingFailureDoesNotLeaveHalfAccount","Elapsed":0.09}
+{"Time":"2026-10-27T11:33:52.573115109Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestGatewayPortPreviewCommitAndOccupiedPort"}
+{"Time":"2026-10-27T11:33:52.573120277Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestGatewayPortPreviewCommitAndOccupiedPort","Output":"=== RUN   TestGatewayPortPreviewCommitAndOccupiedPort\n"}
+{"Time":"2026-10-27T11:33:52.587975213Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestResetIdempotencyPersistsAcrossRetry","Output":"--- PASS: TestResetIdempotencyPersistsAcrossRetry (0.05s)\n"}
+{"Time":"2026-10-27T11:33:52.588015324Z","Action":"pass","Package":"lam.local/lam2/internal/quota","Test":"TestResetIdempotencyPersistsAcrossRetry","Elapsed":0.05}
+{"Time":"2026-10-27T11:33:52.588023606Z","Action":"run","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityGroupingAndUnavailable"}
+{"Time":"2026-10-27T11:33:52.588027082Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityGroupingAndUnavailable","Output":"=== RUN   TestAntigravityGroupingAndUnavailable\n"}
+{"Time":"2026-10-27T11:33:52.588031108Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityGroupingAndUnavailable","Output":"--- PASS: TestAntigravityGroupingAndUnavailable (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.588035004Z","Action":"pass","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityGroupingAndUnavailable","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.588038549Z","Action":"run","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityLoopbackOnly"}
+{"Time":"2026-10-27T11:33:52.588041423Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityLoopbackOnly","Output":"=== RUN   TestAntigravityLoopbackOnly\n"}
+{"Time":"2026-10-27T11:33:52.588252512Z","Action":"output","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityLoopbackOnly","Output":"--- PASS: TestAntigravityLoopbackOnly (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.588281345Z","Action":"pass","Package":"lam.local/lam2/internal/quota","Test":"TestAntigravityLoopbackOnly","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.588285842Z","Action":"output","Package":"lam.local/lam2/internal/quota","Output":"PASS\n"}
+{"Time":"2026-10-27T11:33:52.589015832Z","Action":"output","Package":"lam.local/lam2/internal/quota","Output":"coverage: 69.9% of statements\n"}
+{"Time":"2026-10-27T11:33:52.590527591Z","Action":"output","Package":"lam.local/lam2/internal/quota","Output":"ok  \tlam.local/lam2/internal/quota\t0.130s\tcoverage: 69.9% of statements\n"}
+{"Time":"2026-10-27T11:33:52.59054653Z","Action":"pass","Package":"lam.local/lam2/internal/quota","Elapsed":0.13}
+{"Time":"2026-10-27T11:33:52.664646955Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestGatewayPortPreviewCommitAndOccupiedPort","Output":"--- PASS: TestGatewayPortPreviewCommitAndOccupiedPort (0.09s)\n"}
+{"Time":"2026-10-27T11:33:52.664688348Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestGatewayPortPreviewCommitAndOccupiedPort","Elapsed":0.09}
+{"Time":"2026-10-27T11:33:52.664697331Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestProviderCRUDAndSecretRotation"}
+{"Time":"2026-10-27T11:33:52.664705233Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestProviderCRUDAndSecretRotation","Output":"=== RUN   TestProviderCRUDAndSecretRotation\n"}
+{"Time":"2026-10-27T11:33:52.700748208Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestProviderCRUDAndSecretRotation","Output":"--- PASS: TestProviderCRUDAndSecretRotation (0.04s)\n"}
+{"Time":"2026-10-27T11:33:52.700813045Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestProviderCRUDAndSecretRotation","Elapsed":0.04}
+{"Time":"2026-10-27T11:33:52.700827978Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestProviderValidation"}
+{"Time":"2026-10-27T11:33:52.700831353Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestProviderValidation","Output":"=== RUN   TestProviderValidation\n"}
+{"Time":"2026-10-27T11:33:52.700857042Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestProviderValidation","Output":"--- PASS: TestProviderValidation (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.700860407Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestProviderValidation","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.700864082Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestDiscoverModelsNoRedirectCredentialLeak"}
+{"Time":"2026-10-27T11:33:52.700866716Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestDiscoverModelsNoRedirectCredentialLeak","Output":"=== RUN   TestDiscoverModelsNoRedirectCredentialLeak\n"}
+{"Time":"2026-10-27T11:33:52.716249097Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestDiscoverModelsNoRedirectCredentialLeak","Output":"--- PASS: TestDiscoverModelsNoRedirectCredentialLeak (0.01s)\n"}
+{"Time":"2026-10-27T11:33:52.716281485Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestDiscoverModelsNoRedirectCredentialLeak","Elapsed":0.01}
+{"Time":"2026-10-27T11:33:52.716287935Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestDiscoverModels"}
+{"Time":"2026-10-27T11:33:52.716290299Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestDiscoverModels","Output":"=== RUN   TestDiscoverModels\n"}
+{"Time":"2026-10-27T11:33:52.729982246Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestDiscoverModels","Output":"--- PASS: TestDiscoverModels (0.01s)\n"}
+{"Time":"2026-10-27T11:33:52.730022437Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestDiscoverModels","Elapsed":0.01}
+{"Time":"2026-10-27T11:33:52.730121566Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestBindAndDetachRestoreConfig"}
+{"Time":"2026-10-27T11:33:52.730125552Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestBindAndDetachRestoreConfig","Output":"=== RUN   TestBindAndDetachRestoreConfig\n"}
+{"Time":"2026-10-27T11:33:52.784878114Z","Action":"start","Package":"lam.local/lam2/internal/session"}
+{"Time":"2026-10-27T11:33:52.785409675Z","Action":"start","Package":"lam.local/lam2/internal/settings"}
+{"Time":"2026-10-27T11:33:52.791262899Z","Action":"run","Package":"lam.local/lam2/internal/settings","Test":"TestSettingsValidationAndPersistence"}
+{"Time":"2026-10-27T11:33:52.791372965Z","Action":"output","Package":"lam.local/lam2/internal/settings","Test":"TestSettingsValidationAndPersistence","Output":"=== RUN   TestSettingsValidationAndPersistence\n"}
+{"Time":"2026-10-27T11:33:52.798051965Z","Action":"run","Package":"lam.local/lam2/internal/session","Test":"TestLegacyThreadNamesAndArchivedUsageDiscovery"}
+{"Time":"2026-10-27T11:33:52.798192497Z","Action":"output","Package":"lam.local/lam2/internal/session","Test":"TestLegacyThreadNamesAndArchivedUsageDiscovery","Output":"=== RUN   TestLegacyThreadNamesAndArchivedUsageDiscovery\n"}
+{"Time":"2026-10-27T11:33:52.807413249Z","Action":"output","Package":"lam.local/lam2/internal/session","Test":"TestLegacyThreadNamesAndArchivedUsageDiscovery","Output":"--- PASS: TestLegacyThreadNamesAndArchivedUsageDiscovery (0.02s)\n"}
+{"Time":"2026-10-27T11:33:52.808200796Z","Action":"pass","Package":"lam.local/lam2/internal/session","Test":"TestLegacyThreadNamesAndArchivedUsageDiscovery","Elapsed":0.02}
+{"Time":"2026-10-27T11:33:52.808231172Z","Action":"run","Package":"lam.local/lam2/internal/session","Test":"TestLatestMetadataBeyondHeadAndAllFilteredSelection"}
+{"Time":"2026-10-27T11:33:52.808241918Z","Action":"output","Package":"lam.local/lam2/internal/session","Test":"TestLatestMetadataBeyondHeadAndAllFilteredSelection","Output":"=== RUN   TestLatestMetadataBeyondHeadAndAllFilteredSelection\n"}
+{"Time":"2026-10-27T11:33:52.817590742Z","Action":"output","Package":"lam.local/lam2/internal/settings","Test":"TestSettingsValidationAndPersistence","Output":"--- PASS: TestSettingsValidationAndPersistence (0.03s)\n"}
+{"Time":"2026-10-27T11:33:52.817686086Z","Action":"pass","Package":"lam.local/lam2/internal/settings","Test":"TestSettingsValidationAndPersistence","Elapsed":0.03}
+{"Time":"2026-10-27T11:33:52.817721409Z","Action":"run","Package":"lam.local/lam2/internal/settings","Test":"TestInvalidGatewayLimits"}
+{"Time":"2026-10-27T11:33:52.817725856Z","Action":"output","Package":"lam.local/lam2/internal/settings","Test":"TestInvalidGatewayLimits","Output":"=== RUN   TestInvalidGatewayLimits\n"}
+{"Time":"2026-10-27T11:33:52.817893378Z","Action":"output","Package":"lam.local/lam2/internal/settings","Test":"TestInvalidGatewayLimits","Output":"--- PASS: TestInvalidGatewayLimits (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.817922382Z","Action":"pass","Package":"lam.local/lam2/internal/settings","Test":"TestInvalidGatewayLimits","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.817935762Z","Action":"run","Package":"lam.local/lam2/internal/settings","Test":"TestRuntimeUpdateFeedCannotPretendToConfigureNativeUpdater"}
+{"Time":"2026-10-27T11:33:52.817937885Z","Action":"output","Package":"lam.local/lam2/internal/settings","Test":"TestRuntimeUpdateFeedCannotPretendToConfigureNativeUpdater","Output":"=== RUN   TestRuntimeUpdateFeedCannotPretendToConfigureNativeUpdater\n"}
+{"Time":"2026-10-27T11:33:52.817959468Z","Action":"output","Package":"lam.local/lam2/internal/settings","Test":"TestRuntimeUpdateFeedCannotPretendToConfigureNativeUpdater","Output":"--- PASS: TestRuntimeUpdateFeedCannotPretendToConfigureNativeUpdater (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.817977134Z","Action":"pass","Package":"lam.local/lam2/internal/settings","Test":"TestRuntimeUpdateFeedCannotPretendToConfigureNativeUpdater","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.818157026Z","Action":"output","Package":"lam.local/lam2/internal/settings","Output":"PASS\n"}
+{"Time":"2026-10-27T11:33:52.822016434Z","Action":"output","Package":"lam.local/lam2/internal/settings","Output":"coverage: 59.3% of statements\n"}
+{"Time":"2026-10-27T11:33:52.822698137Z","Action":"output","Package":"lam.local/lam2/internal/settings","Output":"ok  \tlam.local/lam2/internal/settings\t0.037s\tcoverage: 59.3% of statements\n"}
+{"Time":"2026-10-27T11:33:52.82271336Z","Action":"pass","Package":"lam.local/lam2/internal/settings","Elapsed":0.037}
+{"Time":"2026-10-27T11:33:52.831747065Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestBindAndDetachRestoreConfig","Output":"--- PASS: TestBindAndDetachRestoreConfig (0.10s)\n"}
+{"Time":"2026-10-27T11:33:52.831775568Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestBindAndDetachRestoreConfig","Elapsed":0.1}
+{"Time":"2026-10-27T11:33:52.831782809Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestBindFailureAndStalePlanNoWrites"}
+{"Time":"2026-10-27T11:33:52.831787075Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestBindFailureAndStalePlanNoWrites","Output":"=== RUN   TestBindFailureAndStalePlanNoWrites\n"}
+{"Time":"2026-10-27T11:33:52.89184164Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestBindFailureAndStalePlanNoWrites","Output":"--- PASS: TestBindFailureAndStalePlanNoWrites (0.06s)\n"}
+{"Time":"2026-10-27T11:33:52.891943934Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestBindFailureAndStalePlanNoWrites","Elapsed":0.06}
+{"Time":"2026-10-27T11:33:52.891952847Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestSafeProviderQueryAndSensitiveRejection"}
+{"Time":"2026-10-27T11:33:52.891957494Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestSafeProviderQueryAndSensitiveRejection","Output":"=== RUN   TestSafeProviderQueryAndSensitiveRejection\n"}
+{"Time":"2026-10-27T11:33:52.891968541Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestSafeProviderQueryAndSensitiveRejection","Output":"--- PASS: TestSafeProviderQueryAndSensitiveRejection (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.891974821Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestSafeProviderQueryAndSensitiveRejection","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.891978817Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected"}
+{"Time":"2026-10-27T11:33:52.891982031Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected","Output":"=== RUN   TestUnsafeHeaderNamesRejected\n"}
+{"Time":"2026-10-27T11:33:52.891988251Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/#00"}
+{"Time":"2026-10-27T11:33:52.891992507Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/#00","Output":"=== RUN   TestUnsafeHeaderNamesRejected/#00\n"}
+{"Time":"2026-10-27T11:33:52.891997565Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/#00","Output":"--- PASS: TestUnsafeHeaderNamesRejected/#00 (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.892002713Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/#00","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.892006508Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Host"}
+{"Time":"2026-10-27T11:33:52.892009533Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Host","Output":"=== RUN   TestUnsafeHeaderNamesRejected/Host\n"}
+{"Time":"2026-10-27T11:33:52.89201432Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Host","Output":"--- PASS: TestUnsafeHeaderNamesRejected/Host (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.892017996Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Host","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.892021561Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Connection"}
+{"Time":"2026-10-27T11:33:52.892025307Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Connection","Output":"=== RUN   TestUnsafeHeaderNamesRejected/Connection\n"}
+{"Time":"2026-10-27T11:33:52.892028792Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Connection","Output":"--- PASS: TestUnsafeHeaderNamesRejected/Connection (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.892032047Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Connection","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.892035041Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Content-Length"}
+{"Time":"2026-10-27T11:33:52.892037846Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Content-Length","Output":"=== RUN   TestUnsafeHeaderNamesRejected/Content-Length\n"}
+{"Time":"2026-10-27T11:33:52.892041852Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Content-Length","Output":"--- PASS: TestUnsafeHeaderNamesRejected/Content-Length (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.892044986Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Content-Length","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.892048131Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Transfer-Encoding"}
+{"Time":"2026-10-27T11:33:52.892061Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Transfer-Encoding","Output":"=== RUN   TestUnsafeHeaderNamesRejected/Transfer-Encoding\n"}
+{"Time":"2026-10-27T11:33:52.892065617Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Transfer-Encoding","Output":"--- PASS: TestUnsafeHeaderNamesRejected/Transfer-Encoding (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.892070755Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Transfer-Encoding","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.892095743Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Proxy-Authorization"}
+{"Time":"2026-10-27T11:33:52.89210081Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Proxy-Authorization","Output":"=== RUN   TestUnsafeHeaderNamesRejected/Proxy-Authorization\n"}
+{"Time":"2026-10-27T11:33:52.892110054Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Proxy-Authorization","Output":"--- PASS: TestUnsafeHeaderNamesRejected/Proxy-Authorization (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.892114271Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/Proxy-Authorization","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.892117676Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/X-Bad_Name"}
+{"Time":"2026-10-27T11:33:52.89212013Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/X-Bad_Name","Output":"=== RUN   TestUnsafeHeaderNamesRejected/X-Bad_Name\n"}
+{"Time":"2026-10-27T11:33:52.892123785Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/X-Bad_Name","Output":"--- PASS: TestUnsafeHeaderNamesRejected/X-Bad_Name (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.892126409Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/X-Bad_Name","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.892129203Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/X-(bad)"}
+{"Time":"2026-10-27T11:33:52.892131437Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/X-(bad)","Output":"=== RUN   TestUnsafeHeaderNamesRejected/X-(bad)\n"}
+{"Time":"2026-10-27T11:33:52.892134611Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/X-(bad)","Output":"--- PASS: TestUnsafeHeaderNamesRejected/X-(bad) (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.892137476Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/X-(bad)","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.892141802Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/中文"}
+{"Time":"2026-10-27T11:33:52.892144677Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/中文","Output":"=== RUN   TestUnsafeHeaderNamesRejected/中文\n"}
+{"Time":"2026-10-27T11:33:52.892148182Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/中文","Output":"--- PASS: TestUnsafeHeaderNamesRejected/中文 (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.892150996Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected/中文","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.892154712Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected","Output":"--- PASS: TestUnsafeHeaderNamesRejected (0.00s)\n"}
+{"Time":"2026-10-27T11:33:52.892157676Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestUnsafeHeaderNamesRejected","Elapsed":0}
+{"Time":"2026-10-27T11:33:52.89216046Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestBindingProjectsCatalogCompactionAndInvalidatesHome"}
+{"Time":"2026-10-27T11:33:52.892165438Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestBindingProjectsCatalogCompactionAndInvalidatesHome","Output":"=== RUN   TestBindingProjectsCatalogCompactionAndInvalidatesHome\n"}
+{"Time":"2026-10-27T11:33:52.989384532Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestBindingProjectsCatalogCompactionAndInvalidatesHome","Output":"--- PASS: TestBindingProjectsCatalogCompactionAndInvalidatesHome (0.09s)\n"}
+{"Time":"2026-10-27T11:33:52.9894296Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestBindingProjectsCatalogCompactionAndInvalidatesHome","Elapsed":0.09}
+{"Time":"2026-10-27T11:33:52.989440086Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestNativeResponsesCanExplicitlyRouteViaGateway"}
+{"Time":"2026-10-27T11:33:52.989443121Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestNativeResponsesCanExplicitlyRouteViaGateway","Output":"=== RUN   TestNativeResponsesCanExplicitlyRouteViaGateway\n"}
+{"Time":"2026-10-27T11:33:53.020832283Z","Action":"start","Package":"lam.local/lam2/internal/storage"}
+{"Time":"2026-10-27T11:33:53.020992445Z","Action":"start","Package":"lam.local/lam2/internal/testutil"}
+{"Time":"2026-10-27T11:33:53.022370683Z","Action":"run","Package":"lam.local/lam2/internal/storage","Test":"TestCASOnlyOneWriter"}
+{"Time":"2026-10-27T11:33:53.022428039Z","Action":"output","Package":"lam.local/lam2/internal/storage","Test":"TestCASOnlyOneWriter","Output":"=== RUN   TestCASOnlyOneWriter\n"}
+{"Time":"2026-10-27T11:33:53.024300322Z","Action":"output","Package":"lam.local/lam2/internal/testutil","Output":"\tlam.local/lam2/internal/testutil\t\tcoverage: 0.0% of statements\n"}
+{"Time":"2026-10-27T11:33:53.030018924Z","Action":"pass","Package":"lam.local/lam2/internal/testutil","Elapsed":0.009}
+{"Time":"2026-10-27T11:33:53.045380503Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestNativeResponsesCanExplicitlyRouteViaGateway","Output":"--- PASS: TestNativeResponsesCanExplicitlyRouteViaGateway (0.06s)\n"}
+{"Time":"2026-10-27T11:33:53.045427374Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestNativeResponsesCanExplicitlyRouteViaGateway","Elapsed":0.06}
+{"Time":"2026-10-27T11:33:53.045433533Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestFailedBindDoesNotLeaveCatalog"}
+{"Time":"2026-10-27T11:33:53.045442447Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestFailedBindDoesNotLeaveCatalog","Output":"=== RUN   TestFailedBindDoesNotLeaveCatalog\n"}
+{"Time":"2026-10-27T11:33:53.081375711Z","Action":"output","Package":"lam.local/lam2/internal/storage","Test":"TestCASOnlyOneWriter","Output":"--- PASS: TestCASOnlyOneWriter (0.06s)\n"}
+{"Time":"2026-10-27T11:33:53.081409211Z","Action":"pass","Package":"lam.local/lam2/internal/storage","Test":"TestCASOnlyOneWriter","Elapsed":0.06}
+{"Time":"2026-10-27T11:33:53.081418515Z","Action":"run","Package":"lam.local/lam2/internal/storage","Test":"TestFutureAndCorruptSchemaRejected"}
+{"Time":"2026-10-27T11:33:53.081422822Z","Action":"output","Package":"lam.local/lam2/internal/storage","Test":"TestFutureAndCorruptSchemaRejected","Output":"=== RUN   TestFutureAndCorruptSchemaRejected\n"}
+{"Time":"2026-10-27T11:33:53.081427078Z","Action":"output","Package":"lam.local/lam2/internal/storage","Test":"TestFutureAndCorruptSchemaRejected","Output":"--- PASS: TestFutureAndCorruptSchemaRejected (0.00s)\n"}
+{"Time":"2026-10-27T11:33:53.081430533Z","Action":"pass","Package":"lam.local/lam2/internal/storage","Test":"TestFutureAndCorruptSchemaRejected","Elapsed":0}
+{"Time":"2026-10-27T11:33:53.081432676Z","Action":"run","Package":"lam.local/lam2/internal/storage","Test":"TestAtomicFailurePreservesOriginal"}
+{"Time":"2026-10-27T11:33:53.08143518Z","Action":"output","Package":"lam.local/lam2/internal/storage","Test":"TestAtomicFailurePreservesOriginal","Output":"=== RUN   TestAtomicFailurePreservesOriginal\n"}
+{"Time":"2026-10-27T11:33:53.081440829Z","Action":"output","Package":"lam.local/lam2/internal/storage","Test":"TestAtomicFailurePreservesOriginal","Output":"--- PASS: TestAtomicFailurePreservesOriginal (0.00s)\n"}
+{"Time":"2026-10-27T11:33:53.081443903Z","Action":"pass","Package":"lam.local/lam2/internal/storage","Test":"TestAtomicFailurePreservesOriginal","Elapsed":0}
+{"Time":"2026-10-27T11:33:53.081446657Z","Action":"run","Package":"lam.local/lam2/internal/storage","Test":"TestSafeJoinRejectsSymlinkAndTraversal"}
+{"Time":"2026-10-27T11:33:53.08144844Z","Action":"output","Package":"lam.local/lam2/internal/storage","Test":"TestSafeJoinRejectsSymlinkAndTraversal","Output":"=== RUN   TestSafeJoinRejectsSymlinkAndTraversal\n"}
+{"Time":"2026-10-27T11:33:53.081451064Z","Action":"output","Package":"lam.local/lam2/internal/storage","Test":"TestSafeJoinRejectsSymlinkAndTraversal","Output":"--- PASS: TestSafeJoinRejectsSymlinkAndTraversal (0.00s)\n"}
+{"Time":"2026-10-27T11:33:53.081452947Z","Action":"pass","Package":"lam.local/lam2/internal/storage","Test":"TestSafeJoinRejectsSymlinkAndTraversal","Elapsed":0}
+{"Time":"2026-10-27T11:33:53.0814553Z","Action":"run","Package":"lam.local/lam2/internal/storage","Test":"TestJournalRollbackAndConflict"}
+{"Time":"2026-10-27T11:33:53.081456933Z","Action":"output","Package":"lam.local/lam2/internal/storage","Test":"TestJournalRollbackAndConflict","Output":"=== RUN   TestJournalRollbackAndConflict\n"}
+{"Time":"2026-10-27T11:33:53.100225269Z","Action":"output","Package":"lam.local/lam2/internal/storage","Test":"TestJournalRollbackAndConflict","Output":"--- PASS: TestJournalRollbackAndConflict (0.02s)\n"}
+{"Time":"2026-10-27T11:33:53.100263747Z","Action":"pass","Package":"lam.local/lam2/internal/storage","Test":"TestJournalRollbackAndConflict","Elapsed":0.02}
+{"Time":"2026-10-27T11:33:53.100328134Z","Action":"run","Package":"lam.local/lam2/internal/storage","Test":"TestJournalSuccessfulRecoveryIdempotent"}
+{"Time":"2026-10-27T11:33:53.100332691Z","Action":"output","Package":"lam.local/lam2/internal/storage","Test":"TestJournalSuccessfulRecoveryIdempotent","Output":"=== RUN   TestJournalSuccessfulRecoveryIdempotent\n"}
+{"Time":"2026-10-27T11:33:53.103597553Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestFailedBindDoesNotLeaveCatalog","Output":"--- PASS: TestFailedBindDoesNotLeaveCatalog (0.06s)\n"}
+{"Time":"2026-10-27T11:33:53.103917015Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestFailedBindDoesNotLeaveCatalog","Elapsed":0.06}
+{"Time":"2026-10-27T11:33:53.103958307Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestBoundProviderConnectionEditReprojectsConfig"}
+{"Time":"2026-10-27T11:33:53.103962714Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestBoundProviderConnectionEditReprojectsConfig","Output":"=== RUN   TestBoundProviderConnectionEditReprojectsConfig\n"}
+{"Time":"2026-10-27T11:33:53.107939879Z","Action":"output","Package":"lam.local/lam2/internal/storage","Test":"TestJournalSuccessfulRecoveryIdempotent","Output":"--- PASS: TestJournalSuccessfulRecoveryIdempotent (0.01s)\n"}
+{"Time":"2026-10-27T11:33:53.108163406Z","Action":"pass","Package":"lam.local/lam2/internal/storage","Test":"TestJournalSuccessfulRecoveryIdempotent","Elapsed":0.01}
+{"Time":"2026-10-27T11:33:53.108206812Z","Action":"run","Package":"lam.local/lam2/internal/storage","Test":"TestVaultEncryptionAndTamper"}
+{"Time":"2026-10-27T11:33:53.108210327Z","Action":"output","Package":"lam.local/lam2/internal/storage","Test":"TestVaultEncryptionAndTamper","Output":"=== RUN   TestVaultEncryptionAndTamper\n"}
+{"Time":"2026-10-27T11:33:53.110484475Z","Action":"output","Package":"lam.local/lam2/internal/storage","Test":"TestVaultEncryptionAndTamper","Output":"--- PASS: TestVaultEncryptionAndTamper (0.00s)\n"}
+{"Time":"2026-10-27T11:33:53.110497886Z","Action":"pass","Package":"lam.local/lam2/internal/storage","Test":"TestVaultEncryptionAndTamper","Elapsed":0}
+{"Time":"2026-10-27T11:33:53.110504546Z","Action":"output","Package":"lam.local/lam2/internal/storage","Output":"PASS\n"}
+{"Time":"2026-10-27T11:33:53.111282188Z","Action":"output","Package":"lam.local/lam2/internal/storage","Output":"coverage: 56.9% of statements\n"}
+{"Time":"2026-10-27T11:33:53.112553565Z","Action":"output","Package":"lam.local/lam2/internal/storage","Output":"ok  \tlam.local/lam2/internal/storage\t0.091s\tcoverage: 56.9% of statements\n"}
+{"Time":"2026-10-27T11:33:53.11257702Z","Action":"pass","Package":"lam.local/lam2/internal/storage","Elapsed":0.092}
+{"Time":"2026-10-27T11:33:53.124961803Z","Action":"output","Package":"lam.local/lam2/internal/session","Test":"TestLatestMetadataBeyondHeadAndAllFilteredSelection","Output":"--- PASS: TestLatestMetadataBeyondHeadAndAllFilteredSelection (0.32s)\n"}
+{"Time":"2026-10-27T11:33:53.125107172Z","Action":"pass","Package":"lam.local/lam2/internal/session","Test":"TestLatestMetadataBeyondHeadAndAllFilteredSelection","Elapsed":0.32}
+{"Time":"2026-10-27T11:33:53.125118759Z","Action":"run","Package":"lam.local/lam2/internal/session","Test":"TestArchiveUpdatesAndRestoresSessionIndex"}
+{"Time":"2026-10-27T11:33:53.125122124Z","Action":"output","Package":"lam.local/lam2/internal/session","Test":"TestArchiveUpdatesAndRestoresSessionIndex","Output":"=== RUN   TestArchiveUpdatesAndRestoresSessionIndex\n"}
+{"Time":"2026-10-27T11:33:53.163678462Z","Action":"output","Package":"lam.local/lam2/internal/session","Test":"TestArchiveUpdatesAndRestoresSessionIndex","Output":"--- PASS: TestArchiveUpdatesAndRestoresSessionIndex (0.04s)\n"}
+{"Time":"2026-10-27T11:33:53.163788508Z","Action":"pass","Package":"lam.local/lam2/internal/session","Test":"TestArchiveUpdatesAndRestoresSessionIndex","Elapsed":0.04}
+{"Time":"2026-10-27T11:33:53.163795208Z","Action":"run","Package":"lam.local/lam2/internal/session","Test":"TestQueryPaginationAndTitle"}
+{"Time":"2026-10-27T11:33:53.163799354Z","Action":"output","Package":"lam.local/lam2/internal/session","Test":"TestQueryPaginationAndTitle","Output":"=== RUN   TestQueryPaginationAndTitle\n"}
+{"Time":"2026-10-27T11:33:53.17799751Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestBoundProviderConnectionEditReprojectsConfig","Output":"--- PASS: TestBoundProviderConnectionEditReprojectsConfig (0.07s)\n"}
+{"Time":"2026-10-27T11:33:53.17803025Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestBoundProviderConnectionEditReprojectsConfig","Elapsed":0.07}
+{"Time":"2026-10-27T11:33:53.178034977Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestAttachedProtocolChangeMigratesRouteAndToken"}
+{"Time":"2026-10-27T11:33:53.178037581Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestAttachedProtocolChangeMigratesRouteAndToken","Output":"=== RUN   TestAttachedProtocolChangeMigratesRouteAndToken\n"}
+{"Time":"2026-10-27T11:33:53.183656542Z","Action":"output","Package":"lam.local/lam2/internal/session","Test":"TestQueryPaginationAndTitle","Output":"--- PASS: TestQueryPaginationAndTitle (0.02s)\n"}
+{"Time":"2026-10-27T11:33:53.183752186Z","Action":"pass","Package":"lam.local/lam2/internal/session","Test":"TestQueryPaginationAndTitle","Elapsed":0.02}
+{"Time":"2026-10-27T11:33:53.183758906Z","Action":"run","Package":"lam.local/lam2/internal/session","Test":"TestProtectedDeletionAndArchiveRestore"}
+{"Time":"2026-10-27T11:33:53.18376119Z","Action":"output","Package":"lam.local/lam2/internal/session","Test":"TestProtectedDeletionAndArchiveRestore","Output":"=== RUN   TestProtectedDeletionAndArchiveRestore\n"}
+{"Time":"2026-10-27T11:33:53.209183642Z","Action":"start","Package":"lam.local/lam2/internal/usage"}
+{"Time":"2026-10-27T11:33:53.211100417Z","Action":"run","Package":"lam.local/lam2/internal/usage","Test":"TestAccountUsageKeepsNullsAndComparesOnlyKnownDays"}
+{"Time":"2026-10-27T11:33:53.211123462Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestAccountUsageKeepsNullsAndComparesOnlyKnownDays","Output":"=== RUN   TestAccountUsageKeepsNullsAndComparesOnlyKnownDays\n"}
+{"Time":"2026-10-27T11:33:53.211199376Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestAccountUsageKeepsNullsAndComparesOnlyKnownDays","Output":"--- PASS: TestAccountUsageKeepsNullsAndComparesOnlyKnownDays (0.00s)\n"}
+{"Time":"2026-10-27T11:33:53.211203973Z","Action":"pass","Package":"lam.local/lam2/internal/usage","Test":"TestAccountUsageKeepsNullsAndComparesOnlyKnownDays","Elapsed":0}
+{"Time":"2026-10-27T11:33:53.211209011Z","Action":"run","Package":"lam.local/lam2/internal/usage","Test":"TestCountersDedupResetAndAliases"}
+{"Time":"2026-10-27T11:33:53.211212576Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestCountersDedupResetAndAliases","Output":"=== RUN   TestCountersDedupResetAndAliases\n"}
+{"Time":"2026-10-27T11:33:53.211259106Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestCountersDedupResetAndAliases","Output":"--- PASS: TestCountersDedupResetAndAliases (0.00s)\n"}
+{"Time":"2026-10-27T11:33:53.211263713Z","Action":"pass","Package":"lam.local/lam2/internal/usage","Test":"TestCountersDedupResetAndAliases","Elapsed":0}
+{"Time":"2026-10-27T11:33:53.21126782Z","Action":"run","Package":"lam.local/lam2/internal/usage","Test":"TestNegativeOrInconsistentCountersRejected"}
+{"Time":"2026-10-27T11:33:53.211270584Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestNegativeOrInconsistentCountersRejected","Output":"=== RUN   TestNegativeOrInconsistentCountersRejected\n"}
+{"Time":"2026-10-27T11:33:53.211275621Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestNegativeOrInconsistentCountersRejected","Output":"--- PASS: TestNegativeOrInconsistentCountersRejected (0.00s)\n"}
+{"Time":"2026-10-27T11:33:53.211282432Z","Action":"pass","Package":"lam.local/lam2/internal/usage","Test":"TestNegativeOrInconsistentCountersRejected","Elapsed":0}
+{"Time":"2026-10-27T11:33:53.211286277Z","Action":"run","Package":"lam.local/lam2/internal/usage","Test":"TestPriceVersionAndUnknown"}
+{"Time":"2026-10-27T11:33:53.211288651Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestPriceVersionAndUnknown","Output":"=== RUN   TestPriceVersionAndUnknown\n"}
+{"Time":"2026-10-27T11:33:53.211291976Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestPriceVersionAndUnknown","Output":"--- PASS: TestPriceVersionAndUnknown (0.00s)\n"}
+{"Time":"2026-10-27T11:33:53.21129486Z","Action":"pass","Package":"lam.local/lam2/internal/usage","Test":"TestPriceVersionAndUnknown","Elapsed":0}
+{"Time":"2026-10-27T11:33:53.211297534Z","Action":"run","Package":"lam.local/lam2/internal/usage","Test":"TestIncrementalPartialLineAndAtomicCheckpoint"}
+{"Time":"2026-10-27T11:33:53.211300038Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestIncrementalPartialLineAndAtomicCheckpoint","Output":"=== RUN   TestIncrementalPartialLineAndAtomicCheckpoint\n"}
+{"Time":"2026-10-27T11:33:53.212959239Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestIncrementalPartialLineAndAtomicCheckpoint","Output":"--- PASS: TestIncrementalPartialLineAndAtomicCheckpoint (0.00s)\n"}
+{"Time":"2026-10-27T11:33:53.212976976Z","Action":"pass","Package":"lam.local/lam2/internal/usage","Test":"TestIncrementalPartialLineAndAtomicCheckpoint","Elapsed":0}
+{"Time":"2026-10-27T11:33:53.212981223Z","Action":"run","Package":"lam.local/lam2/internal/usage","Test":"TestFileTruncationRebuildsWithoutDoubling"}
+{"Time":"2026-10-27T11:33:53.212984167Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestFileTruncationRebuildsWithoutDoubling","Output":"=== RUN   TestFileTruncationRebuildsWithoutDoubling\n"}
+{"Time":"2026-10-27T11:33:53.217283979Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestFileTruncationRebuildsWithoutDoubling","Output":"--- PASS: TestFileTruncationRebuildsWithoutDoubling (0.00s)\n"}
+{"Time":"2026-10-27T11:33:53.217333554Z","Action":"pass","Package":"lam.local/lam2/internal/usage","Test":"TestFileTruncationRebuildsWithoutDoubling","Elapsed":0}
+{"Time":"2026-10-27T11:33:53.217346113Z","Action":"run","Package":"lam.local/lam2/internal/usage","Test":"TestUsageCannotEscapeHome"}
+{"Time":"2026-10-27T11:33:53.217350399Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestUsageCannotEscapeHome","Output":"=== RUN   TestUsageCannotEscapeHome\n"}
+{"Time":"2026-10-27T11:33:53.218009493Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestUsageCannotEscapeHome","Output":"--- PASS: TestUsageCannotEscapeHome (0.00s)\n"}
+{"Time":"2026-10-27T11:33:53.218022122Z","Action":"pass","Package":"lam.local/lam2/internal/usage","Test":"TestUsageCannotEscapeHome","Elapsed":0}
+{"Time":"2026-10-27T11:33:53.218026799Z","Action":"run","Package":"lam.local/lam2/internal/usage","Test":"TestDSTCalendarDays"}
+{"Time":"2026-10-27T11:33:53.218030224Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestDSTCalendarDays","Output":"=== RUN   TestDSTCalendarDays\n"}
+{"Time":"2026-10-27T11:33:53.218098557Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestDSTCalendarDays","Output":"--- PASS: TestDSTCalendarDays (0.00s)\n"}
+{"Time":"2026-10-27T11:33:53.218104717Z","Action":"pass","Package":"lam.local/lam2/internal/usage","Test":"TestDSTCalendarDays","Elapsed":0}
+{"Time":"2026-10-27T11:33:53.218108793Z","Action":"run","Package":"lam.local/lam2/internal/usage","Test":"TestMalformedUTF8Diagnostic"}
+{"Time":"2026-10-27T11:33:53.218112028Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestMalformedUTF8Diagnostic","Output":"=== RUN   TestMalformedUTF8Diagnostic\n"}
+{"Time":"2026-10-27T11:33:53.224052257Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestMalformedUTF8Diagnostic","Output":"--- PASS: TestMalformedUTF8Diagnostic (0.01s)\n"}
+{"Time":"2026-10-27T11:33:53.224101502Z","Action":"pass","Package":"lam.local/lam2/internal/usage","Test":"TestMalformedUTF8Diagnostic","Elapsed":0.01}
+{"Time":"2026-10-27T11:33:53.224110435Z","Action":"run","Package":"lam.local/lam2/internal/usage","Test":"TestLedgerFingerprintChanges"}
+{"Time":"2026-10-27T11:33:53.224114221Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestLedgerFingerprintChanges","Output":"=== RUN   TestLedgerFingerprintChanges\n"}
+{"Time":"2026-10-27T11:33:53.22411999Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestLedgerFingerprintChanges","Output":"--- PASS: TestLedgerFingerprintChanges (0.00s)\n"}
+{"Time":"2026-10-27T11:33:53.224122854Z","Action":"pass","Package":"lam.local/lam2/internal/usage","Test":"TestLedgerFingerprintChanges","Elapsed":0}
+{"Time":"2026-10-27T11:33:53.224126379Z","Action":"run","Package":"lam.local/lam2/internal/usage","Test":"TestFilterTimestampPrecisionAndOrdering"}
+{"Time":"2026-10-27T11:33:53.224128522Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestFilterTimestampPrecisionAndOrdering","Output":"=== RUN   TestFilterTimestampPrecisionAndOrdering\n"}
+{"Time":"2026-10-27T11:33:53.224135092Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestFilterTimestampPrecisionAndOrdering","Output":"--- PASS: TestFilterTimestampPrecisionAndOrdering (0.00s)\n"}
+{"Time":"2026-10-27T11:33:53.224137816Z","Action":"pass","Package":"lam.local/lam2/internal/usage","Test":"TestFilterTimestampPrecisionAndOrdering","Elapsed":0}
+{"Time":"2026-10-27T11:33:53.224142283Z","Action":"run","Package":"lam.local/lam2/internal/usage","Test":"TestLegacyLastUsageIsAuthoritativeAndBuiltInPrices"}
+{"Time":"2026-10-27T11:33:53.224144567Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestLegacyLastUsageIsAuthoritativeAndBuiltInPrices","Output":"=== RUN   TestLegacyLastUsageIsAuthoritativeAndBuiltInPrices\n"}
+{"Time":"2026-10-27T11:33:53.224151397Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestLegacyLastUsageIsAuthoritativeAndBuiltInPrices","Output":"--- PASS: TestLegacyLastUsageIsAuthoritativeAndBuiltInPrices (0.00s)\n"}
+{"Time":"2026-10-27T11:33:53.224155052Z","Action":"pass","Package":"lam.local/lam2/internal/usage","Test":"TestLegacyLastUsageIsAuthoritativeAndBuiltInPrices","Elapsed":0}
+{"Time":"2026-10-27T11:33:53.224164657Z","Action":"run","Package":"lam.local/lam2/internal/usage","Test":"TestActivityAndRawHistoryBoundaries"}
+{"Time":"2026-10-27T11:33:53.224168152Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestActivityAndRawHistoryBoundaries","Output":"=== RUN   TestActivityAndRawHistoryBoundaries\n"}
+{"Time":"2026-10-27T11:33:53.224561611Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestActivityAndRawHistoryBoundaries","Output":"--- PASS: TestActivityAndRawHistoryBoundaries (0.00s)\n"}
+{"Time":"2026-10-27T11:33:53.224577284Z","Action":"pass","Package":"lam.local/lam2/internal/usage","Test":"TestActivityAndRawHistoryBoundaries","Elapsed":0}
+{"Time":"2026-10-27T11:33:53.224582733Z","Action":"run","Package":"lam.local/lam2/internal/usage","Test":"TestPATTimelineAttributionDoesNotAssignCurrentIdentityToHistory"}
+{"Time":"2026-10-27T11:33:53.224586538Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestPATTimelineAttributionDoesNotAssignCurrentIdentityToHistory","Output":"=== RUN   TestPATTimelineAttributionDoesNotAssignCurrentIdentityToHistory\n"}
+{"Time":"2026-10-27T11:33:53.224593679Z","Action":"output","Package":"lam.local/lam2/internal/usage","Test":"TestPATTimelineAttributionDoesNotAssignCurrentIdentityToHistory","Output":"--- PASS: TestPATTimelineAttributionDoesNotAssignCurrentIdentityToHistory (0.00s)\n"}
+{"Time":"2026-10-27T11:33:53.22460116Z","Action":"pass","Package":"lam.local/lam2/internal/usage","Test":"TestPATTimelineAttributionDoesNotAssignCurrentIdentityToHistory","Elapsed":0}
+{"Time":"2026-10-27T11:33:53.224604335Z","Action":"output","Package":"lam.local/lam2/internal/usage","Output":"PASS\n"}
+{"Time":"2026-10-27T11:33:53.22572826Z","Action":"output","Package":"lam.local/lam2/internal/usage","Output":"coverage: 70.4% of statements\n"}
+{"Time":"2026-10-27T11:33:53.226673164Z","Action":"output","Package":"lam.local/lam2/internal/usage","Output":"ok  \tlam.local/lam2/internal/usage\t0.017s\tcoverage: 70.4% of statements\n"}
+{"Time":"2026-10-27T11:33:53.226685272Z","Action":"pass","Package":"lam.local/lam2/internal/usage","Elapsed":0.018}
+{"Time":"2026-10-27T11:33:53.230650095Z","Action":"output","Package":"lam.local/lam2/internal/session","Test":"TestProtectedDeletionAndArchiveRestore","Output":"--- PASS: TestProtectedDeletionAndArchiveRestore (0.05s)\n"}
+{"Time":"2026-10-27T11:33:53.230668493Z","Action":"pass","Package":"lam.local/lam2/internal/session","Test":"TestProtectedDeletionAndArchiveRestore","Elapsed":0.05}
+{"Time":"2026-10-27T11:33:53.230675103Z","Action":"run","Package":"lam.local/lam2/internal/session","Test":"TestMalformedUTF8AndSymlinkAreContained"}
+{"Time":"2026-10-27T11:33:53.230677646Z","Action":"output","Package":"lam.local/lam2/internal/session","Test":"TestMalformedUTF8AndSymlinkAreContained","Output":"=== RUN   TestMalformedUTF8AndSymlinkAreContained\n"}
+{"Time":"2026-10-27T11:33:53.245766224Z","Action":"output","Package":"lam.local/lam2/internal/session","Test":"TestMalformedUTF8AndSymlinkAreContained","Output":"--- PASS: TestMalformedUTF8AndSymlinkAreContained (0.02s)\n"}
+{"Time":"2026-10-27T11:33:53.245789119Z","Action":"pass","Package":"lam.local/lam2/internal/session","Test":"TestMalformedUTF8AndSymlinkAreContained","Elapsed":0.02}
+{"Time":"2026-10-27T11:33:53.245795719Z","Action":"run","Package":"lam.local/lam2/internal/session","Test":"TestChangedDeletePlanIsRejected"}
+{"Time":"2026-10-27T11:33:53.245798162Z","Action":"output","Package":"lam.local/lam2/internal/session","Test":"TestChangedDeletePlanIsRejected","Output":"=== RUN   TestChangedDeletePlanIsRejected\n"}
+{"Time":"2026-10-27T11:33:53.268570945Z","Action":"output","Package":"lam.local/lam2/internal/session","Test":"TestChangedDeletePlanIsRejected","Output":"--- PASS: TestChangedDeletePlanIsRejected (0.02s)\n"}
+{"Time":"2026-10-27T11:33:53.268604916Z","Action":"pass","Package":"lam.local/lam2/internal/session","Test":"TestChangedDeletePlanIsRejected","Elapsed":0.02}
+{"Time":"2026-10-27T11:33:53.268615302Z","Action":"run","Package":"lam.local/lam2/internal/session","Test":"TestFilteredDeletePlanBeyondFirstThousand"}
+{"Time":"2026-10-27T11:33:53.268617355Z","Action":"output","Package":"lam.local/lam2/internal/session","Test":"TestFilteredDeletePlanBeyondFirstThousand","Output":"=== RUN   TestFilteredDeletePlanBeyondFirstThousand\n"}
+{"Time":"2026-10-27T11:33:53.2770243Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestAttachedProtocolChangeMigratesRouteAndToken","Output":"--- PASS: TestAttachedProtocolChangeMigratesRouteAndToken (0.10s)\n"}
+{"Time":"2026-10-27T11:33:53.277053484Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestAttachedProtocolChangeMigratesRouteAndToken","Elapsed":0.1}
+{"Time":"2026-10-27T11:33:53.277060385Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestAttachedContextUpdateReprojectsAndPreservesOriginalRestore"}
+{"Time":"2026-10-27T11:33:53.277062628Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestAttachedContextUpdateReprojectsAndPreservesOriginalRestore","Output":"=== RUN   TestAttachedContextUpdateReprojectsAndPreservesOriginalRestore\n"}
+{"Time":"2026-10-27T11:33:53.357849715Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestAttachedContextUpdateReprojectsAndPreservesOriginalRestore","Output":"--- PASS: TestAttachedContextUpdateReprojectsAndPreservesOriginalRestore (0.08s)\n"}
+{"Time":"2026-10-27T11:33:53.358618724Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestAttachedContextUpdateReprojectsAndPreservesOriginalRestore","Elapsed":0.08}
+{"Time":"2026-10-27T11:33:53.358624893Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestAttachedSettingsRPCFailureDoesNotCommitProvider"}
+{"Time":"2026-10-27T11:33:53.358628148Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestAttachedSettingsRPCFailureDoesNotCommitProvider","Output":"=== RUN   TestAttachedSettingsRPCFailureDoesNotCommitProvider\n"}
+{"Time":"2026-10-27T11:33:53.402942617Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestAttachedSettingsRPCFailureDoesNotCommitProvider","Output":"--- PASS: TestAttachedSettingsRPCFailureDoesNotCommitProvider (0.04s)\n"}
+{"Time":"2026-10-27T11:33:53.403022758Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestAttachedSettingsRPCFailureDoesNotCommitProvider","Elapsed":0.04}
+{"Time":"2026-10-27T11:33:53.403047896Z","Action":"run","Package":"lam.local/lam2/internal/provider","Test":"TestCodexProfileCredentialResolver"}
+{"Time":"2026-10-27T11:33:53.40305073Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestCodexProfileCredentialResolver","Output":"=== RUN   TestCodexProfileCredentialResolver\n"}
+{"Time":"2026-10-27T11:33:53.419567216Z","Action":"output","Package":"lam.local/lam2/internal/provider","Test":"TestCodexProfileCredentialResolver","Output":"--- PASS: TestCodexProfileCredentialResolver (0.01s)\n"}
+{"Time":"2026-10-27T11:33:53.41960935Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Test":"TestCodexProfileCredentialResolver","Elapsed":0.01}
+{"Time":"2026-10-27T11:33:53.419616581Z","Action":"output","Package":"lam.local/lam2/internal/provider","Output":"PASS\n"}
+{"Time":"2026-10-27T11:33:53.419620437Z","Action":"output","Package":"lam.local/lam2/internal/provider","Output":"coverage: 64.0% of statements\n"}
+{"Time":"2026-10-27T11:33:53.420858753Z","Action":"output","Package":"lam.local/lam2/internal/provider","Output":"ok  \tlam.local/lam2/internal/provider\t1.093s\tcoverage: 64.0% of statements\n"}
+{"Time":"2026-10-27T11:33:53.42087629Z","Action":"pass","Package":"lam.local/lam2/internal/provider","Elapsed":1.093}
+{"Time":"2026-10-27T11:33:56.971063086Z","Action":"output","Package":"lam.local/lam2/internal/session","Test":"TestFilteredDeletePlanBeyondFirstThousand","Output":"--- PASS: TestFilteredDeletePlanBeyondFirstThousand (3.70s)\n"}
+{"Time":"2026-10-27T11:33:56.971176377Z","Action":"pass","Package":"lam.local/lam2/internal/session","Test":"TestFilteredDeletePlanBeyondFirstThousand","Elapsed":3.7}
+{"Time":"2026-10-27T11:33:56.971182446Z","Action":"run","Package":"lam.local/lam2/internal/session","Test":"TestInterruptedArchiveRestoresFilesAndIndex"}
+{"Time":"2026-10-27T11:33:56.97118501Z","Action":"output","Package":"lam.local/lam2/internal/session","Test":"TestInterruptedArchiveRestoresFilesAndIndex","Output":"=== RUN   TestInterruptedArchiveRestoresFilesAndIndex\n"}
+{"Time":"2026-10-27T11:33:56.998605499Z","Action":"output","Package":"lam.local/lam2/internal/session","Test":"TestInterruptedArchiveRestoresFilesAndIndex","Output":"--- PASS: TestInterruptedArchiveRestoresFilesAndIndex (0.03s)\n"}
+{"Time":"2026-10-27T11:33:56.99863938Z","Action":"pass","Package":"lam.local/lam2/internal/session","Test":"TestInterruptedArchiveRestoresFilesAndIndex","Elapsed":0.03}
+{"Time":"2026-10-27T11:33:56.998644829Z","Action":"output","Package":"lam.local/lam2/internal/session","Output":"PASS\n"}
+{"Time":"2026-10-27T11:33:56.999298364Z","Action":"output","Package":"lam.local/lam2/internal/session","Output":"coverage: 76.0% of statements\n"}
+{"Time":"2026-10-27T11:33:57.001460328Z","Action":"output","Package":"lam.local/lam2/internal/session","Output":"ok  \tlam.local/lam2/internal/session\t4.216s\tcoverage: 76.0% of statements\n"}
+{"Time":"2026-10-27T11:33:57.001479287Z","Action":"pass","Package":"lam.local/lam2/internal/session","Elapsed":4.217}

@@ -1,0 +1,23 @@
+ok  	lam.local/lam2/internal/account	0.101s	coverage: 61.5% of statements
+ok  	lam.local/lam2/internal/codex	0.016s	coverage: 59.2% of statements
+ok  	lam.local/lam2/internal/commands	0.003s	coverage: 91.3% of statements
+ok  	lam.local/lam2/internal/fault	0.002s	coverage: 68.8% of statements
+ok  	lam.local/lam2/internal/gateway	0.650s	coverage: 66.1% of statements
+ok  	lam.local/lam2/internal/handoff	0.180s	coverage: 62.9% of statements
+ok  	lam.local/lam2/internal/migration	0.057s	coverage: 65.8% of statements
+ok  	lam.local/lam2/internal/model	0.004s	coverage: 15.6% of statements
+--- FAIL: TestAttachedContextUpdateReprojectsAndPreservesOriginalRestore (0.08s)
+    provider_test.go:346: map[model:model-a model_auto_compact_token_limit:<nil> model_catalog_json:/tmp/TestAttachedContextUpdateReprojectsAndPreservesOriginalRestore3158477085/001/catalogs/binding-cdede1ea-1e3c-4efa-af7e-a1764a82a657.json model_context_window:<nil> model_provider:lam_provider-eb18a860-399e-4eee-948f-b9c53a5b5b38 model_providers.lam_provider-eb18a860-399e-4eee-948f-b9c53a5b5b38:map[auth:map[args:[--home /tmp/TestAttachedContextUpdateReprojectsAndPreservesOriginalRestore3158477085/001 auth --binding binding-cdede1ea-1e3c-4efa-af7e-a1764a82a657] command:/Applications/LAM.app/Contents/MacOS/LAM] base_url:https://example.test/v1 name:test wire_api:responses] model_reasoning_effort:<nil>]
+--- FAIL: TestAttachedSettingsRPCFailureDoesNotCommitProvider (0.07s)
+    provider_test.go:354: expected RPC failure
+FAIL
+coverage: 56.6% of statements
+FAIL	lam.local/lam2/internal/provider	0.521s
+ok  	lam.local/lam2/internal/quota	0.106s	coverage: 67.5% of statements
+ok  	lam.local/lam2/internal/runtime	0.005s	coverage: 49.2% of statements
+ok  	lam.local/lam2/internal/session	0.139s	coverage: 73.3% of statements
+ok  	lam.local/lam2/internal/settings	0.017s	coverage: 61.4% of statements
+	lam.local/lam2/internal/testutil		coverage: 0.0% of statements
+ok  	lam.local/lam2/internal/storage	0.143s	coverage: 56.9% of statements
+ok  	lam.local/lam2/internal/usage	0.007s	coverage: 78.9% of statements
+FAIL

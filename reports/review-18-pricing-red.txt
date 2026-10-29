@@ -1,0 +1,21 @@
+ok  	lam.local/lam2/internal/account	0.120s	coverage: 61.5% of statements
+ok  	lam.local/lam2/internal/codex	0.018s	coverage: 59.2% of statements
+ok  	lam.local/lam2/internal/commands	0.004s	coverage: 91.3% of statements
+ok  	lam.local/lam2/internal/fault	0.002s	coverage: 68.8% of statements
+ok  	lam.local/lam2/internal/gateway	0.633s	coverage: 66.1% of statements
+ok  	lam.local/lam2/internal/handoff	0.145s	coverage: 62.9% of statements
+ok  	lam.local/lam2/internal/migration	0.075s	coverage: 70.4% of statements
+ok  	lam.local/lam2/internal/model	0.005s	coverage: 15.6% of statements
+ok  	lam.local/lam2/internal/provider	0.536s	coverage: 61.0% of statements
+ok  	lam.local/lam2/internal/quota	0.115s	coverage: 71.5% of statements
+ok  	lam.local/lam2/internal/runtime	0.007s	coverage: 49.2% of statements
+ok  	lam.local/lam2/internal/session	0.132s	coverage: 73.3% of statements
+ok  	lam.local/lam2/internal/settings	0.019s	coverage: 60.9% of statements
+	lam.local/lam2/internal/testutil		coverage: 0.0% of statements
+ok  	lam.local/lam2/internal/storage	0.048s	coverage: 56.9% of statements
+--- FAIL: TestLegacyLastUsageIsAuthoritativeAndBuiltInPrices (0.00s)
+    usage_test.go:214: first recorded call is not the whole session total {10000 0 2000 0} <nil>
+FAIL
+coverage: 79.4% of statements
+FAIL	lam.local/lam2/internal/usage	0.004s
+FAIL

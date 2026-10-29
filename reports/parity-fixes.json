@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "area": "Gateway namespace/custom/additional tools",
+    "old": "services/adapters/; codex-gateway-contract fixtures",
+    "new": "internal/gateway/compatibility.go; internal/integrations/translator/translator.go",
+    "repair": "Targeted namespace flattening, identity restoration, custom-input framing, history and additional_tools; no silent loss.",
+    "test": "internal/gateway/parity_test.go"
+  },
+  {
+    "id": 2,
+    "area": "Reasoning and native Responses routing",
+    "old": "services/gateway/; services/adapters/deepseek.rs",
+    "new": "internal/gateway/reasoning.go; internal/gateway/reasoning_collector.go; internal/gateway/passthrough.go",
+    "repair": "Bounded binding/generation/session reasoning; configured native Responses gateway route retained.",
+    "test": "internal/gateway/parity_test.go"
+  },
+  {
+    "id": 3,
+    "area": "Upstream error and SSE transport",
+    "old": "services/gateway/routes.rs; services/adapters/sse.rs",
+    "new": "internal/gateway/server.go; internal/gateway/errors.go",
+    "repair": "HTTP errors/headers redacted, stream state/cancellation/limits retained; real translator integration still unrun.",
+    "test": "internal/gateway/gateway_test.go"
+  },
+  {
+    "id": 4,
+    "area": "Model catalog and context/compaction defaults",
+    "old": "services/provider_api_v2.rs; services/provider_config_editor.rs",
+    "new": "internal/model/catalog.go; internal/provider/catalog.go; internal/provider/projection.go",
+    "repair": "Original model metadata defaults/data, generated catalog, context windows and 90-percent auto-compaction threshold.",
+    "test": "internal/provider/provider_test.go"
+  },
+  {
+    "id": 5,
+    "area": "Bound-provider edits",
+    "old": "services/provider_api_v2.rs",
+    "new": "internal/provider/reproject.go",
+    "repair": "Update model/reasoning/native-gateway route transactionally; keep original restore snapshot; invalidate correct home.",
+    "test": "internal/provider/provider_test.go"
+  },
+  {
+    "id": 6,
+    "area": "API-account lifecycle",
+    "old": "services/provider_api_v2.rs",
+    "new": "internal/provider/api_account.go",
+    "repair": "Create, connection read/edit, model switch and delete; failed delete restores prior binding when safe.",
+    "test": "internal/provider/api_account_test.go"
+  },
+  {
+    "id": 7,
+    "area": "Provider health action",
+    "old": "services/provider_api_v2.rs: probe_provider_upstream_service_v2",
+    "new": "internal/provider/health.go",
+    "repair": "Explicit direct Responses /models probe; persisted redacted observation; rejects arbitrary success JSON.",
+    "test": "internal/provider/health_test.go"
+  },
+  {
+    "id": 8,
+    "area": "Detach preview contract",
+    "old": "services/provider_api_v2.rs: plan_detach_service_v2",
+    "new": "internal/provider/detach.go",
+    "repair": "Preview, fingerprint, revision/generation/config conflict validation before restoring original config.",
+    "test": "internal/provider/detach_test.go"
+  },
+  {
+    "id": 9,
+    "area": "Gateway port migration",
+    "old": "services/gateway/supervisor.rs; services/provider_api_v2.rs",
+    "new": "internal/provider/port.go; internal/gateway/supervisor.go",
+    "repair": "Preview and commit with readiness/identity, no foreign PID termination; settings cannot silently change occupied runtime port.",
+    "test": "internal/provider/port_test.go"
+  },
+  {
+    "id": 10,
+    "area": "Codex-profile credential source",
+    "old": "services/provider_credentials.rs",
+    "new": "internal/account/secondary.go; internal/provider/provider.go",
+    "repair": "Read only selected profile API key; never substitute OAuth/PAT/secondary quota token.",
+    "test": "internal/account/account_test.go"
+  },
+  {
+    "id": 11,
+    "area": "PAT separate homes and launch mode",
+    "old": "services/account.rs; services/types.rs",
+    "new": "internal/account/runtime_profile.go; internal/account/pat.go",
+    "repair": "All identities retain private homes; shared authentication is a deliberate global launch mode, not the storage model.",
+    "test": "internal/account/account_test.go"
+  },
+  {
+    "id": 12,
+    "area": "Native auth and CPA/session/PAT",
+    "old": "services/account.rs",
+    "new": "internal/account/account.go; internal/account/secondary.go",
+    "repair": "Preserve auth extensions/last_refresh, runtime/secondary credentials, expiry and confirmed CPA export.",
+    "test": "internal/account/account_test.go"
+  },
+  {
+    "id": 13,
+    "area": "Two-file PAT switch/recovery",
+    "old": "services/account.rs",
+    "new": "internal/account/pat.go",
+    "repair": "auth.json plus auth-f.json, encrypted baseline and conflict checks; preserve event-time usage timeline.",
+    "test": "internal/account/account_test.go"
+  },
+  {
+    "id": 14,
+    "area": "Profile configuration template",
+    "old": "services/account.rs: execute_create_account_with_route",
+    "new": "internal/account/account.go; internal/desktop/forms.go",
+    "repair": "Optional byte-preserving config copy, seven original home subdirectories; no auth transfer. Bound source must be rebound explicitly.",
+    "test": "internal/account/account_test.go"
+  },
+  {
+    "id": 15,
+    "area": "Auxiliary relay profile",
+    "old": "services/account.rs: create_relay_plan / execute_create_relay",
+    "new": "internal/account/relay.go",
+    "repair": "Separate previewed profile with source/runtime/policy provenance and no copied identity; CLI and native entry added.",
+    "test": "internal/account/relay_test.go"
+  },
+  {
+    "id": 16,
+    "area": "Session source and title index",
+    "old": "services/session.rs",
+    "new": "internal/session/session.go",
+    "repair": "Active/archived discovery, latest title index, large-file tail metadata, bounded raw detail.",
+    "test": "internal/session/parity_test.go"
+  },
+  {
+    "id": 17,
+    "area": "Whole-filter selection and storage summary",
+    "old": "services/session.rs",
+    "new": "internal/session/selection.go",
+    "repair": "Selection is not confined to visible page; retained recent20/recent7days protection and capacity summary.",
+    "test": "internal/session/parity_test.go"
+  },
+  {
+    "id": 18,
+    "area": "Archive, restore and crash recovery",
+    "old": "services/session.rs",
+    "new": "internal/session/archive.go; internal/session/archive_index.go",
+    "repair": "File/index coordination, preserve newly appended title records, recover interrupted operation.",
+    "test": "internal/session/parity_test.go"
+  },
+  {
+    "id": 19,
+    "area": "Handoff compatibility",
+    "old": "services/relay.rs",
+    "new": "internal/handoff/compatibility.go",
+    "repair": "Original provider-sensitive encrypted/hosted/unknown/tool-history blockers; confirmation cannot waive unrepresentable protocol.",
+    "test": "internal/handoff/parity_test.go"
+  },
+  {
+    "id": 20,
+    "area": "All original divergence strategies",
+    "old": "services/relay.rs",
+    "new": "internal/handoff/branches.go",
+    "repair": "Prefix continuation; prefer_source/target; timeline auxiliary fork; target-account summary; original target retained where required.",
+    "test": "internal/handoff/parity_test.go"
+  },
+  {
+    "id": 21,
+    "area": "Antigravity discovery and groups",
+    "old": "services/antigravity.rs",
+    "new": "internal/quota/antigravity.go; internal/quota/antigravity_discovery.go",
+    "repair": "Configured port, own-process CSRF, local TLS/HTTP behavior, grouped models and cache/unknown metadata.",
+    "test": "internal/quota/antigravity_parity_test.go"
+  },
+  {
+    "id": 22,
+    "area": "Usage token counters and historical prices",
+    "old": "services/usage.rs; src/lib/usage-pricing.ts",
+    "new": "internal/usage/counters.go; internal/usage/legacy_prices.go",
+    "repair": "Prefer last_token_usage, cumulative fallback, no cached/reasoning double count, versioned historical pricing and unknown costs.",
+    "test": "internal/usage/usage_test.go"
+  },
+  {
+    "id": 23,
+    "area": "PAT attribution and archive index",
+    "old": "services/usage.rs; PAT usage timeline",
+    "new": "internal/usage/indexer.go; internal/app/app.go",
+    "repair": "Account attribution at event time; distinguish isolated PAT from shared timeline; archived data remains visible.",
+    "test": "internal/usage/usage_test.go"
+  },
+  {
+    "id": 24,
+    "area": "SQLite-only history migration",
+    "old": "services/usage.rs: init_usage_db",
+    "new": "internal/migration/usage.go; internal/integrations/mygosqlite/legacy.go",
+    "repair": "Preserve every raw table/column; paged staged publication; alias dedup after JSONL replay; reset retains DB-only occurrences.",
+    "test": "internal/migration/usage_test.go; native sqlite_test.go UNRUN"
+  },
+  {
+    "id": 25,
+    "area": "Legacy metadata and pending bindings",
+    "old": "services/lam_paths.rs; account/proxy/provider stores",
+    "new": "internal/migration/metadata.go; internal/migration/bindings.go",
+    "repair": "Settings, notes/renewal/proxy/expiry, PAT timeline, relay provenance and bindings retained; no old executable-token reuse.",
+    "test": "internal/migration/migration_test.go"
+  },
+  {
+    "id": 26,
+    "area": "Account Usage, activity and pagination",
+    "old": "services/usage.rs; src/components/Usage*",
+    "new": "internal/usage/account.go; internal/desktop/account_usage.go; internal/desktop/activity.go",
+    "repair": "Account/local separate; only same complete date ranges compared; heatmap, daily/weekly activity and Calls/Threads source.",
+    "test": "internal/usage/account_test.go; actual UI UNRUN"
+  },
+  {
+    "id": 27,
+    "area": "Full-filter Insights and diagnostics",
+    "old": "src/lib/usage-dashboard-analysis.ts; services/usage.rs",
+    "new": "internal/usage/insights.go; internal/usage/diagnostics.go; internal/integrations/mygosqlite/sqlite.go",
+    "repair": "Fast usage, effort distribution, skill counts, cache/context diagnostics across full query, not visible page.",
+    "test": "internal/usage/insights_test.go; real SQLite UNRUN"
+  },
+  {
+    "id": 28,
+    "area": "Legacy global account snapshots",
+    "old": "services/usage.rs account_usage_snapshot/day tables",
+    "new": "internal/integrations/mygosqlite/legacy.go; internal/usage/diagnostics.go",
+    "repair": "Preserve/display old global snapshot without inventing a missing account identity.",
+    "test": "internal/usage/insights_test.go; real SQLite UNRUN"
+  },
+  {
+    "id": 29,
+    "area": "cmux, executable discovery and ChatGPT restart",
+    "old": "services/terminal.rs; services/account.rs",
+    "new": "internal/runtime/terminals.go; internal/runtime/executable.go; internal/runtime/chatgpt.go",
+    "repair": "Original workspace-create arguments and restricted fallback, Finder PATH fallback, scoped restart/restore bounds.",
+    "test": "internal/runtime/runtime_test.go; macOS UNRUN"
+  },
+  {
+    "id": 30,
+    "area": "Settings and timeout boundaries",
+    "old": "services/types.rs",
+    "new": "internal/settings/settings.go; internal/desktop/settings.go",
+    "repair": "First-response10..600/request300..3600; real opacity, Dock and native numeric forms; no fictitious updater feed.",
+    "test": "internal/settings/settings_test.go; macOS UNRUN"
+  }
+]

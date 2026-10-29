@@ -1,0 +1,19 @@
+ok  	lam.local/lam2/internal/account	0.123s	coverage: 61.5% of statements
+ok  	lam.local/lam2/internal/codex	0.015s	coverage: 59.2% of statements
+ok  	lam.local/lam2/internal/commands	0.002s	coverage: 91.3% of statements
+ok  	lam.local/lam2/internal/fault	0.004s	coverage: 68.8% of statements
+# lam.local/lam2/internal/provider [lam.local/lam2/internal/provider.test]
+internal/provider/provider_test.go:231:7: b.CatalogPath undefined (type model.Binding has no field or method CatalogPath)
+FAIL	lam.local/lam2/internal/provider [build failed]
+ok  	lam.local/lam2/internal/gateway	0.662s	coverage: 66.1% of statements
+ok  	lam.local/lam2/internal/handoff	0.149s	coverage: 62.9% of statements
+ok  	lam.local/lam2/internal/migration	0.050s	coverage: 65.8% of statements
+ok  	lam.local/lam2/internal/model	0.007s	coverage: 15.6% of statements
+ok  	lam.local/lam2/internal/quota	0.110s	coverage: 67.5% of statements
+ok  	lam.local/lam2/internal/runtime	0.005s	coverage: 49.2% of statements
+ok  	lam.local/lam2/internal/session	0.090s	coverage: 73.3% of statements
+ok  	lam.local/lam2/internal/settings	0.017s	coverage: 61.4% of statements
+	lam.local/lam2/internal/testutil		coverage: 0.0% of statements
+ok  	lam.local/lam2/internal/storage	0.080s	coverage: 56.9% of statements
+ok  	lam.local/lam2/internal/usage	0.005s	coverage: 78.9% of statements
+FAIL

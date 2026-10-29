@@ -1,0 +1,27 @@
+ok  	lam.local/lam2/internal/account	0.118s	coverage: 61.5% of statements
+ok  	lam.local/lam2/internal/codex	0.015s	coverage: 59.2% of statements
+ok  	lam.local/lam2/internal/commands	0.005s	coverage: 91.3% of statements
+ok  	lam.local/lam2/internal/fault	0.002s	coverage: 68.8% of statements
+--- FAIL: TestCodexModelCatalogUsesBoundExplicitMetadata (0.00s)
+    gateway_test.go:301: not a Codex catalog: 200 {"data":[{"id":"model-a","object":"model","owned_by":"lam"}],"object":"list"}
+--- FAIL: TestCodexModelCatalogNeverInventsCapabilities (0.00s)
+    gateway_test.go:312: missing catalog silently fabricated: 200 {"data":[{"id":"model-a","object":"model","owned_by":"lam"}],"object":"list"}
+FAIL
+coverage: 61.4% of statements
+FAIL	lam.local/lam2/internal/gateway	0.639s
+ok  	lam.local/lam2/internal/handoff	0.154s	coverage: 62.9% of statements
+ok  	lam.local/lam2/internal/migration	0.037s	coverage: 65.8% of statements
+ok  	lam.local/lam2/internal/model	0.002s	coverage: 32.6% of statements
+ok  	lam.local/lam2/internal/provider	0.150s	coverage: 50.5% of statements
+ok  	lam.local/lam2/internal/quota	0.084s	coverage: 67.5% of statements
+ok  	lam.local/lam2/internal/runtime	0.005s	coverage: 49.2% of statements
+ok  	lam.local/lam2/internal/session	0.123s	coverage: 73.3% of statements
+ok  	lam.local/lam2/internal/settings	0.019s	coverage: 61.4% of statements
+	lam.local/lam2/internal/testutil		coverage: 0.0% of statements
+ok  	lam.local/lam2/internal/storage	0.137s	coverage: 56.9% of statements
+--- FAIL: TestFilterTimestampPrecisionAndOrdering (0.00s)
+    usage_test.go:204: SQL timestamps must use a fixed-width UTC representation: []interface {}{"2026-10-27T10:00:00Z", "2026-10-27T10:00:00.001Z"}
+FAIL
+coverage: 78.9% of statements
+FAIL	lam.local/lam2/internal/usage	0.005s
+FAIL

@@ -1,0 +1,20 @@
+ok  	lam.local/lam2/internal/account	0.143s	coverage: 61.5% of statements
+# lam.local/lam2/internal/gateway
+# [/usr/local/go/pkg/tool/linux_amd64/cover -pkgcfg $WORK/b204/pkgcfg.txt -mode set -var goCover_10646a13a9e4_ -outfilelist $WORK/b204/coveroutfiles.txt /tmp/tmp.vAL6tTJ4nB/internal/gateway/catalog.go /tmp/tmp.vAL6tTJ4nB/internal/gateway/compatibility.go /tmp/tmp.vAL6tTJ4nB/internal/gateway/detach_unix.go /tmp/tmp.vAL6tTJ4nB/internal/gateway/errors.go /tmp/tmp.vAL6tTJ4nB/internal/gateway/identity.go /tmp/tmp.vAL6tTJ4nB/internal/gateway/limiter.go /tmp/tmp.vAL6tTJ4nB/internal/gateway/passthrough.go /tmp/tmp.vAL6tTJ4nB/internal/gateway/preflight.go /tmp/tmp.vAL6tTJ4nB/internal/gateway/reasoning.go /tmp/tmp.vAL6tTJ4nB/internal/gateway/resolver.go /tmp/tmp.vAL6tTJ4nB/internal/gateway/server.go /tmp/tmp.vAL6tTJ4nB/internal/gateway/sse.go /tmp/tmp.vAL6tTJ4nB/internal/gateway/supervisor.go]
+2026/10/27 10:51:29 cover: ../tmp.vAL6tTJ4nB/internal/gateway/compatibility.go: ../tmp.vAL6tTJ4nB/internal/gateway/compatibility.go:120:6: expected '(', found toolOutput (and 10 more errors)
+FAIL	lam.local/lam2/internal/gateway [build failed]
+ok  	lam.local/lam2/internal/codex	0.019s	coverage: 59.2% of statements
+ok  	lam.local/lam2/internal/commands	0.003s	coverage: 91.3% of statements
+ok  	lam.local/lam2/internal/fault	0.004s	coverage: 68.8% of statements
+ok  	lam.local/lam2/internal/handoff	0.162s	coverage: 62.9% of statements
+ok  	lam.local/lam2/internal/migration	0.052s	coverage: 65.8% of statements
+ok  	lam.local/lam2/internal/model	0.004s	coverage: 15.6% of statements
+ok  	lam.local/lam2/internal/provider	0.215s	coverage: 50.5% of statements
+ok  	lam.local/lam2/internal/quota	0.127s	coverage: 67.5% of statements
+ok  	lam.local/lam2/internal/runtime	0.007s	coverage: 49.2% of statements
+ok  	lam.local/lam2/internal/session	0.095s	coverage: 73.3% of statements
+ok  	lam.local/lam2/internal/settings	0.025s	coverage: 61.4% of statements
+	lam.local/lam2/internal/testutil		coverage: 0.0% of statements
+ok  	lam.local/lam2/internal/storage	0.048s	coverage: 56.9% of statements
+ok  	lam.local/lam2/internal/usage	0.006s	coverage: 78.9% of statements
+FAIL

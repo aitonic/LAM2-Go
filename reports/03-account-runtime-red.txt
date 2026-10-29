@@ -1,0 +1,31 @@
+# lam.local/lam2/internal/codex [lam.local/lam2/internal/codex.test]
+internal/codex/pool_test.go:17:118: undefined: NewPool
+internal/codex/pool_test.go:17:182: undefined: Client
+internal/codex/pool_test.go:18:70: undefined: NewPool
+internal/codex/pool_test.go:18:128: undefined: Client
+internal/codex/pool_test.go:19:83: undefined: NewPool
+internal/codex/pool_test.go:19:141: undefined: Client
+# lam.local/lam2/internal/runtime [lam.local/lam2/internal/runtime.test]
+internal/runtime/runtime_test.go:4:127: undefined: Environment
+internal/runtime/runtime_test.go:5: undefined: Plan
+internal/runtime/runtime_test.go:5: undefined: LaunchOptions
+internal/runtime/runtime_test.go:5: undefined: Plan
+internal/runtime/runtime_test.go:5: undefined: LaunchOptions
+internal/runtime/runtime_test.go:6:44: undefined: ShellQuote
+internal/runtime/runtime_test.go:7:89: undefined: WriteWrapper
+# lam.local/lam2/internal/account [lam.local/lam2/internal/account.test]
+internal/account/account_test.go:15:29: undefined: Service
+internal/account/account_test.go:27: undefined: Discover
+internal/account/account_test.go:28:208: undefined: ValidateProxy
+FAIL	lam.local/lam2/internal/account [build failed]
+FAIL	lam.local/lam2/internal/codex [build failed]
+# lam.local/lam2/internal/settings [lam.local/lam2/internal/settings.test]
+internal/settings/settings_test.go:4:93: undefined: Service
+internal/settings/settings_test.go:5:105: undefined: Validate
+ok  	lam.local/lam2/internal/fault	0.002s	coverage: 68.8% of statements
+FAIL	lam.local/lam2/internal/runtime [build failed]
+FAIL	lam.local/lam2/internal/settings [build failed]
+ok  	lam.local/lam2/internal/model	0.002s	coverage: 32.6% of statements
+	lam.local/lam2/internal/testutil		coverage: 0.0% of statements
+ok  	lam.local/lam2/internal/storage	0.137s	coverage: 63.4% of statements
+FAIL

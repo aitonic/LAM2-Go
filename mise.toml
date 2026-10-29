@@ -1,0 +1,13 @@
+[tools]
+go = "1.27.3"
+
+[tasks.bootstrap]
+run = "./tools/bootstrap.sh"
+[tasks.test]
+run = "./tools/verify.sh"
+[tasks.dev]
+run = "go tool mygo dev"
+[tasks.build]
+run = "./tools/build-macos.sh"
+[tasks.audit]
+run = "./tools/check-source.sh"

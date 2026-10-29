@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "engine": "Python sqlite3 3.46.1",
+  "source": "literal SQL extracted from production Go files",
+  "checks": [
+    "schema DDL",
+    "legacy publication",
+    "alias deduplication across JSONL reindex",
+    "reset retains imported occurrence",
+    "rollback removes import-only event"
+  ],
+  "limitation": "Does not execute MyGo plugin, Go adapter, WAL reader or native integration tests."
+}

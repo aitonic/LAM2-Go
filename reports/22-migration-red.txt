@@ -1,0 +1,24 @@
+ok  	lam.local/lam2/internal/account	0.141s	coverage: 61.5% of statements
+ok  	lam.local/lam2/internal/codex	0.018s	coverage: 59.2% of statements
+ok  	lam.local/lam2/internal/fault	0.002s	coverage: 68.8% of statements
+# lam.local/lam2/internal/migration [lam.local/lam2/internal/migration.test]
+internal/migration/migration_test.go:4:139: undefined: DecodeProviders
+internal/migration/migration_test.go:5: undefined: Service
+internal/migration/migration_test.go:6: undefined: Service
+internal/migration/migration_test.go:7: undefined: DecodeProviders
+FAIL	lam.local/lam2/internal/migration [build failed]
+# lam.local/lam2/internal/provider [lam.local/lam2/internal/provider.test]
+internal/provider/provider_test.go:196:7: undefined: EndpointFor
+internal/provider/provider_test.go:197:66: undefined: EndpointFor
+FAIL	lam.local/lam2/internal/provider [build failed]
+ok  	lam.local/lam2/internal/gateway	0.655s	coverage: 61.0% of statements
+ok  	lam.local/lam2/internal/handoff	0.178s	coverage: 62.9% of statements
+ok  	lam.local/lam2/internal/model	0.003s	coverage: 32.6% of statements
+ok  	lam.local/lam2/internal/quota	0.104s	coverage: 67.5% of statements
+ok  	lam.local/lam2/internal/runtime	0.006s	coverage: 49.2% of statements
+ok  	lam.local/lam2/internal/session	0.098s	coverage: 73.3% of statements
+ok  	lam.local/lam2/internal/settings	0.014s	coverage: 54.2% of statements
+	lam.local/lam2/internal/testutil		coverage: 0.0% of statements
+ok  	lam.local/lam2/internal/storage	0.139s	coverage: 57.2% of statements
+ok  	lam.local/lam2/internal/usage	0.008s	coverage: 74.7% of statements
+FAIL

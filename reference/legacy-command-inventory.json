@@ -1,0 +1,1172 @@
+[
+  {
+    "new_files": "internal/app/app.go",
+    "test_evidence": "internal/app/app_test.go (not run)",
+    "verification": "INTEGRATION",
+    "note": "Core.Doctor; full native composition is not compiled.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:254"
+    ],
+    "name": "health_check"
+  },
+  {
+    "new_files": "internal/account/account.go; internal/app/app.go",
+    "test_evidence": "internal/account/account_test.go",
+    "verification": "DIFFERENT",
+    "note": "State-backed list; Discover is read-only. The legacy automatic discovered-account list is not yet the same as explicit registration.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:264",
+      "apps/desktop/src-tauri/src/services/account.rs:213"
+    ],
+    "name": "list_accounts"
+  },
+  {
+    "new_files": "internal/account/account.go; internal/app/app.go",
+    "test_evidence": "internal/account/account_test.go",
+    "verification": "DIFFERENT",
+    "note": "State-backed list; Discover is read-only. The legacy automatic discovered-account list is not yet the same as explicit registration.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:270",
+      "apps/desktop/src-tauri/src/services/account.rs:326"
+    ],
+    "name": "list_cached_accounts"
+  },
+  {
+    "new_files": "internal/session/session.go",
+    "test_evidence": "internal/session/parity_test.go",
+    "verification": "DOMAIN",
+    "note": "Paged filtering, stable sort, tail metadata and indexed titles.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:276",
+      "apps/desktop/src-tauri/src/services/session.rs:133"
+    ],
+    "name": "list_sessions"
+  },
+  {
+    "new_files": "internal/session/session.go",
+    "test_evidence": "internal/session/parity_test.go",
+    "verification": "DOMAIN",
+    "note": "Paged filtering, stable sort, tail metadata and indexed titles.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:282",
+      "apps/desktop/src-tauri/src/services/session.rs:147"
+    ],
+    "name": "list_sessions_page"
+  },
+  {
+    "new_files": "internal/session/session.go",
+    "test_evidence": "internal/session/parity_test.go",
+    "verification": "DOMAIN",
+    "note": "Paged filtering, stable sort, tail metadata and indexed titles.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:291",
+      "apps/desktop/src-tauri/src/services/session.rs:164"
+    ],
+    "name": "query_sessions_page"
+  },
+  {
+    "new_files": "internal/session/selection.go; internal/session/archive.go; internal/session/archive_index.go",
+    "test_evidence": "internal/session/parity_test.go",
+    "verification": "DOMAIN",
+    "note": "All filtered results; recent 20/7-day protection; transactional recoverable archival and title-index repair.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:306",
+      "apps/desktop/src-tauri/src/services/session.rs:225"
+    ],
+    "name": "query_deletable_session_paths"
+  },
+  {
+    "new_files": "internal/session/selection.go; internal/session/archive.go; internal/session/archive_index.go",
+    "test_evidence": "internal/session/parity_test.go",
+    "verification": "DOMAIN",
+    "note": "All filtered results; recent 20/7-day protection; transactional recoverable archival and title-index repair.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:300",
+      "apps/desktop/src-tauri/src/services/session.rs:260"
+    ],
+    "name": "delete_sessions"
+  },
+  {
+    "new_files": "internal/session/selection.go; internal/session/archive.go; internal/session/archive_index.go",
+    "test_evidence": "internal/session/parity_test.go",
+    "verification": "DOMAIN",
+    "note": "All filtered results; recent 20/7-day protection; transactional recoverable archival and title-index repair.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:315"
+    ],
+    "name": "get_session_storage_summary"
+  },
+  {
+    "new_files": "internal/account/account.go; internal/desktop/forms.go",
+    "test_evidence": "internal/account/account_test.go",
+    "verification": "DOMAIN",
+    "note": "Create with CAS; optional config template and seven legacy home subdirectories. Bound templates require explicit rebind; no credential copy.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:323"
+    ],
+    "name": "plan_create_account"
+  },
+  {
+    "new_files": "internal/account/account.go; internal/desktop/forms.go",
+    "test_evidence": "internal/account/account_test.go",
+    "verification": "DOMAIN",
+    "note": "Create with CAS; optional config template and seven legacy home subdirectories. Bound templates require explicit rebind; no credential copy.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:328",
+      "apps/desktop/src-tauri/src/services/account.rs:379"
+    ],
+    "name": "execute_create_account"
+  },
+  {
+    "new_files": "internal/account/account.go; internal/desktop/forms.go",
+    "test_evidence": "Edit is covered by account tests; physical relocation is not implemented",
+    "verification": "DIFFERENT",
+    "note": "Display rename keeps stable ID/home/wrapper. Old rename physically changes home and wrapper names; not identical.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:333"
+    ],
+    "name": "plan_rename_account"
+  },
+  {
+    "new_files": "internal/account/account.go; internal/desktop/forms.go",
+    "test_evidence": "Edit is covered by account tests; physical relocation is not implemented",
+    "verification": "DIFFERENT",
+    "note": "Display rename keeps stable ID/home/wrapper. Old rename physically changes home and wrapper names; not identical.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:338",
+      "apps/desktop/src-tauri/src/services/account.rs:578"
+    ],
+    "name": "execute_rename_account"
+  },
+  {
+    "new_files": "internal/account/delete.go; internal/account/account.go",
+    "test_evidence": "internal/account/account_test.go",
+    "verification": "DOMAIN",
+    "note": "Managed deletion is recoverable; external data remains untouched. Note/date/proxy persisted.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:343",
+      "apps/desktop/src-tauri/src/services/account.rs:637"
+    ],
+    "name": "delete_account"
+  },
+  {
+    "new_files": "internal/account/delete.go; internal/account/account.go",
+    "test_evidence": "internal/account/account_test.go",
+    "verification": "DOMAIN",
+    "note": "Managed deletion is recoverable; external data remains untouched. Note/date/proxy persisted.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:348",
+      "apps/desktop/src-tauri/src/services/account.rs:330"
+    ],
+    "name": "update_account_note"
+  },
+  {
+    "new_files": "internal/account/delete.go; internal/account/account.go",
+    "test_evidence": "internal/account/account_test.go",
+    "verification": "DOMAIN",
+    "note": "Managed deletion is recoverable; external data remains untouched. Note/date/proxy persisted.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:353",
+      "apps/desktop/src-tauri/src/services/account_proxy.rs:125"
+    ],
+    "name": "update_account_proxy"
+  },
+  {
+    "new_files": "internal/account/relay.go; internal/desktop/view.go",
+    "test_evidence": "internal/account/relay_test.go",
+    "verification": "DOMAIN",
+    "note": "Auxiliary relay profile with runtime/source provenance, preview/fingerprint, no authentication copy; not bulk Sync.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:360"
+    ],
+    "name": "plan_create_relay"
+  },
+  {
+    "new_files": "internal/account/relay.go; internal/desktop/view.go",
+    "test_evidence": "internal/account/relay_test.go",
+    "verification": "DOMAIN",
+    "note": "Auxiliary relay profile with runtime/source provenance, preview/fingerprint, no authentication copy; not bulk Sync.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:365",
+      "apps/desktop/src-tauri/src/services/account.rs:841"
+    ],
+    "name": "execute_create_relay"
+  },
+  {
+    "new_files": "internal/runtime/runtime.go; internal/runtime/terminals.go; internal/handoff/branches.go",
+    "test_evidence": "internal/runtime/runtime_test.go; internal/handoff/parity_test.go",
+    "verification": "INTEGRATION",
+    "note": "Typed launcher/argv replaces generic shell IPC. Source command construction tested; actual terminal apps unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:370",
+      "apps/desktop/src-tauri/src/services/relay.rs:77"
+    ],
+    "name": "build_resume_command"
+  },
+  {
+    "new_files": "internal/runtime/runtime.go; internal/runtime/terminals.go; internal/handoff/branches.go",
+    "test_evidence": "internal/runtime/runtime_test.go; internal/handoff/parity_test.go",
+    "verification": "INTEGRATION",
+    "note": "Typed launcher/argv replaces generic shell IPC. Source command construction tested; actual terminal apps unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:395",
+      "apps/desktop/src-tauri/src/services/relay.rs:319"
+    ],
+    "name": "build_login_command"
+  },
+  {
+    "new_files": "internal/runtime/runtime.go; internal/runtime/terminals.go; internal/handoff/branches.go",
+    "test_evidence": "internal/runtime/runtime_test.go; internal/handoff/parity_test.go",
+    "verification": "INTEGRATION",
+    "note": "Typed launcher/argv replaces generic shell IPC. Source command construction tested; actual terminal apps unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:385",
+      "apps/desktop/src-tauri/src/services/relay.rs:102"
+    ],
+    "name": "relay_resume_session"
+  },
+  {
+    "new_files": "internal/runtime/runtime.go; internal/runtime/terminals.go; internal/handoff/branches.go",
+    "test_evidence": "internal/runtime/runtime_test.go; internal/handoff/parity_test.go",
+    "verification": "INTEGRATION",
+    "note": "Typed launcher/argv replaces generic shell IPC. Source command construction tested; actual terminal apps unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:375",
+      "apps/desktop/src-tauri/src/services/relay.rs:340"
+    ],
+    "name": "open_terminal_with_resume"
+  },
+  {
+    "new_files": "internal/runtime/runtime.go; internal/runtime/terminals.go; internal/handoff/branches.go",
+    "test_evidence": "internal/runtime/runtime_test.go; internal/handoff/parity_test.go",
+    "verification": "INTEGRATION",
+    "note": "Typed launcher/argv replaces generic shell IPC. Source command construction tested; actual terminal apps unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:380",
+      "apps/desktop/src-tauri/src/services/relay.rs:345"
+    ],
+    "name": "open_terminal_with_command"
+  },
+  {
+    "new_files": "internal/runtime/runtime.go; internal/runtime/terminals.go; internal/handoff/branches.go",
+    "test_evidence": "internal/runtime/runtime_test.go; internal/handoff/parity_test.go",
+    "verification": "INTEGRATION",
+    "note": "Typed launcher/argv replaces generic shell IPC. Source command construction tested; actual terminal apps unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:390",
+      "apps/desktop/src-tauri/src/services/relay.rs:500"
+    ],
+    "name": "open_terminal_for_login"
+  },
+  {
+    "new_files": "internal/runtime/terminals.go; internal/settings/settings.go",
+    "test_evidence": "internal/runtime/runtime_test.go; internal/settings/settings_test.go",
+    "verification": "INTEGRATION",
+    "note": "Terminal/Ghostty/cmux/Codex.app discovery; selection stored; actual macOS launch unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:400",
+      "apps/desktop/src-tauri/src/services/relay.rs:505"
+    ],
+    "name": "list_terminal_targets"
+  },
+  {
+    "new_files": "internal/runtime/terminals.go; internal/settings/settings.go",
+    "test_evidence": "internal/runtime/runtime_test.go; internal/settings/settings_test.go",
+    "verification": "INTEGRATION",
+    "note": "Terminal/Ghostty/cmux/Codex.app discovery; selection stored; actual macOS launch unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:405"
+    ],
+    "name": "get_selected_terminal_target"
+  },
+  {
+    "new_files": "internal/runtime/terminals.go; internal/settings/settings.go",
+    "test_evidence": "internal/runtime/runtime_test.go; internal/settings/settings_test.go",
+    "verification": "INTEGRATION",
+    "note": "Terminal/Ghostty/cmux/Codex.app discovery; selection stored; actual macOS launch unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:410"
+    ],
+    "name": "set_selected_terminal_target"
+  },
+  {
+    "new_files": "internal/quota/quota.go; internal/app/app.go",
+    "test_evidence": "internal/quota/quota_test.go",
+    "verification": "DOMAIN",
+    "note": "Shared snapshots; stale/unknown state; reset operation IDs and explicit confirmation. Live account access unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:415",
+      "apps/desktop/src-tauri/src/services/quota.rs:104"
+    ],
+    "name": "get_profile_quota"
+  },
+  {
+    "new_files": "internal/quota/quota.go; internal/app/app.go",
+    "test_evidence": "internal/quota/quota_test.go",
+    "verification": "DOMAIN",
+    "note": "Shared snapshots; stale/unknown state; reset operation IDs and explicit confirmation. Live account access unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:425",
+      "apps/desktop/src-tauri/src/services/quota.rs:179"
+    ],
+    "name": "refresh_all_quotas"
+  },
+  {
+    "new_files": "internal/quota/quota.go; internal/app/app.go",
+    "test_evidence": "internal/quota/quota_test.go",
+    "verification": "DOMAIN",
+    "note": "Shared snapshots; stale/unknown state; reset operation IDs and explicit confirmation. Live account access unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:433",
+      "apps/desktop/src-tauri/src/services/quota.rs:218"
+    ],
+    "name": "reset_profile_quota"
+  },
+  {
+    "new_files": "internal/quota/quota.go; internal/app/app.go",
+    "test_evidence": "internal/quota/quota_test.go",
+    "verification": "DOMAIN",
+    "note": "Shared snapshots; stale/unknown state; reset operation IDs and explicit confirmation. Live account access unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:439",
+      "apps/desktop/src-tauri/src/services/quota.rs:157"
+    ],
+    "name": "list_cached_quotas"
+  },
+  {
+    "new_files": "internal/usage/indexer.go; internal/app/app.go",
+    "test_evidence": "internal/usage/usage_test.go",
+    "verification": "DOMAIN",
+    "note": "Incremental index/locks, archive inclusion, attribution; Core serializes refresh instead of exposing old try-refresh DTO.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:447",
+      "apps/desktop/src-tauri/src/services/usage.rs:529"
+    ],
+    "name": "refresh_usage_index"
+  },
+  {
+    "new_files": "internal/usage/indexer.go; internal/app/app.go",
+    "test_evidence": "internal/usage/usage_test.go",
+    "verification": "DOMAIN",
+    "note": "Incremental index/locks, archive inclusion, attribution; Core serializes refresh instead of exposing old try-refresh DTO.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:453"
+    ],
+    "name": "try_refresh_usage_index"
+  },
+  {
+    "new_files": "internal/quota/quota.go; internal/usage/account.go; internal/desktop/account_usage.go",
+    "test_evidence": "internal/usage/account_test.go",
+    "verification": "INTEGRATION",
+    "note": "Account data remains separate from local data; bounded-date comparison only; live RPC unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:461",
+      "apps/desktop/src-tauri/src/services/usage.rs:2832"
+    ],
+    "name": "refresh_account_usage_snapshot"
+  },
+  {
+    "new_files": "internal/app/app.go; internal/integrations/mygosqlite/sqlite.go; internal/desktop/view.go",
+    "test_evidence": "Native SQLite/UI tests written, not run",
+    "verification": "INTEGRATION",
+    "note": "Service/view queries replace old DTOs. Exact original scope enumeration and presentation are not certified.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:467",
+      "apps/desktop/src-tauri/src/services/usage.rs:612"
+    ],
+    "name": "get_usage_summary"
+  },
+  {
+    "new_files": "internal/app/app.go; internal/integrations/mygosqlite/sqlite.go; internal/desktop/view.go",
+    "test_evidence": "Native SQLite/UI tests written, not run",
+    "verification": "INTEGRATION",
+    "note": "Service/view queries replace old DTOs. Exact original scope enumeration and presentation are not certified.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:473",
+      "apps/desktop/src-tauri/src/services/usage.rs:702"
+    ],
+    "name": "get_usage_dashboard"
+  },
+  {
+    "new_files": "internal/app/app.go; internal/integrations/mygosqlite/sqlite.go; internal/desktop/view.go",
+    "test_evidence": "Native SQLite/UI tests written, not run",
+    "verification": "INTEGRATION",
+    "note": "Service/view queries replace old DTOs. Exact original scope enumeration and presentation are not certified.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:479",
+      "apps/desktop/src-tauri/src/services/usage.rs:820"
+    ],
+    "name": "get_usage_dashboard_response"
+  },
+  {
+    "new_files": "internal/app/app.go; internal/integrations/mygosqlite/sqlite.go; internal/desktop/view.go",
+    "test_evidence": "Native SQLite/UI tests written, not run",
+    "verification": "INTEGRATION",
+    "note": "Service/view queries replace old DTOs. Exact original scope enumeration and presentation are not certified.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:487",
+      "apps/desktop/src-tauri/src/services/usage.rs:841"
+    ],
+    "name": "get_usage_scopes"
+  },
+  {
+    "new_files": "internal/app/app.go; internal/integrations/mygosqlite/sqlite.go; internal/desktop/view.go",
+    "test_evidence": "Native SQLite/UI tests written, not run",
+    "verification": "INTEGRATION",
+    "note": "Service/view queries replace old DTOs. Exact original scope enumeration and presentation are not certified.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:493",
+      "apps/desktop/src-tauri/src/services/usage.rs:863"
+    ],
+    "name": "get_usage_overview"
+  },
+  {
+    "new_files": "internal/usage/activity.go; internal/usage/insights.go; internal/desktop/activity.go",
+    "test_evidence": "internal/usage/usage_test.go; internal/usage/insights_test.go",
+    "verification": "DOMAIN",
+    "note": "Daily/weekly activity, streaks, heatmap source and full-filter Fast/effort/skill metrics; real MyGo rendering unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:499",
+      "apps/desktop/src-tauri/src/services/usage.rs:995"
+    ],
+    "name": "get_usage_activity"
+  },
+  {
+    "new_files": "internal/usage/activity.go; internal/usage/insights.go; internal/desktop/activity.go",
+    "test_evidence": "internal/usage/usage_test.go; internal/usage/insights_test.go",
+    "verification": "DOMAIN",
+    "note": "Daily/weekly activity, streaks, heatmap source and full-filter Fast/effort/skill metrics; real MyGo rendering unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:507",
+      "apps/desktop/src-tauri/src/services/usage.rs:1015"
+    ],
+    "name": "get_usage_insights"
+  },
+  {
+    "new_files": "internal/integrations/mygosqlite/sqlite.go; internal/desktop/view.go",
+    "test_evidence": "Native SQLite/UI tests written, not run",
+    "verification": "INTEGRATION",
+    "note": "Separate Calls/Threads pagination; real plugin execution unverified.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:513",
+      "apps/desktop/src-tauri/src/services/usage.rs:1036"
+    ],
+    "name": "get_usage_calls"
+  },
+  {
+    "new_files": "internal/integrations/mygosqlite/sqlite.go; internal/desktop/view.go",
+    "test_evidence": "Native SQLite/UI tests written, not run",
+    "verification": "INTEGRATION",
+    "note": "Separate Calls/Threads pagination; real plugin execution unverified.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:521",
+      "apps/desktop/src-tauri/src/services/usage.rs:1056"
+    ],
+    "name": "get_usage_threads"
+  },
+  {
+    "new_files": "internal/usage/diagnostics.go; internal/integrations/mygosqlite/sqlite.go",
+    "test_evidence": "internal/usage/insights_test.go",
+    "verification": "DIFFERENT",
+    "note": "Low-cache/high-context/unknown model/refresh diagnostics; parser skipped categories are aggregated, not the full original error taxonomy.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:529",
+      "apps/desktop/src-tauri/src/services/usage.rs:1076"
+    ],
+    "name": "get_usage_diagnostics"
+  },
+  {
+    "new_files": "internal/usage/legacy_prices.go; internal/settings/settings.go",
+    "test_evidence": "internal/usage/usage_test.go",
+    "verification": "DOMAIN",
+    "note": "Versioned historical original rate card, overrides, cached-input and reasoning subset rules; not a current-price assertion.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:537",
+      "apps/desktop/src-tauri/src/services/usage.rs:1032"
+    ],
+    "name": "get_usage_rate_card"
+  },
+  {
+    "new_files": "internal/integrations/mygosqlite/sqlite.go; internal/app/app.go",
+    "test_evidence": "SQL literal checks pass; real MyGo integration test not run",
+    "verification": "INTEGRATION",
+    "note": "Reset preserves imported DB-only rows; compact uses actual plugin source.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:542",
+      "apps/desktop/src-tauri/src/services/usage.rs:3977"
+    ],
+    "name": "reset_usage_index"
+  },
+  {
+    "new_files": "internal/integrations/mygosqlite/sqlite.go; internal/app/app.go",
+    "test_evidence": "SQL literal checks pass; real MyGo integration test not run",
+    "verification": "INTEGRATION",
+    "note": "Reset preserves imported DB-only rows; compact uses actual plugin source.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:548",
+      "apps/desktop/src-tauri/src/services/usage.rs:3988"
+    ],
+    "name": "compact_usage_db"
+  },
+  {
+    "new_files": "internal/usage/activity.go; internal/desktop/view.go",
+    "test_evidence": "internal/usage/usage_test.go",
+    "verification": "DOMAIN",
+    "note": "Bounded raw history preview, path containment and source records.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:562"
+    ],
+    "name": "get_call_raw_contents"
+  },
+  {
+    "new_files": "internal/desktop/run.go; internal/desktop/view.go",
+    "test_evidence": "MyGo UI tests written, not run",
+    "verification": "INTEGRATION",
+    "note": "MyGo windows/router/opacity/shared quota snapshots replace Tauri events and pending-route IPC.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:675"
+    ],
+    "name": "sync_tray_quota"
+  },
+  {
+    "new_files": "internal/desktop/run.go; internal/desktop/view.go",
+    "test_evidence": "MyGo UI tests written, not run",
+    "verification": "INTEGRATION",
+    "note": "MyGo windows/router/opacity/shared quota snapshots replace Tauri events and pending-route IPC.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:681"
+    ],
+    "name": "show_main_window"
+  },
+  {
+    "new_files": "internal/desktop/run.go; internal/desktop/view.go",
+    "test_evidence": "MyGo UI tests written, not run",
+    "verification": "INTEGRATION",
+    "note": "MyGo windows/router/opacity/shared quota snapshots replace Tauri events and pending-route IPC.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:687"
+    ],
+    "name": "show_usage_stats"
+  },
+  {
+    "new_files": "internal/desktop/run.go; internal/desktop/view.go",
+    "test_evidence": "MyGo UI tests written, not run",
+    "verification": "INTEGRATION",
+    "note": "MyGo windows/router/opacity/shared quota snapshots replace Tauri events and pending-route IPC.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:699"
+    ],
+    "name": "take_pending_route"
+  },
+  {
+    "new_files": "internal/desktop/run.go; internal/desktop/view.go",
+    "test_evidence": "MyGo UI tests written, not run",
+    "verification": "INTEGRATION",
+    "note": "MyGo windows/router/opacity/shared quota snapshots replace Tauri events and pending-route IPC.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:707"
+    ],
+    "name": "set_quota_popover_opacity"
+  },
+  {
+    "new_files": "internal/desktop/run.go; internal/desktop/view.go",
+    "test_evidence": "MyGo UI tests written, not run",
+    "verification": "INTEGRATION",
+    "note": "MyGo windows/router/opacity/shared quota snapshots replace Tauri events and pending-route IPC.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:712"
+    ],
+    "name": "hide_quota_popover"
+  },
+  {
+    "new_files": "internal/provider/provider.go; internal/migration/migration.go",
+    "test_evidence": "internal/provider/provider_test.go; internal/migration/migration_test.go",
+    "verification": "DOMAIN",
+    "note": "Unified V2 Go domain; credentials remain references, legacy formats imported explicitly.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:717",
+      "apps/desktop/src-tauri/src/services/provider.rs:72"
+    ],
+    "name": "list_providers"
+  },
+  {
+    "new_files": "internal/provider/provider.go; internal/migration/migration.go",
+    "test_evidence": "internal/provider/provider_test.go; internal/migration/migration_test.go",
+    "verification": "DOMAIN",
+    "note": "Unified V2 Go domain; credentials remain references, legacy formats imported explicitly.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:723",
+      "apps/desktop/src-tauri/src/services/provider.rs:76"
+    ],
+    "name": "create_provider"
+  },
+  {
+    "new_files": "internal/provider/provider.go; internal/migration/migration.go",
+    "test_evidence": "internal/provider/provider_test.go; internal/migration/migration_test.go",
+    "verification": "DOMAIN",
+    "note": "Unified V2 Go domain; credentials remain references, legacy formats imported explicitly.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:728",
+      "apps/desktop/src-tauri/src/services/provider.rs:90"
+    ],
+    "name": "update_provider"
+  },
+  {
+    "new_files": "internal/provider/provider.go; internal/migration/migration.go",
+    "test_evidence": "internal/provider/provider_test.go; internal/migration/migration_test.go",
+    "verification": "DOMAIN",
+    "note": "Unified V2 Go domain; credentials remain references, legacy formats imported explicitly.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:733",
+      "apps/desktop/src-tauri/src/services/provider.rs:114"
+    ],
+    "name": "delete_provider"
+  },
+  {
+    "new_files": "internal/provider/health.go; internal/desktop/view.go",
+    "test_evidence": "internal/provider/health_test.go",
+    "verification": "DOMAIN",
+    "note": "Direct Responses /models health and persisted redacted observation; does not claim inference/stream compatibility.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:738",
+      "apps/desktop/src-tauri/src/services/provider.rs:134"
+    ],
+    "name": "test_provider"
+  },
+  {
+    "new_files": "internal/provider/binding.go; internal/provider/projection.go; internal/provider/reproject.go",
+    "test_evidence": "internal/provider/provider_test.go",
+    "verification": "DOMAIN",
+    "note": "Plan/fingerprint/CAS/config backup/catalog/compaction settings; live Codex config RPC unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:743",
+      "apps/desktop/src-tauri/src/services/provider.rs:156"
+    ],
+    "name": "plan_attach_provider_to_profile"
+  },
+  {
+    "new_files": "internal/provider/binding.go; internal/provider/projection.go; internal/provider/reproject.go",
+    "test_evidence": "internal/provider/provider_test.go",
+    "verification": "DOMAIN",
+    "note": "Plan/fingerprint/CAS/config backup/catalog/compaction settings; live Codex config RPC unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:750",
+      "apps/desktop/src-tauri/src/services/provider.rs:174"
+    ],
+    "name": "attach_provider_to_profile"
+  },
+  {
+    "new_files": "internal/provider/binding.go; internal/provider/projection.go; internal/provider/reproject.go",
+    "test_evidence": "internal/provider/provider_test.go",
+    "verification": "DOMAIN",
+    "note": "Plan/fingerprint/CAS/config backup/catalog/compaction settings; live Codex config RPC unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:757",
+      "apps/desktop/src-tauri/src/services/provider.rs:181"
+    ],
+    "name": "execute_attach_provider_to_profile"
+  },
+  {
+    "new_files": "internal/provider/provider.go; internal/migration/migration.go",
+    "test_evidence": "internal/provider/provider_test.go; internal/migration/migration_test.go",
+    "verification": "DOMAIN",
+    "note": "Unified V2 Go domain; credentials remain references, legacy formats imported explicitly.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:764"
+    ],
+    "name": "list_providers_v2"
+  },
+  {
+    "new_files": "internal/provider/provider.go; internal/desktop/view.go",
+    "test_evidence": "internal/provider/provider_test.go",
+    "verification": "DOMAIN",
+    "note": "Discovery previews catalog; explicit Save applies model changes and updates bindings.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:772"
+    ],
+    "name": "discover_provider_models_v2"
+  },
+  {
+    "new_files": "internal/provider/health.go; internal/desktop/view.go",
+    "test_evidence": "internal/provider/health_test.go",
+    "verification": "DOMAIN",
+    "note": "Direct Responses /models health and persisted redacted observation; does not claim inference/stream compatibility.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:783"
+    ],
+    "name": "test_provider_upstream_v2"
+  },
+  {
+    "new_files": "internal/provider/provider.go; internal/desktop/view.go",
+    "test_evidence": "internal/provider/provider_test.go",
+    "verification": "DOMAIN",
+    "note": "Discovery previews catalog; explicit Save applies model changes and updates bindings.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:797"
+    ],
+    "name": "refresh_provider_models_v2"
+  },
+  {
+    "new_files": "internal/provider/provider.go; internal/migration/migration.go",
+    "test_evidence": "internal/provider/provider_test.go; internal/migration/migration_test.go",
+    "verification": "DOMAIN",
+    "note": "Unified V2 Go domain; credentials remain references, legacy formats imported explicitly.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:809"
+    ],
+    "name": "create_provider_v2"
+  },
+  {
+    "new_files": "internal/provider/provider.go; internal/desktop/settings.go",
+    "test_evidence": "internal/provider/provider_test.go",
+    "verification": "DOMAIN",
+    "note": "Executable digest approval and state listing; arbitrary imported shell execution stays forbidden.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:825"
+    ],
+    "name": "approve_provider_auth_command_v2"
+  },
+  {
+    "new_files": "internal/provider/provider.go; internal/desktop/settings.go",
+    "test_evidence": "internal/provider/provider_test.go",
+    "verification": "DOMAIN",
+    "note": "Executable digest approval and state listing; arbitrary imported shell execution stays forbidden.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:839"
+    ],
+    "name": "list_provider_auth_command_approvals_v2"
+  },
+  {
+    "new_files": "internal/provider/provider.go; internal/migration/migration.go",
+    "test_evidence": "internal/provider/provider_test.go; internal/migration/migration_test.go",
+    "verification": "DOMAIN",
+    "note": "Unified V2 Go domain; credentials remain references, legacy formats imported explicitly.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:851"
+    ],
+    "name": "create_provider_with_keychain_v2"
+  },
+  {
+    "new_files": "internal/provider/provider.go; internal/migration/migration.go",
+    "test_evidence": "internal/provider/provider_test.go; internal/migration/migration_test.go",
+    "verification": "DOMAIN",
+    "note": "Unified V2 Go domain; credentials remain references, legacy formats imported explicitly.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:867"
+    ],
+    "name": "create_provider_legacy_compat_v2"
+  },
+  {
+    "new_files": "internal/provider/provider.go; internal/migration/migration.go",
+    "test_evidence": "internal/provider/provider_test.go; internal/migration/migration_test.go",
+    "verification": "DOMAIN",
+    "note": "Unified V2 Go domain; credentials remain references, legacy formats imported explicitly.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:888"
+    ],
+    "name": "update_provider_v2"
+  },
+  {
+    "new_files": "internal/provider/provider.go; internal/migration/migration.go",
+    "test_evidence": "internal/provider/provider_test.go; internal/migration/migration_test.go",
+    "verification": "DOMAIN",
+    "note": "Unified V2 Go domain; credentials remain references, legacy formats imported explicitly.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:904"
+    ],
+    "name": "delete_provider_v2"
+  },
+  {
+    "new_files": "internal/provider/provider.go; internal/migration/migration.go",
+    "test_evidence": "internal/provider/provider_test.go; internal/migration/migration_test.go",
+    "verification": "DOMAIN",
+    "note": "Unified V2 Go domain; credentials remain references, legacy formats imported explicitly.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:916"
+    ],
+    "name": "rotate_provider_credential_v2"
+  },
+  {
+    "new_files": "internal/model/model.go; internal/app/app.go; internal/desktop/view.go",
+    "test_evidence": "internal/provider/provider_test.go",
+    "verification": "DOMAIN",
+    "note": "Current store bindings plus imported pending-reconnect records.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:934"
+    ],
+    "name": "list_profile_provider_bindings_v2"
+  },
+  {
+    "new_files": "internal/provider/binding.go; internal/provider/projection.go; internal/provider/reproject.go",
+    "test_evidence": "internal/provider/provider_test.go",
+    "verification": "DOMAIN",
+    "note": "Plan/fingerprint/CAS/config backup/catalog/compaction settings; live Codex config RPC unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:943"
+    ],
+    "name": "plan_attach_provider_v2"
+  },
+  {
+    "new_files": "internal/provider/binding.go; internal/provider/projection.go; internal/provider/reproject.go",
+    "test_evidence": "internal/provider/provider_test.go",
+    "verification": "DOMAIN",
+    "note": "Plan/fingerprint/CAS/config backup/catalog/compaction settings; live Codex config RPC unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:971"
+    ],
+    "name": "execute_attach_provider_v2"
+  },
+  {
+    "new_files": "internal/provider/detach.go; internal/provider/binding.go; internal/desktop/forms.go",
+    "test_evidence": "internal/provider/detach_test.go",
+    "verification": "DOMAIN",
+    "note": "Durable detach preview with revision/generation/config hash, confirmation and transactionally restored config.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:991"
+    ],
+    "name": "plan_detach_provider_v2"
+  },
+  {
+    "new_files": "internal/provider/detach.go; internal/provider/binding.go; internal/desktop/forms.go",
+    "test_evidence": "internal/provider/detach_test.go",
+    "verification": "DOMAIN",
+    "note": "Durable detach preview with revision/generation/config hash, confirmation and transactionally restored config.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1013"
+    ],
+    "name": "execute_detach_provider_v2"
+  },
+  {
+    "new_files": "internal/provider/api_account.go; internal/desktop/forms.go; internal/desktop/view.go",
+    "test_evidence": "internal/provider/api_account_test.go",
+    "verification": "DOMAIN",
+    "note": "Stable creation plans, partial-create rollback, model switch, connection edit, delete with binding restoration on failure.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1033"
+    ],
+    "name": "plan_api_account_v2"
+  },
+  {
+    "new_files": "internal/provider/api_account.go; internal/desktop/forms.go; internal/desktop/view.go",
+    "test_evidence": "internal/provider/api_account_test.go",
+    "verification": "DOMAIN",
+    "note": "Stable creation plans, partial-create rollback, model switch, connection edit, delete with binding restoration on failure.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1053"
+    ],
+    "name": "execute_api_account_v2"
+  },
+  {
+    "new_files": "internal/provider/api_account.go; internal/desktop/forms.go; internal/desktop/view.go",
+    "test_evidence": "internal/provider/api_account_test.go",
+    "verification": "DOMAIN",
+    "note": "Stable creation plans, partial-create rollback, model switch, connection edit, delete with binding restoration on failure.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1075"
+    ],
+    "name": "plan_api_account_model_switch_v2"
+  },
+  {
+    "new_files": "internal/provider/api_account.go; internal/desktop/forms.go; internal/desktop/view.go",
+    "test_evidence": "internal/provider/api_account_test.go",
+    "verification": "DOMAIN",
+    "note": "Stable creation plans, partial-create rollback, model switch, connection edit, delete with binding restoration on failure.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1099"
+    ],
+    "name": "execute_api_account_model_switch_v2"
+  },
+  {
+    "new_files": "internal/provider/api_account.go; internal/desktop/forms.go; internal/desktop/view.go",
+    "test_evidence": "internal/provider/api_account_test.go",
+    "verification": "DOMAIN",
+    "note": "Stable creation plans, partial-create rollback, model switch, connection edit, delete with binding restoration on failure.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1121"
+    ],
+    "name": "get_api_account_connection_v2"
+  },
+  {
+    "new_files": "internal/provider/api_account.go; internal/desktop/forms.go; internal/desktop/view.go",
+    "test_evidence": "internal/provider/api_account_test.go",
+    "verification": "DOMAIN",
+    "note": "Stable creation plans, partial-create rollback, model switch, connection edit, delete with binding restoration on failure.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1135"
+    ],
+    "name": "update_api_account_connection_v2"
+  },
+  {
+    "new_files": "internal/provider/api_account.go; internal/desktop/forms.go; internal/desktop/view.go",
+    "test_evidence": "internal/provider/api_account_test.go",
+    "verification": "DOMAIN",
+    "note": "Stable creation plans, partial-create rollback, model switch, connection edit, delete with binding restoration on failure.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1157"
+    ],
+    "name": "delete_api_account_v2"
+  },
+  {
+    "new_files": "internal/provider/port.go; internal/gateway/supervisor.go; internal/desktop/settings.go",
+    "test_evidence": "internal/provider/port_test.go; internal/gateway/supervisor_test.go",
+    "verification": "DOMAIN",
+    "note": "Port preview/commit, revision conflicts, authenticated own-process stop; no foreign-process kill.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1177"
+    ],
+    "name": "plan_gateway_port_migration_v2"
+  },
+  {
+    "new_files": "internal/provider/port.go; internal/gateway/supervisor.go; internal/desktop/settings.go",
+    "test_evidence": "internal/provider/port_test.go; internal/gateway/supervisor_test.go",
+    "verification": "DOMAIN",
+    "note": "Port preview/commit, revision conflicts, authenticated own-process stop; no foreign-process kill.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1191"
+    ],
+    "name": "execute_gateway_port_migration_v2"
+  },
+  {
+    "new_files": "internal/quota/antigravity.go; internal/quota/antigravity_discovery.go",
+    "test_evidence": "internal/quota/antigravity_parity_test.go",
+    "verification": "DOMAIN",
+    "note": "Explicit configured port plus automatic current-user process CSRF; no arbitrary port scan; live Antigravity unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1211"
+    ],
+    "name": "get_antigravity_quota"
+  },
+  {
+    "new_files": "internal/account/account.go; internal/account/secondary.go; internal/account/pat.go; internal/account/runtime_profile.go",
+    "test_evidence": "internal/account/account_test.go",
+    "verification": "DOMAIN",
+    "note": "Preserve native auth fields, independent PAT homes, runtime vs quota auth, two-file switching/restore, CPA/session/PAT imports.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1218"
+    ],
+    "name": "upload_pat_credentials"
+  },
+  {
+    "new_files": "internal/account/account.go; internal/account/secondary.go; internal/account/pat.go; internal/account/runtime_profile.go",
+    "test_evidence": "internal/account/account_test.go",
+    "verification": "DOMAIN",
+    "note": "Preserve native auth fields, independent PAT homes, runtime vs quota auth, two-file switching/restore, CPA/session/PAT imports.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1226"
+    ],
+    "name": "get_pat_metadata"
+  },
+  {
+    "new_files": "internal/account/account.go; internal/account/secondary.go; internal/account/pat.go; internal/account/runtime_profile.go",
+    "test_evidence": "internal/account/account_test.go",
+    "verification": "DOMAIN",
+    "note": "Preserve native auth fields, independent PAT homes, runtime vs quota auth, two-file switching/restore, CPA/session/PAT imports.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1231"
+    ],
+    "name": "check_profile_token_expiration"
+  },
+  {
+    "new_files": "internal/account/account.go; internal/account/secondary.go; internal/account/pat.go; internal/account/runtime_profile.go",
+    "test_evidence": "internal/account/account_test.go",
+    "verification": "DOMAIN",
+    "note": "Preserve native auth fields, independent PAT homes, runtime vs quota auth, two-file switching/restore, CPA/session/PAT imports.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1238",
+      "apps/desktop/src-tauri/src/services/account.rs:1436"
+    ],
+    "name": "add_pat_account"
+  },
+  {
+    "new_files": "internal/account/account.go; internal/account/secondary.go; internal/account/pat.go; internal/account/runtime_profile.go",
+    "test_evidence": "internal/account/account_test.go",
+    "verification": "DOMAIN",
+    "note": "Preserve native auth fields, independent PAT homes, runtime vs quota auth, two-file switching/restore, CPA/session/PAT imports.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1243",
+      "apps/desktop/src-tauri/src/services/account.rs:1542"
+    ],
+    "name": "add_session_profile_account"
+  },
+  {
+    "new_files": "internal/account/account.go; internal/account/secondary.go; internal/account/pat.go; internal/account/runtime_profile.go",
+    "test_evidence": "internal/account/account_test.go",
+    "verification": "DOMAIN",
+    "note": "Preserve native auth fields, independent PAT homes, runtime vs quota auth, two-file switching/restore, CPA/session/PAT imports.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1250",
+      "apps/desktop/src-tauri/src/services/account.rs:1996"
+    ],
+    "name": "switch_to_pat_account"
+  },
+  {
+    "new_files": "internal/account/account.go; internal/account/secondary.go; internal/account/pat.go; internal/account/runtime_profile.go",
+    "test_evidence": "internal/account/account_test.go",
+    "verification": "DOMAIN",
+    "note": "Preserve native auth fields, independent PAT homes, runtime vs quota auth, two-file switching/restore, CPA/session/PAT imports.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1255",
+      "apps/desktop/src-tauri/src/services/account.rs:2183"
+    ],
+    "name": "export_cpa_credentials"
+  },
+  {
+    "new_files": "internal/account/account.go; internal/account/secondary.go; internal/account/pat.go; internal/account/runtime_profile.go",
+    "test_evidence": "internal/account/account_test.go",
+    "verification": "DOMAIN",
+    "note": "Preserve native auth fields, independent PAT homes, runtime vs quota auth, two-file switching/restore, CPA/session/PAT imports.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1260",
+      "apps/desktop/src-tauri/src/services/account.rs:2155"
+    ],
+    "name": "update_pat_session_auth"
+  },
+  {
+    "new_files": "internal/settings/settings.go; internal/desktop/settings.go; internal/runtime/runtime.go",
+    "test_evidence": "internal/settings/settings_test.go; internal/runtime/runtime_test.go",
+    "verification": "DOMAIN",
+    "note": "Explicit settings/native numeric controls; restored first-response 10-600 and request 300-3600 second limits; native effects unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1268",
+      "apps/desktop/src-tauri/src/services/types.rs:446"
+    ],
+    "name": "get_auth_mode"
+  },
+  {
+    "new_files": "internal/settings/settings.go; internal/desktop/settings.go; internal/runtime/runtime.go",
+    "test_evidence": "internal/settings/settings_test.go; internal/runtime/runtime_test.go",
+    "verification": "DOMAIN",
+    "note": "Explicit settings/native numeric controls; restored first-response 10-600 and request 300-3600 second limits; native effects unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1273",
+      "apps/desktop/src-tauri/src/services/types.rs:476"
+    ],
+    "name": "set_auth_mode"
+  },
+  {
+    "new_files": "internal/settings/settings.go; internal/desktop/settings.go; internal/runtime/runtime.go",
+    "test_evidence": "internal/settings/settings_test.go; internal/runtime/runtime_test.go",
+    "verification": "DOMAIN",
+    "note": "Explicit settings/native numeric controls; restored first-response 10-600 and request 300-3600 second limits; native effects unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1278"
+    ],
+    "name": "get_gateway_first_response_timeout_seconds"
+  },
+  {
+    "new_files": "internal/settings/settings.go; internal/desktop/settings.go; internal/runtime/runtime.go",
+    "test_evidence": "internal/settings/settings_test.go; internal/runtime/runtime_test.go",
+    "verification": "DOMAIN",
+    "note": "Explicit settings/native numeric controls; restored first-response 10-600 and request 300-3600 second limits; native effects unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1283",
+      "apps/desktop/src-tauri/src/services/types.rs:333"
+    ],
+    "name": "set_gateway_first_response_timeout_seconds"
+  },
+  {
+    "new_files": "internal/settings/settings.go; internal/desktop/settings.go; internal/runtime/runtime.go",
+    "test_evidence": "internal/settings/settings_test.go; internal/runtime/runtime_test.go",
+    "verification": "DOMAIN",
+    "note": "Explicit settings/native numeric controls; restored first-response 10-600 and request 300-3600 second limits; native effects unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1288"
+    ],
+    "name": "get_gateway_request_timeout_seconds"
+  },
+  {
+    "new_files": "internal/settings/settings.go; internal/desktop/settings.go; internal/runtime/runtime.go",
+    "test_evidence": "internal/settings/settings_test.go; internal/runtime/runtime_test.go",
+    "verification": "DOMAIN",
+    "note": "Explicit settings/native numeric controls; restored first-response 10-600 and request 300-3600 second limits; native effects unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1295",
+      "apps/desktop/src-tauri/src/services/types.rs:380"
+    ],
+    "name": "set_gateway_request_timeout_seconds"
+  },
+  {
+    "new_files": "internal/settings/settings.go; internal/desktop/settings.go; internal/runtime/runtime.go",
+    "test_evidence": "internal/settings/settings_test.go; internal/runtime/runtime_test.go",
+    "verification": "DOMAIN",
+    "note": "Explicit settings/native numeric controls; restored first-response 10-600 and request 300-3600 second limits; native effects unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1300"
+    ],
+    "name": "get_codex_launch_permission_preset"
+  },
+  {
+    "new_files": "internal/settings/settings.go; internal/desktop/settings.go; internal/runtime/runtime.go",
+    "test_evidence": "internal/settings/settings_test.go; internal/runtime/runtime_test.go",
+    "verification": "DOMAIN",
+    "note": "Explicit settings/native numeric controls; restored first-response 10-600 and request 300-3600 second limits; native effects unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1307",
+      "apps/desktop/src-tauri/src/services/types.rs:293"
+    ],
+    "name": "set_codex_launch_permission_preset"
+  },
+  {
+    "new_files": "internal/settings/settings.go; internal/desktop/settings.go; internal/runtime/runtime.go",
+    "test_evidence": "internal/settings/settings_test.go; internal/runtime/runtime_test.go",
+    "verification": "DOMAIN",
+    "note": "Explicit settings/native numeric controls; restored first-response 10-600 and request 300-3600 second limits; native effects unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1314"
+    ],
+    "name": "get_antigravity_port"
+  },
+  {
+    "new_files": "internal/settings/settings.go; internal/desktop/settings.go; internal/runtime/runtime.go",
+    "test_evidence": "internal/settings/settings_test.go; internal/runtime/runtime_test.go",
+    "verification": "DOMAIN",
+    "note": "Explicit settings/native numeric controls; restored first-response 10-600 and request 300-3600 second limits; native effects unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1319",
+      "apps/desktop/src-tauri/src/services/types.rs:419"
+    ],
+    "name": "set_antigravity_port"
+  },
+  {
+    "new_files": "internal/settings/settings.go; internal/desktop/settings.go; internal/runtime/runtime.go",
+    "test_evidence": "internal/settings/settings_test.go; internal/runtime/runtime_test.go",
+    "verification": "DOMAIN",
+    "note": "Explicit settings/native numeric controls; restored first-response 10-600 and request 300-3600 second limits; native effects unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1324",
+      "apps/desktop/src-tauri/src/services/types.rs:517"
+    ],
+    "name": "get_hide_dock_icon"
+  },
+  {
+    "new_files": "internal/settings/settings.go; internal/desktop/settings.go; internal/runtime/runtime.go",
+    "test_evidence": "internal/settings/settings_test.go; internal/runtime/runtime_test.go",
+    "verification": "DOMAIN",
+    "note": "Explicit settings/native numeric controls; restored first-response 10-600 and request 300-3600 second limits; native effects unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1331",
+      "apps/desktop/src-tauri/src/services/types.rs:541"
+    ],
+    "name": "set_hide_dock_icon"
+  },
+  {
+    "new_files": "internal/runtime/chatgpt.go; internal/desktop/settings.go",
+    "test_evidence": "internal/runtime/runtime_test.go",
+    "verification": "INTEGRATION",
+    "note": "Scoped own-user ChatGPT process selection and window-bound parsing tested; real restart unrun.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1348"
+    ],
+    "name": "restart_chatgpt"
+  },
+  {
+    "new_files": "internal/desktop/run.go; internal/gateway/supervisor.go",
+    "test_evidence": "Gateway supervisor tests pass; MyGo lifecycle unrun",
+    "verification": "INTEGRATION",
+    "note": "Desktop exit does not kill an independently owned active Go gateway.",
+    "legacy_definitions": [
+      "apps/desktop/src-tauri/src/commands/mod.rs:1385"
+    ],
+    "name": "quit_app"
+  }
+]

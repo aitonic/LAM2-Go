@@ -1,0 +1,25 @@
+ok  	lam.local/lam2/internal/account	0.118s	coverage: 61.5% of statements
+ok  	lam.local/lam2/internal/codex	0.017s	coverage: 59.2% of statements
+ok  	lam.local/lam2/internal/commands	0.003s	coverage: 91.3% of statements
+ok  	lam.local/lam2/internal/fault	0.002s	coverage: 68.8% of statements
+# lam.local/lam2/internal/migration [lam.local/lam2/internal/migration.test]
+internal/migration/usage_test.go:12:14: undefined: DecodeUsageRow
+internal/migration/usage_test.go:18:10: undefined: DecodeUsageRow
+internal/migration/usage_test.go:21:9: undefined: DecodeUsageRow
+internal/migration/usage_test.go:30:66: undefined: LegacyRow
+internal/migration/usage_test.go:37:12: undefined: StageLegacyUsage
+internal/migration/usage_test.go:40:6: undefined: StageLegacyUsage
+internal/migration/usage_test.go:43:6: undefined: StageLegacyUsage
+FAIL	lam.local/lam2/internal/migration [build failed]
+ok  	lam.local/lam2/internal/gateway	0.645s	coverage: 66.1% of statements
+ok  	lam.local/lam2/internal/handoff	0.184s	coverage: 62.9% of statements
+ok  	lam.local/lam2/internal/model	0.003s	coverage: 15.6% of statements
+	lam.local/lam2/internal/testutil		coverage: 0.0% of statements
+ok  	lam.local/lam2/internal/provider	0.552s	coverage: 61.0% of statements
+ok  	lam.local/lam2/internal/quota	0.108s	coverage: 71.5% of statements
+ok  	lam.local/lam2/internal/runtime	0.007s	coverage: 49.2% of statements
+ok  	lam.local/lam2/internal/session	0.104s	coverage: 73.3% of statements
+ok  	lam.local/lam2/internal/settings	0.020s	coverage: 60.9% of statements
+ok  	lam.local/lam2/internal/storage	0.137s	coverage: 56.9% of statements
+ok  	lam.local/lam2/internal/usage	0.005s	coverage: 78.9% of statements
+FAIL

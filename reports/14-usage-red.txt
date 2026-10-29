@@ -1,0 +1,27 @@
+ok  	lam.local/lam2/internal/account	0.158s	coverage: 61.5% of statements
+ok  	lam.local/lam2/internal/codex	0.015s	coverage: 53.6% of statements
+ok  	lam.local/lam2/internal/fault	0.003s	coverage: 68.8% of statements
+ok  	lam.local/lam2/internal/gateway	0.567s	coverage: 69.3% of statements
+ok  	lam.local/lam2/internal/handoff	0.131s	coverage: 62.9% of statements
+ok  	lam.local/lam2/internal/model	0.003s	coverage: 32.6% of statements
+ok  	lam.local/lam2/internal/provider	0.164s	coverage: 47.7% of statements
+ok  	lam.local/lam2/internal/quota	0.112s	coverage: 67.5% of statements
+ok  	lam.local/lam2/internal/runtime	0.006s	coverage: 45.7% of statements
+# lam.local/lam2/internal/usage [lam.local/lam2/internal/usage.test]
+internal/usage/usage_test.go:3:59: undefined: CounterState
+internal/usage/usage_test.go:3: undefined: Delta
+internal/usage/usage_test.go:4:252: undefined: CounterState
+internal/usage/usage_test.go:4: undefined: Delta
+internal/usage/usage_test.go:5: undefined: Price
+internal/usage/usage_test.go:6:38: undefined: Checkpoint
+internal/usage/usage_test.go:7:63: undefined: Checkpoint
+internal/usage/usage_test.go:8:50: undefined: Checkpoint
+internal/usage/usage_test.go:8:168: undefined: Checkpoint
+internal/usage/usage_test.go:10:42: undefined: Observation
+internal/usage/usage_test.go:8:168: too many errors
+ok  	lam.local/lam2/internal/session	0.082s	coverage: 73.3% of statements
+ok  	lam.local/lam2/internal/settings	0.022s	coverage: 54.2% of statements
+FAIL	lam.local/lam2/internal/usage [build failed]
+	lam.local/lam2/internal/testutil		coverage: 0.0% of statements
+ok  	lam.local/lam2/internal/storage	0.073s	coverage: 57.2% of statements
+FAIL

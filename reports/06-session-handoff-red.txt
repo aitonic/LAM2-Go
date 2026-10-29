@@ -1,0 +1,19 @@
+lam.local/lam2/internal/session: no non-test Go files in /tmp/tmp.OnxefFq9kl/internal/session
+FAIL	lam.local/lam2/internal/handoff [build failed]
+# lam.local/lam2/internal/session [lam.local/lam2/internal/session.test]
+internal/session/session_test.go:15:27: undefined: Service
+internal/session/session_test.go:17:212: undefined: Query
+internal/session/session_test.go:18:245: undefined: Ref
+internal/session/session_test.go:18: undefined: Query
+internal/session/session_test.go:19: undefined: Query
+internal/session/session_test.go:20:221: undefined: Ref
+ok  	lam.local/lam2/internal/account	0.173s	coverage: 61.5% of statements
+ok  	lam.local/lam2/internal/codex	0.015s	coverage: 53.6% of statements
+ok  	lam.local/lam2/internal/fault	0.003s	coverage: 68.8% of statements
+ok  	lam.local/lam2/internal/model	0.006s	coverage: 32.6% of statements
+FAIL	lam.local/lam2/internal/session [build failed]
+ok  	lam.local/lam2/internal/runtime	0.008s	coverage: 45.7% of statements
+ok  	lam.local/lam2/internal/settings	0.015s	coverage: 54.2% of statements
+	lam.local/lam2/internal/testutil		coverage: 0.0% of statements
+ok  	lam.local/lam2/internal/storage	0.101s	coverage: 63.4% of statements
+FAIL

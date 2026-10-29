@@ -1,0 +1,96 @@
+=== RUN   TestSSEFraming
+--- PASS: TestSSEFraming (0.00s)
+=== RUN   TestSSEOversizeAndIncomplete
+--- PASS: TestSSEOversizeAndIncomplete (0.00s)
+=== RUN   TestLimiterQueuesAndCancellation
+--- PASS: TestLimiterQueuesAndCancellation (0.00s)
+=== RUN   TestUnauthorizedNeverContactsUpstream
+--- PASS: TestUnauthorizedNeverContactsUpstream (0.00s)
+=== RUN   TestNonStreamTransport
+--- PASS: TestNonStreamTransport (0.00s)
+=== RUN   TestStreamingTerminalExactlyOnce
+--- PASS: TestStreamingTerminalExactlyOnce (0.00s)
+=== RUN   TestMissingTerminalIsErrorNotSuccess
+--- PASS: TestMissingTerminalIsErrorNotSuccess (0.00s)
+=== RUN   TestUpstreamStatusRedaction
+--- PASS: TestUpstreamStatusRedaction (0.00s)
+=== RUN   TestProtocolPreflightRejectsLoss
+--- PASS: TestProtocolPreflightRejectsLoss (0.00s)
+=== RUN   TestRequestModelIsolation
+--- PASS: TestRequestModelIsolation (0.00s)
+=== RUN   TestInputValidation
+--- PASS: TestInputValidation (0.00s)
+=== RUN   TestBodyLimit
+--- PASS: TestBodyLimit (0.50s)
+=== RUN   TestUnknownRoutes
+--- PASS: TestUnknownRoutes (0.00s)
+=== RUN   TestHealthChallenge
+    gateway_test.go:250: {12 hash 1 9f4c44876461f3c0c6bc12d57faf0391fe68b31d4ebb0c14f848e7eb40535c1f 0 0}
+--- FAIL: TestHealthChallenge (0.00s)
+=== RUN   TestCancelReleasesUpstream
+    gateway_test.go:270: upstream not cancelled
+2026/10/27 09:56:04 httptest.Server blocked in Close after 5 seconds, waiting for connections:
+  *net.TCPConn 0xc000050298 127.0.0.1:52536 in state active
+panic: test timed out after 15s
+	running tests:
+		TestCancelReleasesUpstream (14s)
+
+goroutine 121 [running]:
+testing.(*M).startAlarm.func1()
+	/usr/local/go/src/testing/testing.go:2373 +0x385
+created by time.goFunc
+	/usr/local/go/src/time/sleep.go:215 +0x2d
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0001524e0, {0x7ca64d?, 0x0?}, 0x7f7198)
+	/usr/local/go/src/testing/testing.go:1751 +0x3ab
+testing.runTests.func1(0xc0001524e0)
+	/usr/local/go/src/testing/testing.go:2168 +0x37
+testing.tRunner(0xc0001524e0, 0xc00005ec70)
+	/usr/local/go/src/testing/testing.go:1690 +0xf4
+testing.runTests(0xc00012e0c0, {0xa83200, 0xf, 0xf}, {0x470150?, 0x46fdba?, 0xa8a280?})
+	/usr/local/go/src/testing/testing.go:2166 +0x43d
+testing.(*M).Run(0xc00015ca00)
+	/usr/local/go/src/testing/testing.go:2034 +0x64a
+main.main()
+	_testmain.go:73 +0x9b
+
+goroutine 132 [semacquire]:
+sync.runtime_Semacquire(0x0?)
+	/usr/local/go/src/runtime/sema.go:71 +0x25
+sync.(*WaitGroup).Wait(0xc000003380?)
+	/usr/local/go/src/sync/waitgroup.go:118 +0x48
+net/http/httptest.(*Server).Close(0xc0000c5810)
+	/usr/local/go/src/net/http/httptest/server.go:251 +0x24d
+testing.(*common).Cleanup.func1()
+	/usr/local/go/src/testing/testing.go:1176 +0x109
+testing.(*common).runCleanup(0xc0000d89c0, 0xc0000c5880?)
+	/usr/local/go/src/testing/testing.go:1354 +0xd5
+testing.tRunner.func2()
+	/usr/local/go/src/testing/testing.go:1684 +0x25
+runtime.Goexit()
+	/usr/local/go/src/runtime/panic.go:629 +0x5e
+testing.(*common).FailNow(0xc0000d89c0)
+	/usr/local/go/src/testing/testing.go:1006 +0x4a
+testing.(*common).Fatal(0xc0000d89c0, {0xc0001aff40?, 0x7c3a54?, 0x0?})
+	/usr/local/go/src/testing/testing.go:1083 +0x54
+lam.local/lam2/internal/gateway.TestCancelReleasesUpstream(0xc0000d89c0)
+	/mnt/data/work/domain-check/internal/gateway/gateway_test.go:270 +0x38d
+testing.tRunner(0xc0000d89c0, 0x7f7198)
+	/usr/local/go/src/testing/testing.go:1690 +0xf4
+created by testing.(*T).Run in goroutine 1
+	/usr/local/go/src/testing/testing.go:1743 +0x390
+
+goroutine 139 [chan receive]:
+lam.local/lam2/internal/gateway.TestCancelReleasesUpstream.func1({0xc000060b88?, 0x6dfed4?}, 0x0?)
+	/mnt/data/work/domain-check/internal/gateway/gateway_test.go:259 +0x4a
+net/http.HandlerFunc.ServeHTTP(0x40f165?, {0x85d210?, 0xc0000aa2a0?}, 0xc0000aa201?)
+	/usr/local/go/src/net/http/server.go:2220 +0x29
+net/http.serverHandler.ServeHTTP({0x85bfb8?}, {0x85d210?, 0xc0000aa2a0?}, 0x6?)
+	/usr/local/go/src/net/http/server.go:3210 +0x8e
+net/http.(*conn).serve(0xc0000ef170, {0x85d6e0, 0xc00030acc0})
+	/usr/local/go/src/net/http/server.go:2092 +0x5d0
+created by net/http.(*Server).Serve in goroutine 133
+	/usr/local/go/src/net/http/server.go:3360 +0x485
+FAIL	lam.local/lam2/internal/gateway	15.014s
+FAIL

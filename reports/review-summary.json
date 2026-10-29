@@ -1,0 +1,41 @@
+{
+  "top_level_tests": 162,
+  "total_test_passes": 179,
+  "skipped_test_events": 0,
+  "failed_test_events": 0,
+  "tested_packages": [
+    "lam.local/lam2/internal/account",
+    "lam.local/lam2/internal/codex",
+    "lam.local/lam2/internal/commands",
+    "lam.local/lam2/internal/fault",
+    "lam.local/lam2/internal/gateway",
+    "lam.local/lam2/internal/handoff",
+    "lam.local/lam2/internal/migration",
+    "lam.local/lam2/internal/model",
+    "lam.local/lam2/internal/provider",
+    "lam.local/lam2/internal/quota",
+    "lam.local/lam2/internal/runtime",
+    "lam.local/lam2/internal/session",
+    "lam.local/lam2/internal/settings",
+    "lam.local/lam2/internal/storage",
+    "lam.local/lam2/internal/usage"
+  ],
+  "covered_statements": 4539,
+  "instrumented_statements": 6785,
+  "coverage_percent": 66.8976,
+  "go_files": 126,
+  "test_files": 35,
+  "go_lines": 21239,
+  "legacy_commands": 111,
+  "historical_fixture_files": 42,
+  "full_build": "BLOCKED_TOOLCHAIN_DOWNLOAD",
+  "native_integrations": "NOT_RUN",
+  "final_logs": {
+    "domain": "reports/review-116-config-copy-green.jsonl",
+    "race": "reports/review-117-final-race.txt",
+    "vet": "reports/review-118-final-vet.txt",
+    "source": "reports/review-119-final-source-audit.txt",
+    "full": "reports/review-120-full-build-attempt.txt",
+    "sql_only": "reports/review-121-sql-literals.json"
+  }
+}

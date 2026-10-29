@@ -1,0 +1,47 @@
+name: Go and MyGo validation
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  domain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.27.3'
+          cache: false
+      - name: Enforce per-feature domain test evidence
+        run: ./tools/check-feature-tests.sh domain
+      - run: ./tools/test-offline.sh race
+      - run: ./tools/test-offline.sh vet
+  native:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.27.3'
+          cache: false
+      - name: Resolve authentic modules and generate native catalogs
+        run: ./tools/bootstrap.sh
+      - name: Full build, integrations, native UI tests and race checks
+        run: ./tools/verify.sh
+      - name: Verify complete feature gate on release tags
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: ./tools/check-feature-tests.sh release
+      - name: Package native arm64 application (ad hoc, not a signed public release)
+        run: go tool mygo build -platform darwin/arm64 -skip-notarize
+      - name: Record resolved versions and native results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-validation
+          path: |
+            reports/
+            go.mod
+            go.sum
+            build/
