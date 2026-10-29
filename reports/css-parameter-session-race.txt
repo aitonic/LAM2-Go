@@ -1,0 +1,24 @@
+=== RUN   TestLegacyThreadNamesAndArchivedUsageDiscovery
+--- PASS: TestLegacyThreadNamesAndArchivedUsageDiscovery (0.01s)
+=== RUN   TestLatestMetadataBeyondHeadAndAllFilteredSelection
+--- PASS: TestLatestMetadataBeyondHeadAndAllFilteredSelection (0.76s)
+=== RUN   TestArchiveUpdatesAndRestoresSessionIndex
+--- PASS: TestArchiveUpdatesAndRestoresSessionIndex (0.04s)
+=== RUN   TestMultiProfileQueryStablePaginationSortAndDetails
+--- PASS: TestMultiProfileQueryStablePaginationSortAndDetails (0.03s)
+=== RUN   TestStorageSummaryCountsBytesAndProtectedRanges
+--- PASS: TestStorageSummaryCountsBytesAndProtectedRanges (0.02s)
+=== RUN   TestQueryPaginationAndTitle
+--- PASS: TestQueryPaginationAndTitle (0.02s)
+=== RUN   TestProtectedDeletionAndArchiveRestore
+--- PASS: TestProtectedDeletionAndArchiveRestore (0.05s)
+=== RUN   TestMalformedUTF8AndSymlinkAreContained
+--- PASS: TestMalformedUTF8AndSymlinkAreContained (0.01s)
+=== RUN   TestChangedDeletePlanIsRejected
+--- PASS: TestChangedDeletePlanIsRejected (0.03s)
+=== RUN   TestFilteredDeletePlanBeyondFirstThousand
+--- PASS: TestFilteredDeletePlanBeyondFirstThousand (13.35s)
+=== RUN   TestInterruptedArchiveRestoresFilesAndIndex
+--- PASS: TestInterruptedArchiveRestoresFilesAndIndex (0.05s)
+PASS
+ok  	lam.local/lam2/internal/session	15.384s

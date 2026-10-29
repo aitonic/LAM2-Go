@@ -32,10 +32,10 @@ func TestCreateProfileFormCancelsWithoutMutation(t *testing.T) {
 	u := New(nil)
 	u.locale = "en"
 	tt := ui.NewTester(u.view, 1200, 900)
-	if e := tt.Click("New profile"); e != nil {
+	if e := tt.Click("+ New Account"); e != nil {
 		t.Fatal(e)
 	}
-	if !u.profileOpen || !tt.HasText("Display name") {
+	if !u.profileOpen || !tt.HasText("Account name *") {
 		t.Fatal(tt.Texts())
 	}
 	if e := tt.Click("Cancel"); e != nil {
@@ -60,6 +60,9 @@ func TestAccountUsageAndAPIAccountEntries(t *testing.T) {
 	u.locale = "en"
 	u.router.Push("/usage")
 	tt := ui.NewTester(u.view, 1280, 900)
+	if err := tt.Click("Filters"); err != nil {
+		t.Fatal(err)
+	}
 	if !tt.HasText("Usage source") {
 		t.Fatal(tt.Texts())
 	}
@@ -100,6 +103,9 @@ func TestDiscoveredAccountRegistrationIsReachableWithoutExistingRegistration(t *
 	u.profileRow = 0
 	u.basic.Profiles = []model.Profile{{ID: "main", Name: "main", Home: "/tmp/nonexistent-codex", Managed: false}}
 	tt := ui.NewTester(u.view, 1280, 850)
+	if err := tt.Click("⋮"); err != nil {
+		t.Fatal("discovered account must have an operations menu:", err)
+	}
 	if err := tt.Click("Register discovered account"); err != nil {
 		t.Fatal("discovery registration UI is disabled:", err)
 	}

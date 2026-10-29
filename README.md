@@ -86,3 +86,44 @@ See [CLI reference](docs/CLI.md). One binary supports desktop/gateway/auth/launc
 ## Distribution
 
 `tools/build-macos.sh` requires macOS and complete online verification. The current app signing identity is ad-hoc, not a public distribution identity. No notarized app, live update endpoint or signing key is supplied. Dependency graph/SBOM and native resources require the real build audit. MIT notice is preserved; no font assets are redistributed.
+
+### Native appearance and visual parity
+
+The original LAM styling is rebuilt in MyGo Native UI, not as CSS. See
+`docs/VISUAL-PARITY.md` for each original screen and its Go implementation/test,
+plus `reference/visual/` for the original screenshot baselines. Run
+`make visual-audit` for source checks; native paint/UI parity must be validated
+with `./tools/verify.sh` on Go 1.27.3+ and visually checked on macOS arm64.
+Passing the offline business tests does not certify native styling.
+
+
+## Original LAM visual parity (separate acceptance gate)
+
+The visual contract in [`docs/VISUAL-PARITY.md`](docs/VISUAL-PARITY.md) is based on the six original screenshots, original CSS, `tauri.conf.json`, and original authored SVG paths. `make visual-audit` checks source geometry and asset fidelity; `make visual-native` demands six *real* native MyGo captures and fails if absent. The latter is **currently unverified**; do not infer visual parity from passed Go business tests.
+
+
+### Original CSS exact-value audit (2026-10-29)
+
+The complete 3,504 original CSS declaration registry is in
+`reference/visual/legacy-style-declarations.json` and CSV. Only **129**
+parameters have explicit Go source-value mappings; zero have real macOS
+Inspector/screenshot pixel-parity proof. This is **not** a claim of full visual
+equivalence. See `docs/css-parameter-parity-review.md`. Run
+`make visual-audit` for static checks and `make visual-native` for the strict
+release blocking check. It intentionally fails until all 3,504 properties
+are native verified (or explicitly accepted as truly inapplicable).
+
+
+## 原版视觉与功能逐条对齐（2026-10-29）
+
+**当前非正式发布、未完成原生验收。** 以原始 LAM 0.4.4 为不可修改基线。
+
+- `docs/EXHAUSTIVE-STYLE-FEATURE-REVIEW.md`：全量审查、已修复差异与明确缺口。
+- `reports/visual-trace/all-3504-css-review.csv`：CSS 全声明逐项对照。
+- `reports/visual-trace/all-css-rules-review.csv`：819 个规则组。
+- `reports/visual-trace/feature-239-review.csv`：239 项业务功能追踪。
+- `reports/visual-trace/visual-state-60-review.csv`：6 个截图 × 10 个视觉状态。
+- `make visual-audit`：检查台账、已登记源码契约和主要布局参数；**通过不等于 UI 像素一致**。
+- `make release-gate`：有未通过原生截图或未验收功能时一律阻断发布。
+
+当前可执行环境 Go 1.23.2，项目目标 Go 1.27.3 + MyGo v0.7.1，未完成全工程编译及 macOS arm64 真机视觉验收。

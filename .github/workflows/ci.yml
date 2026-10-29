@@ -16,6 +16,12 @@ jobs:
           cache: false
       - name: Enforce per-feature domain test evidence
         run: ./tools/check-feature-tests.sh domain
+      - name: Verify native visual source contracts
+        run: |
+          ./tools/check-visual-style.py
+          ./tools/check-style-contracts.py
+      - name: Verify original LAM SVG paths and tray resource
+        run: ./tools/check-original-icons.py
       - run: ./tools/test-offline.sh race
       - run: ./tools/test-offline.sh vet
   native:
@@ -30,9 +36,17 @@ jobs:
         run: ./tools/bootstrap.sh
       - name: Full build, integrations, native UI tests and race checks
         run: ./tools/verify.sh
+      - name: Verify visual style and native UI tests were actually executed
+        run: |
+          test -s reports/visual-source-audit.txt
+          test -s reports/native-tests.jsonl
+          python3 tools/check-native-visual-tests.py reports/native-tests.jsonl
       - name: Verify complete feature gate on release tags
         if: startsWith(github.ref, 'refs/tags/v')
         run: ./tools/check-feature-tests.sh release
+      - name: Release visual screenshot parity (requires actual native captures)
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: ./tools/check-native-screenshots.sh
       - name: Package native arm64 application (ad hoc, not a signed public release)
         run: go tool mygo build -platform darwin/arm64 -skip-notarize
       - name: Record resolved versions and native results

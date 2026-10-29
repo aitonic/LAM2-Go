@@ -160,30 +160,32 @@ func DefaultLimits() GatewayLimits {
 }
 
 type Settings struct {
-	GatewayPort      int           `json:"gatewayPort,omitempty"`
-	AccountMode      string        `json:"accountMode"`
-	TrayOpacity      float64       `json:"trayOpacity"`
-	Theme            string        `json:"theme"`
-	Language         string        `json:"language"`
-	Terminal         string        `json:"terminal"`
-	CodexPath        string        `json:"codexPath"`
-	RefreshSeconds   int           `json:"refreshSeconds"`
-	ShowDock         bool          `json:"showDock"`
-	CloseToTray      bool          `json:"closeToTray"`
-	OpenAtLogin      bool          `json:"openAtLogin"`
-	EmbeddedTerminal bool          `json:"embeddedTerminal"`
-	ApprovalPolicy   string        `json:"approvalPolicy"`
-	SandboxMode      string        `json:"sandboxMode"`
-	Gateway          GatewayLimits `json:"gateway"`
-	AntigravityPort  int           `json:"antigravityPort,omitempty"`
-	AntigravityURL   string        `json:"antigravityUrl,omitempty"`
-	AntigravityCSRF  CredentialRef `json:"antigravityCsrf,omitempty"`
-	UpdateURL        string        `json:"updateUrl,omitempty"`
-	UpdatePublicKey  string        `json:"updatePublicKey,omitempty"`
+	GatewayPort         int           `json:"gatewayPort,omitempty"`
+	AccountMode         string        `json:"accountMode"`
+	ModeAvailability    string        `json:"modeAvailability,omitempty"`
+	ExpandedCardActions bool          `json:"expandedCardActions,omitempty"`
+	TrayOpacity         float64       `json:"trayOpacity"`
+	Theme               string        `json:"theme"`
+	Language            string        `json:"language"`
+	Terminal            string        `json:"terminal"`
+	CodexPath           string        `json:"codexPath"`
+	RefreshSeconds      int           `json:"refreshSeconds"`
+	ShowDock            bool          `json:"showDock"`
+	CloseToTray         bool          `json:"closeToTray"`
+	OpenAtLogin         bool          `json:"openAtLogin"`
+	EmbeddedTerminal    bool          `json:"embeddedTerminal"`
+	ApprovalPolicy      string        `json:"approvalPolicy"`
+	SandboxMode         string        `json:"sandboxMode"`
+	Gateway             GatewayLimits `json:"gateway"`
+	AntigravityPort     int           `json:"antigravityPort,omitempty"`
+	AntigravityURL      string        `json:"antigravityUrl,omitempty"`
+	AntigravityCSRF     CredentialRef `json:"antigravityCsrf,omitempty"`
+	UpdateURL           string        `json:"updateUrl,omitempty"`
+	UpdatePublicKey     string        `json:"updatePublicKey,omitempty"`
 }
 
 func DefaultSettings() Settings {
-	return Settings{AccountMode: "profile", TrayOpacity: 1, Theme: "system", Language: "system", Terminal: "terminal", CodexPath: "codex", RefreshSeconds: 180, ShowDock: true, CloseToTray: true, ApprovalPolicy: "on-request", SandboxMode: "workspace-write", Gateway: DefaultLimits()}
+	return Settings{AccountMode: "profile", ModeAvailability: "profile", TrayOpacity: 1, Theme: "system", Language: "system", Terminal: "terminal", CodexPath: "codex", RefreshSeconds: 180, ShowDock: true, CloseToTray: true, ApprovalPolicy: "on-request", SandboxMode: "workspace-write", Gateway: DefaultLimits()}
 }
 
 type PATPeriod struct {

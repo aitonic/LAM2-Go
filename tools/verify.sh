@@ -12,6 +12,8 @@ export GOFLAGS=-mod=readonly
 go mod verify > reports/native-module-verify.txt 2>&1
 go tool mygo generate > reports/native-generate.txt 2>&1
 go tool mygo i18n check > reports/native-i18n.txt 2>&1
+./tools/check-visual-style.py > reports/visual-source-audit.txt 2>&1
+./tools/check-original-icons.py > reports/original-icon-audit.txt 2>&1
 go test -json -count=1 -timeout=5m -coverprofile=reports/full-coverage.out ./... > reports/native-tests.jsonl 2> reports/native-tests.stderr
 go test -race -count=1 -timeout=5m ./... > reports/native-race.txt 2>&1
 go vet ./... > reports/native-vet.txt 2>&1

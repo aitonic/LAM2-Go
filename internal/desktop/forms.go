@@ -19,6 +19,10 @@ func (u *UI) newProfile() {
 	u.configTemplate = ""
 	u.profileDraft = model.Profile{AuthMode: u.settings.AccountMode, Proxy: model.Proxy{Mode: "inherit"}}
 	u.profileHome = ""
+	u.profileImportJSON = ""
+	u.profileCreateMethodTab = 1
+	u.profileCreateModeTab = 0
+	u.profileOverwriteWrapper = false
 	u.profileEdit = false
 	u.profileOpen = true
 }
@@ -52,9 +56,14 @@ func (u *UI) clearCredentialDraft() {
 	u.authProfile = ""
 }
 func (u *UI) dialogs(c *ui.Context) {
+	p := paletteFor(c.Theme().Dark)
 	ui.Modal(c, &u.credentialOpen, func() {
-		ui.Column(c).Width(640).Gap(8).Children(func() {
-			ui.Text(c, "Import Session / PAT").Bold()
+		ui.Column(c).Width(640).Gap(8).Padding(20).Radius(16).Background(p.Surface).Border(1, p.Border).Shadow(0, 4, 14, 0, rootShadowMd(p)).Children(func() {
+			ui.Text(c, "Import Session / PAT").Bold().FontSize(19).TextColor(p.Ink)
+			ui.Row(c).Gap(8).Padding(10).Radius(10).Background(p.AmberSoft).Children(func() {
+				ui.Text(c, "!").Bold().TextColor(p.Amber)
+				ui.Text(c, "Sensitive credentials · only paste trusted session JSON. Secrets are never copied during Handoff.").FontSize(12).TextColor(p.Amber)
+			})
 			ui.Select(c, &u.authPurpose, []string{"runtime", "quota-session"}).Label("Credential purpose")
 			ui.Text(c, "Session / auth JSON")
 			ui.TextArea(c, &u.authJSONDraft).Height(180)
@@ -98,14 +107,85 @@ func (u *UI) dialogs(c *ui.Context) {
 	}
 
 	ui.Modal(c, &u.profileOpen, func() {
-		ui.Column(c).Width(620).Gap(10).Children(func() {
-			ui.Text(c, u.t("newProfile")).Bold()
-			ui.Field(c, u.t("name"), func() { ui.TextInput(c, &u.profileDraft.Name).AutoFocus() })
+		ui.Column(c).Width(500).Padding(18).Gap(14).Radius(16).Background(p.Surface).Border(1, p.Border).Shadow(0, 4, 14, 0, rootShadowMd(p)).Children(func() {
+			ui.Row(c).Height(46).Children(func() {
+				label := "Add Account"
+				if u.profileEdit {
+					label = "Edit Account"
+				}
+				ui.Text(c, label).Bold().FontSize(19).TextColor(p.Ink).Grow(1)
+				if ui.Button(c, "Close").Clicked() {
+					u.profileOpen = false
+					u.profileImportJSON = ""
+				}
+			})
+			ui.Divider(c)
 			if !u.profileEdit {
-				ui.Field(c, u.t("mode"), func() { ui.Select(c, &u.profileDraft.AuthMode, []string{"profile", "pat"}) })
-				ui.Field(c, u.t("home"), func() { ui.TextInput(c, &u.profileHome) })
-				ui.Field(c, "Copy config from (optional Profile ID)", func() { ui.TextInput(c, &u.configTemplate).Disabled(u.profileHome != "") })
+				// Preserve the original Profile Account / PAT Account rail.
+				availability := u.settings.ModeAvailability
+				if availability == "" {
+					availability = "profile"
+				}
+				if availability == "both" {
+					ui.Tabs(c, &u.profileCreateModeTab, "Profile Account", "PAT Account")
+					if u.profileCreateModeTab == 1 {
+						u.profileDraft.AuthMode = "pat"
+					} else {
+						u.profileDraft.AuthMode = "profile"
+					}
+				} else {
+					if availability == "pat" {
+						u.profileDraft.AuthMode = "pat"
+					} else {
+						u.profileDraft.AuthMode = "profile"
+					}
+					ui.Row(c).Padding(10).Radius(9).Border(1, p.Border).Background(p.SurfaceAlt).Center().Children(func() {
+						ui.Text(c, map[string]string{"profile": "Profile Account", "pat": "PAT Account"}[u.profileDraft.AuthMode]).Bold().FontSize(14).TextColor(p.Accent)
+					})
+				}
+				if u.profileDraft.AuthMode == "profile" {
+					ui.Tabs(c, &u.profileCreateMethodTab, "CLI Auth", "Import Session")
+				} else {
+					u.profileCreateMethodTab = 1
+				}
+				ui.Field(c, "Account name *", func() { ui.TextInput(c, &u.profileDraft.Name).AutoFocus() })
+				if u.profileCreateMethodTab == 1 {
+					ui.Row(c).Padding(12).Radius(10).Background(p.AmberSoft).Border(1, p.Amber.Alpha(.2)).Children(func() {
+						ui.Text(c, "ⓘ Sensitive credentials — Do not share or expose session JSON files. Only paste trusted session data.").FontSize(12).TextColor(p.Amber)
+					})
+					ui.Field(c, "Session JSON *", func() { ui.TextArea(c, &u.profileImportJSON).Height(210) })
+				} else {
+					ui.Field(c, "Copy config from", func() { ui.TextInput(c, &u.configTemplate) })
+					ui.Field(c, "Existing CODEX_HOME (optional)", func() { ui.TextInput(c, &u.profileHome) })
+				}
+				ui.Column(c).Padding(12).Gap(10).Radius(10).Background(p.SurfaceAlt).Border(1, p.Border).Children(func() {
+					root := "~/.codex-" + u.profileDraft.Name
+					if u.profileDraft.Name == "" {
+						root = "~/.codex-name"
+					}
+					if u.profileHome != "" {
+						root = u.profileHome
+					}
+					ui.Row(c).Children(func() { infoLine(c, p, "CODEX_HOME"); ui.Spacer(c).Grow(1); ui.Text(c, root).Bold().FontSize(12) })
+					ui.Row(c).Children(func() {
+						infoLine(c, p, "Auth")
+						ui.Spacer(c).Grow(1)
+						method := "Codex CLI login"
+						if u.profileCreateMethodTab == 1 {
+							method = "Converted Codex auth.json"
+						}
+						ui.Text(c, method).Bold().FontSize(12)
+					})
+				})
+				// The original wrapper override choice is shown, but do not
+				// pretend it is honored until the write-policy contract is
+				// implemented in Core. Existing wrappers are handled by Core.
+				ui.Column(c).Padding(10).Radius(9).Background(p.SurfaceAlt).Border(1, p.Border).Children(func() {
+					ui.Checkbox(c, &u.profileOverwriteWrapper, "Overwrite wrapper if it exists").Disabled(true)
+					infoLine(c, p, "Wrapper policy is controlled by the current Go runtime. This option is not yet available.")
+				})
 			} else {
+				ui.Field(c, u.t("name"), func() { ui.TextInput(c, &u.profileDraft.Name).AutoFocus() })
 				ui.Field(c, u.t("note"), func() { ui.TextInput(c, &u.profileDraft.Note) })
 				ui.Field(c, u.t("renewal"), func() { ui.TextInput(c, &u.profileDraft.RenewalDate) })
 				ui.Field(c, u.t("proxy"), func() { ui.Select(c, &u.profileDraft.Proxy.Mode, []string{"inherit", "disabled", "manual"}) })
@@ -117,70 +197,76 @@ func (u *UI) dialogs(c *ui.Context) {
 				}
 			}
 			u.formError(c)
-			ui.Row(c).Gap(8).Children(func() {
+			ui.Divider(c)
+			ui.Row(c).Gap(12).Children(func() {
 				if ui.Button(c, u.t("cancel")).Clicked() {
 					u.profileOpen = false
+					u.profileImportJSON = ""
 				}
-				if ui.PrimaryButton(c, u.t("save")).Disabled(u.busy).Clicked() {
+				ui.Spacer(c).Grow(1)
+				label := "Create Profile"
+				if u.profileEdit {
+					label = "Save Changes"
+				} else if u.profileCreateMethodTab == 1 {
+					label = "Import Profile"
+				}
+				if ui.PrimaryButton(c, label).Disabled(u.busy).Clicked() {
 					p, home, edit, rev := u.profileDraft, u.profileHome, u.profileEdit, u.basic.State.Revision
 					template := u.configTemplate
-					u.task(u.t("save"), func(ctx context.Context) (any, error) {
+					importing := !edit && u.profileCreateMethodTab == 1
+					raw := []byte(u.profileImportJSON)
+					if importing && !json.Valid(raw) {
+						clear(raw)
+						u.fail(fault.New("INPUT_INVALID", "Valid Session JSON is required"))
+						return
+					}
+					u.profileImportJSON = ""
+					u.task(label, func(ctx context.Context) (any, error) {
+						defer clear(raw)
 						if edit {
 							return nil, u.core.Accounts.Edit(ctx, p.ID, p.Name, p.Note, p.RenewalDate, p.Proxy, rev)
 						}
 						if strings.TrimSpace(home) != "" {
 							return u.core.Accounts.Register(ctx, home, p.Name, rev)
 						}
-						return u.core.CreateProfile(ctx, p.Name, p.AuthMode, rev, template)
-					}, func(v any) { u.profileOpen = false; u.reload() })
+						created, e := u.core.CreateProfile(ctx, p.Name, p.AuthMode, rev, template)
+						if e != nil {
+							return nil, e
+						}
+						if importing {
+							if e := u.core.Accounts.ImportAuth(ctx, created.ID, raw, true); e != nil {
+								return nil, fault.New("IMPORT_AUTH_FAILED", "Profile was created but credentials could not be imported. Use the account menu to retry; the profile was not deleted")
+							}
+						}
+						return created, nil
+					}, func(any) { u.profileOpen = false; u.reload() })
 				}
 			})
 		})
 	})
+	if !u.profileOpen {
+		u.profileImportJSON = ""
+	}
+
 	ui.Modal(c, &u.providerOpen, func() {
-		ui.Column(c).Width(680).Gap(8).Children(func() {
-			ui.Text(c, u.t("providers")).Bold()
-			ui.Scroll(c).Height(510).Gap(8).Children(func() {
-				ui.Field(c, u.t("name"), func() { ui.TextInput(c, &u.providerDraft.Name) })
-				ui.Field(c, u.t("protocol"), func() { ui.Select(c, &u.providerDraft.Protocol, []string{"responses", "chat_completions"}) })
-				ui.Field(c, u.t("baseURL"), func() { ui.TextInput(c, &u.providerDraft.BaseURL) })
-				ui.Field(c, u.t("authKind"), func() { ui.Select(c, &u.providerDraft.AuthKind, []string{"bearer", "api_key", "none"}) })
-				if u.providerDraft.AuthKind == "api_key" {
-					ui.Field(c, "API key header", func() { ui.TextInput(c, &u.providerDraft.AuthHeader) })
+		ui.Column(c).Width(780).Gap(12).Padding(18).Radius(16).Background(p.Surface).Border(1, p.Border).Shadow(0, 4, 14, 0, rootShadowMd(p)).Children(func() {
+			ui.Row(c).Height(48).Children(func() {
+				title := "Add External API"
+				if u.providerDraft.ID != "" {
+					title = "Edit API Account"
 				}
-				if u.providerDraft.AuthKind != "none" {
-					ui.Field(c, "Credential source", func() { ui.Select(c, &u.credentialKind, []string{"keychain", "env", "command", "codex_profile"}) })
-					if u.credentialKind == "env" {
-						ui.Field(c, "Environment variable", func() { ui.TextInput(c, &u.credentialEnv) })
-					}
-					if u.credentialKind == "keychain" {
-						ui.Field(c, u.t("secret"), func() { ui.TextInput(c, &u.secretDraft).Password() })
-					}
-					if u.credentialKind == "codex_profile" {
-						ui.Field(c, "API-key profile", func() { ui.Select(c, &u.providerDraft.Credential.ProfileID, u.profileIDs(false)) })
-					}
-					if u.credentialKind == "command" {
-						ui.Field(c, "Explicitly approved command ID", func() { ui.TextInput(c, &u.providerDraft.Credential.ApprovalID) })
-					}
-				}
-				ui.Field(c, u.t("modelList"), func() { ui.TextArea(c, &u.modelDraft).Height(90) })
-				ui.Field(c, u.t("defaultModel"), func() { ui.TextInput(c, &u.providerDraft.DefaultModel) })
-				choices := []string{"unknown", "supported", "partial", "unsupported"}
-				ui.Row(c).Gap(8).Children(func() {
-					ui.Field(c, "Streaming", func() { ui.Select(c, &u.providerDraft.Capabilities.Streaming, choices) }).Grow(1)
-					ui.Field(c, "Function tools", func() { ui.Select(c, &u.providerDraft.Capabilities.FunctionTools, choices) }).Grow(1)
-					ui.Field(c, "Images", func() { ui.Select(c, &u.providerDraft.Capabilities.Images, choices) }).Grow(1)
-				})
-				ui.Row(c).Gap(8).Children(func() {
-					ui.Field(c, "Structured output", func() { ui.Select(c, &u.providerDraft.Capabilities.StructuredOutputs, choices) }).Grow(1)
-					ui.Field(c, "Reasoning", func() { ui.Select(c, &u.providerDraft.Capabilities.Reasoning, choices) }).Grow(1)
-					ui.Field(c, "Custom tools", func() { ui.Select(c, &u.providerDraft.Capabilities.CustomTools, choices) }).Grow(1)
-					ui.Field(c, "Namespaces", func() { ui.Select(c, &u.providerDraft.Capabilities.Namespaces, choices) }).Grow(1)
-				})
-				if ui.Button(c, u.t("advanced")).Clicked() {
-					p := u.providerDraft
+				ui.Text(c, title).Bold().FontSize(19).TextColor(p.Ink).Grow(1)
+				if ui.Button(c, "Close").Clicked() {
 					u.providerOpen = false
-					u.editJSON(u.t("advanced"), p, func(raw string) {
+					u.secretDraft = ""
+				}
+			})
+			ui.Divider(c)
+			ui.Scroll(c).Height(510).Gap(8).Children(func() {
+				if ui.Button(c, "Advanced options  +").Clicked() {
+					current := u.providerDraft
+					u.providerOpen = false
+					u.editJSON("Advanced options", current, func(raw string) {
 						var v model.Provider
 						if json.Unmarshal([]byte(raw), &v) != nil {
 							u.fail(fault.New("INPUT_INVALID", "Invalid provider JSON"))
@@ -190,6 +276,50 @@ func (u *UI) dialogs(c *ui.Context) {
 						u.openProvider(v)
 					})
 				}
+				ui.Row(c).Gap(12).Children(func() {
+					softCard(c, p).Grow(1).Children(func() {
+						cardHeader(c, p, "1 · Connection details", "Endpoint and authentication")
+						ui.Field(c, u.t("name"), func() { ui.TextInput(c, &u.providerDraft.Name) })
+						ui.Field(c, u.t("protocol"), func() { ui.Select(c, &u.providerDraft.Protocol, []string{"responses", "chat_completions"}) })
+						ui.Field(c, u.t("baseURL"), func() { ui.TextInput(c, &u.providerDraft.BaseURL) })
+						ui.Field(c, u.t("authKind"), func() { ui.Select(c, &u.providerDraft.AuthKind, []string{"bearer", "api_key", "none"}) })
+						if u.providerDraft.AuthKind == "api_key" {
+							ui.Field(c, "API key header", func() { ui.TextInput(c, &u.providerDraft.AuthHeader) })
+						}
+						if u.providerDraft.AuthKind != "none" {
+							ui.Field(c, "Credential source", func() { ui.Select(c, &u.credentialKind, []string{"keychain", "env", "command", "codex_profile"}) })
+							if u.credentialKind == "env" {
+								ui.Field(c, "Environment variable", func() { ui.TextInput(c, &u.credentialEnv) })
+							}
+							if u.credentialKind == "keychain" {
+								ui.Field(c, u.t("secret"), func() { ui.TextInput(c, &u.secretDraft).Password() })
+							}
+							if u.credentialKind == "codex_profile" {
+								ui.Field(c, "API-key profile", func() { ui.Select(c, &u.providerDraft.Credential.ProfileID, u.profileIDs(false)) })
+							}
+							if u.credentialKind == "command" {
+								ui.Field(c, "Explicitly approved command ID", func() { ui.TextInput(c, &u.providerDraft.Credential.ApprovalID) })
+							}
+						}
+					})
+					softCard(c, p).Grow(1).Children(func() {
+						cardHeader(c, p, "2 · Model configuration", "Supported models and capabilities")
+						ui.Field(c, u.t("modelList"), func() { ui.TextArea(c, &u.modelDraft).Height(90) })
+						ui.Field(c, u.t("defaultModel"), func() { ui.TextInput(c, &u.providerDraft.DefaultModel) })
+						choices := []string{"unknown", "supported", "partial", "unsupported"}
+						ui.Row(c).Gap(8).Children(func() {
+							ui.Field(c, "Streaming", func() { ui.Select(c, &u.providerDraft.Capabilities.Streaming, choices) }).Grow(1)
+							ui.Field(c, "Function tools", func() { ui.Select(c, &u.providerDraft.Capabilities.FunctionTools, choices) }).Grow(1)
+							ui.Field(c, "Images", func() { ui.Select(c, &u.providerDraft.Capabilities.Images, choices) }).Grow(1)
+						})
+						ui.Row(c).Gap(8).Children(func() {
+							ui.Field(c, "Structured output", func() { ui.Select(c, &u.providerDraft.Capabilities.StructuredOutputs, choices) }).Grow(1)
+							ui.Field(c, "Reasoning", func() { ui.Select(c, &u.providerDraft.Capabilities.Reasoning, choices) }).Grow(1)
+							ui.Field(c, "Custom tools", func() { ui.Select(c, &u.providerDraft.Capabilities.CustomTools, choices) }).Grow(1)
+							ui.Field(c, "Namespaces", func() { ui.Select(c, &u.providerDraft.Capabilities.Namespaces, choices) }).Grow(1)
+						})
+					})
+				})
 			})
 			u.formError(c)
 			ui.Row(c).Gap(8).Children(func() {
@@ -213,14 +343,24 @@ func (u *UI) dialogs(c *ui.Context) {
 					p.Credential.EnvKey = u.credentialEnv
 					key, rev := u.secretDraft, u.basic.State.Revision
 					u.secretDraft = ""
-					u.task(u.t("save"), func(ctx context.Context) (any, error) { return u.core.Providers.Save(ctx, p, key, rev) }, func(v any) { u.providerOpen = false; u.reload() })
+					u.task(u.t("save"), func(ctx context.Context) (any, error) { return u.core.Providers.Save(ctx, p, key, rev) }, func(v any) {
+						u.providerOpen = false
+						u.reload()
+						if p.ID == "" {
+							created := v.(model.Provider)
+							u.bindProvider = created.ID
+							u.bindModel = created.DefaultModel
+							u.apiAccountName = created.Name
+							u.apiAccountOpen = true
+						}
+					})
 				}
 			})
 		})
 	})
 	ui.Modal(c, &u.loginOpen, func() {
-		ui.Column(c).Width(520).Gap(10).Children(func() {
-			ui.Text(c, u.t("login")).Bold()
+		ui.Column(c).Width(520).Gap(10).Padding(20).Radius(16).Background(p.Surface).Border(1, p.Border).Shadow(0, 4, 14, 0, rootShadowMd(p)).Children(func() {
+			ui.Text(c, u.t("login")).Bold().FontSize(19).TextColor(p.Ink)
 			ui.Field(c, u.t("mode"), func() { ui.Select(c, &u.loginKind, []string{"chatgpt", "chatgptDeviceCode", "apiKey"}) })
 			if u.loginKind == "apiKey" {
 				ui.Field(c, "API key", func() { ui.TextInput(c, &u.loginKey).Password() })
@@ -258,7 +398,7 @@ func (u *UI) dialogs(c *ui.Context) {
 		})
 	})
 	ui.Modal(c, &u.bindOpen, func() {
-		ui.Column(c).Width(600).Gap(10).Children(func() {
+		ui.Column(c).Width(600).Gap(10).Padding(20).Radius(16).Background(p.Surface).Border(1, p.Border).Shadow(0, 4, 14, 0, rootShadowMd(p)).Children(func() {
 			ui.Text(c, u.t("bind")).Bold()
 			ui.Text(c, u.bindProvider)
 			ui.Field(c, "Profile ID", func() { ui.Select(c, &u.bindProfile, u.profileIDs(false)) })
@@ -294,7 +434,7 @@ func (u *UI) dialogs(c *ui.Context) {
 		})
 	})
 	ui.Modal(c, &u.apiAccountOpen, func() {
-		ui.Column(c).Width(600).Gap(10).Children(func() {
+		ui.Column(c).Width(600).Gap(10).Padding(20).Radius(16).Background(p.Surface).Border(1, p.Border).Shadow(0, 4, 14, 0, rootShadowMd(p)).Children(func() {
 			ui.Text(c, "New API account").Bold()
 			ui.Text(c, u.bindProvider)
 			ui.TextInput(c, &u.apiAccountName).Label("Display name").AutoFocus()
@@ -324,8 +464,8 @@ func (u *UI) dialogs(c *ui.Context) {
 		})
 	})
 	ui.Modal(c, &u.handoffOpen, func() {
-		ui.Column(c).Width(600).Gap(10).Children(func() {
-			ui.Text(c, u.t("handoff")).Bold()
+		ui.Column(c).Width(600).Gap(10).Padding(20).Radius(16).Background(p.Surface).Border(1, p.Border).Shadow(0, 4, 14, 0, rootShadowMd(p)).Children(func() {
+			ui.Text(c, u.t("handoff")).Bold().FontSize(19).TextColor(p.Ink)
 			ui.Text(c, u.handoffSource+" / "+u.handoffSession)
 			ui.Field(c, u.t("target"), func() { ui.Select(c, &u.handoffTarget, u.profileIDs(false)) })
 			ui.Field(c, u.t("policy"), func() {
@@ -361,8 +501,8 @@ func (u *UI) dialogs(c *ui.Context) {
 		})
 	})
 	ui.Modal(c, &u.infoOpen, func() {
-		ui.Column(c).Width(700).Gap(10).Children(func() {
-			ui.Text(c, u.infoTitle).Bold()
+		ui.Column(c).Width(700).Gap(10).Padding(20).Radius(16).Background(p.Surface).Border(1, p.Border).Shadow(0, 4, 14, 0, rootShadowMd(p)).Children(func() {
+			ui.Text(c, u.infoTitle).Bold().FontSize(19).TextColor(p.Ink)
 			ui.TextArea(c, &u.infoText).ReadOnly(true).Height(420)
 			ui.Row(c).Gap(8).Children(func() {
 				if ui.Button(c, u.t("copy")).Clicked() {
@@ -375,8 +515,8 @@ func (u *UI) dialogs(c *ui.Context) {
 		})
 	})
 	ui.Modal(c, &u.jsonOpen, func() {
-		ui.Column(c).Width(700).Gap(10).Children(func() {
-			ui.Text(c, u.jsonTitle).Bold()
+		ui.Column(c).Width(700).Gap(10).Padding(20).Radius(16).Background(p.Surface).Border(1, p.Border).Shadow(0, 4, 14, 0, rootShadowMd(p)).Children(func() {
+			ui.Text(c, u.jsonTitle).Bold().FontSize(19).TextColor(p.Ink)
 			ui.TextArea(c, &u.jsonText).Height(420)
 			u.formError(c)
 			ui.Row(c).Gap(8).Children(func() {
@@ -390,8 +530,8 @@ func (u *UI) dialogs(c *ui.Context) {
 		})
 	})
 	ui.Modal(c, &u.confirmOpen, func() {
-		ui.Column(c).Width(680).Gap(10).Children(func() {
-			ui.Text(c, u.confirmTitle).Bold()
+		ui.Column(c).Width(680).Gap(10).Padding(20).Radius(16).Background(p.Surface).Border(1, p.Border).Shadow(0, 4, 14, 0, rootShadowMd(p)).Children(func() {
+			ui.Text(c, u.confirmTitle).Bold().FontSize(19).TextColor(p.Ink)
 			ui.TextArea(c, &u.confirmText).ReadOnly(true).Height(260)
 			ui.Row(c).Gap(8).Children(func() {
 				if ui.Button(c, u.t("cancel")).Clicked() {
@@ -419,6 +559,6 @@ func (u *UI) dialogs(c *ui.Context) {
 }
 func (u *UI) formError(c *ui.Context) {
 	if u.errorText != "" {
-		ui.Text(c, u.errorText).FontSize(12)
+		errorBanner(c, paletteFor(c.Theme().Dark), u.errorText)
 	}
 }

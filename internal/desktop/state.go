@@ -30,6 +30,7 @@ type UI struct {
 	usageSource             string
 	usagePreset             string
 	usageLoadLimit          string
+	usageFiltersOpen        bool
 	apiAccountName          string
 	apiAccountCreate        bool
 	apiAccountOpen          bool
@@ -38,7 +39,9 @@ type UI struct {
 	antiPort                string
 	trayOpacity             string
 	trayTab                 int
+	overviewAgentTab        int
 	usageTabIndex           int
+	settingsSection         int
 	threadTable             ui.ListState
 	watchers                map[string]context.CancelFunc
 	watchDirty              atomic.Bool
@@ -71,7 +74,9 @@ type UI struct {
 	nextQuota                                                                                    time.Time
 	nextAntigravity                                                                              time.Time
 	profileOpen, providerOpen, loginOpen, bindOpen, handoffOpen, infoOpen, confirmOpen, jsonOpen bool
-	profileEdit                                                                                  bool
+	profileEdit, accountMenuOpen, profileOverwriteWrapper                                        bool
+	profileCreateMethodTab, profileCreateModeTab                                                 int
+	profileImportJSON                                                                            string
 	profileDraft                                                                                 model.Profile
 	profileHome                                                                                  string
 	providerDraft                                                                                model.Provider
@@ -91,7 +96,7 @@ type UI struct {
 
 func New(core *app.Core) *UI {
 	ctx, cancel := context.WithCancel(context.Background())
-	u := &UI{core: core, ctx: ctx, cancel: cancel, router: ui.NewRouter("/overview"), basic: app.Basic{State: model.NewState(), Quotas: map[string]model.QuotaSnapshot{}}, settings: model.DefaultSettings(), query: session.Query{Sort: "modified", Descending: true, Limit: 50}, filter: usage.Filter{Limit: 50, ArchiveScope: "active"}, selected: map[string]session.Ref{}, profileRow: -1, providerRow: -1, sessionRow: -1, callRow: -1, usageTab: "calls", usageSource: "local", usagePreset: "all", usageLoadLimit: "5000", activityMode: "daily", activityMetric: "calls", threadRow: -1, handoffPolicy: "stop", loginKind: "chatgpt"}
+	u := &UI{core: core, ctx: ctx, cancel: cancel, router: ui.NewRouter("/overview"), basic: app.Basic{State: model.NewState(), Quotas: map[string]model.QuotaSnapshot{}}, settings: model.DefaultSettings(), query: session.Query{Sort: "modified", Descending: true, Limit: 50}, filter: usage.Filter{Limit: 50, ArchiveScope: "active"}, selected: map[string]session.Ref{}, profileRow: -1, providerRow: -1, sessionRow: -1, callRow: -1, usageTab: "calls", usageTabIndex: 0, usageSource: "local", usagePreset: "all", usageLoadLimit: "5000", activityMode: "daily", activityMetric: "calls", threadRow: -1, handoffPolicy: "stop", loginKind: "chatgpt"}
 	u.after = ""
 	u.before = ""
 	u.syncSettingsFields()
@@ -167,7 +172,7 @@ func (u *UI) reload() {
 	query := u.query
 	query.ProfileID = u.queryProfile
 	filter := u.filter
-	if u.usageTabIndex == 1 {
+	if u.usageTabIndex == 2 {
 		filter.Offset = u.threadOffset
 	}
 	filter.ProfileID = u.usageProfile
@@ -181,7 +186,7 @@ func (u *UI) reload() {
 	default:
 		filter.DetailLimit = 0 // All calls
 	}
-	if u.usageTabIndex == 1 {
+	if u.usageTabIndex == 2 {
 		filter.Limit = 100
 	}
 	filter.After = time.Time{}

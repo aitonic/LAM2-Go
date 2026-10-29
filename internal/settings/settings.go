@@ -22,6 +22,9 @@ func Validate(s model.Settings) error {
 	if s.AccountMode != "profile" && s.AccountMode != "pat" && s.AccountMode != "" {
 		return fault.New("SETTING_INVALID", "Invalid account mode")
 	}
+	if !in(s.ModeAvailability, "", "profile", "pat", "both") {
+		return fault.New("SETTING_INVALID", "Invalid mode availability")
+	}
 	if s.TrayOpacity != 0 && (s.TrayOpacity < 0.2 || s.TrayOpacity > 1) {
 		return fault.New("SETTING_INVALID", "Tray opacity must be between 0.2 and 1")
 	}

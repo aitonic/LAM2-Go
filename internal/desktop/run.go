@@ -1,11 +1,8 @@
 package desktop
 
 import (
-	"bytes"
 	"context"
-	"image"
-	"image/color"
-	"image/png"
+	"fmt"
 	"path/filepath"
 	"runtime"
 	"strings"
@@ -22,6 +19,7 @@ import (
 	"lam.local/lam2/internal/model"
 	"lam.local/lam2/internal/session"
 	"lam.local/lam2/internal/storage"
+	"lam.local/lam2/internal/visualspec"
 )
 
 // Run owns only the desktop lifetime. It deliberately does not stop the
@@ -85,7 +83,7 @@ func Run(core *app.Core) error {
 	})
 	mygo.App.WhenReady(func() {
 		u.locale = mygo.App.Locale()
-		u.win = mygo.NewWindow(mygo.WindowOptions{Title: "LAM 2", Width: 1280, Height: 880, MinWidth: 1050, MinHeight: 720, StateKey: "main", Content: ui.View(u.view)})
+		u.win = mygo.NewWindow(mygo.WindowOptions{Title: "LAM", Width: visualspec.MainWindowWidth, Height: visualspec.MainWindowHeight, MinWidth: visualspec.MainWindowMinWidth, MinHeight: visualspec.MainWindowMinHeight, StateKey: "main", Content: ui.View(u.view)})
 		u.win.OnClose(func(e *mygo.CloseEvent) {
 			if u.quitting {
 				return
@@ -167,28 +165,14 @@ func (u *UI) setMenu() {
 		{Role: mygo.RoleWindowMenu},
 	}))
 }
-func trayPNG() []byte {
-	// Small monochrome L glyph, not a font asset or copied legacy binary.
-	im := image.NewNRGBA(image.Rect(0, 0, 32, 32))
-	for y := 5; y < 27; y++ {
-		for x := 8; x < 24; x++ {
-			if x < 13 || y > 21 {
-				im.SetNRGBA(x, y, color.NRGBA{A: 255})
-			}
-		}
-	}
-	var out bytes.Buffer
-	_ = png.Encode(&out, im)
-	return out.Bytes()
-}
 func (u *UI) createTray() {
-	t, e := mygo.NewTray(mygo.TrayOptions{Icon: trayPNG(), IconIsTemplate: true, ToolTip: "LAM quota"})
+	t, e := mygo.NewTray(mygo.TrayOptions{Icon: originalTrayTemplate, IconIsTemplate: true, ToolTip: "LAM quota"})
 	if e != nil {
 		u.fail(fault.New("TRAY_UNAVAILABLE", "System tray could not be created; the main window remains usable"))
 		return
 	}
 	u.tray = t
-	u.trayWin = mygo.NewWindow(mygo.WindowOptions{Title: "LAM quota", Opacity: u.settings.TrayOpacity, Width: 420, Height: 540, Hidden: true, Frameless: true, Panel: true, SkipTaskbar: true, DisableResize: true, AlwaysOnTop: true, Content: ui.View(u.trayView)})
+	u.trayWin = mygo.NewWindow(mygo.WindowOptions{Title: "LAM Quota", Opacity: u.settings.TrayOpacity, Width: visualspec.TrayWidth, Height: visualspec.TrayHeight, Hidden: true, Frameless: true, Panel: true, SkipTaskbar: true, AlwaysOnTop: true, Content: ui.View(u.trayView)})
 	u.trayWin.OnBlur(func() { u.trayWin.Hide() })
 	u.trayWin.OnClose(func(e *mygo.CloseEvent) {
 		if !u.quitting {
@@ -202,7 +186,7 @@ func (u *UI) createTray() {
 			return
 		}
 		b := t.Bounds()
-		u.trayWin.SetPosition(b.X+b.Width-420, b.Y+b.Height+4)
+		u.trayWin.SetPosition(b.X+b.Width-visualspec.TrayWidth, b.Y+b.Height+6)
 		u.trayWin.Show()
 		u.trayWin.Focus()
 	}
@@ -219,19 +203,107 @@ func (u *UI) createTray() {
 	}
 }
 func (u *UI) trayView(c *ui.Context) {
-	ui.Column(c).Fill().Padding(16).Gap(12).Children(func() {
-		ui.Text(c, "LAM 2 / "+u.t("quota")).Bold().FontSize(18)
-		ui.Row(c).Gap(8).Children(func() {
-			if ui.Button(c, u.t("openMain")).Clicked() {
-				u.trayWin.Hide()
-				u.win.Show()
-				u.win.Focus()
+	p := applyLAMTheme(c)
+	tray := originalTrayStyle(p.Dark)
+	trayGradient := ui.LinearGradient{Angle: 180, From: ui.Hex("#fbfbfb"), To: ui.Hex("#f1f3f6")}
+	if p.Dark {
+		trayGradient = ui.LinearGradient{Angle: 180, From: ui.Hex("#15181f"), To: ui.Hex("#0d0f12")}
+	}
+	ui.Column(c).Fill().LinearGradient(trayGradient).Gap(0).Radius(14).Clip().
+		Border(1, tray.PanelBorder).FontFeatures("tnum").Children(func() {
+		ui.Row(c).Padding(10, 12, 9, 12).Gap(8).Background(tray.HeadBG).
+			BorderWidth(0, 0, 1, 0).BorderColor(tray.HeadBorder).Children(func() {
+			ui.Box(c).Size(30, 30).Radius(8).Background(p.AccentSoft).Center().Children(func() {
+				originalLAMLogo(c, 30)
+			})
+			ui.Column(c).Grow(1).Gap(2).Children(func() {
+				ui.Text(c, "LAM").FontWeight(800).FontSize(15).TextColor(p.Ink)
+				state := "Up to date"
+				if u.reading || u.busy {
+					state = "Refreshing..."
+				}
+				ui.Text(c, state).FontSize(11).TextColor(p.Muted)
+			})
+			if ui.Button(c, "☾").Tooltip("Toggle theme").Clicked() {
+				s := u.settings
+				if s.Theme == "dark" {
+					s.Theme = "light"
+				} else {
+					s.Theme = "dark"
+				}
+				u.settings = s
+				u.applyAppearance()
+				u.saveSettings(s)
 			}
-			if ui.Button(c, u.t("close")).Clicked() {
+			if ui.Button(c, "↻").Tooltip("Refresh all quotas").Disabled(u.busy).Clicked() {
+				u.refreshQuotas()
+			}
+			if ui.Button(c, "×").Tooltip("Close quota panel").Clicked() {
 				u.trayWin.Hide()
 			}
 		})
-		ui.Tabs(c, &u.trayTab, "Codex", "Antigravity")
+		// Original tray: three stat columns in a single strip with separators.
+		ui.Row(c).Height(46).Gap(0).Background(tray.StatsBG).
+			BorderWidth(0, 0, 1, 0).BorderColor(tray.StatsBorder).Children(func() {
+			registered := len(u.basic.State.Profiles)
+			usable := 0
+			var quotaSum float64
+			var quotaCount int
+			for _, q := range u.basic.Quotas {
+				if q.Stale || q.Status != "ready" {
+					continue
+				}
+				usable++
+				if len(q.Windows) > 0 && q.Windows[0].RemainingPercent != nil {
+					quotaSum += *q.Windows[0].RemainingPercent
+					quotaCount++
+				}
+			}
+			avg := "--"
+			if quotaCount > 0 {
+				avg = fmt.Sprintf("%.0f%%", quotaSum/float64(quotaCount))
+			}
+			for i, stat := range []struct {
+				label, value string
+				fg           ui.Color
+			}{
+				{"Accounts", fmt.Sprintf("%d/%d", registered, len(u.basic.Profiles)), p.Accent},
+				{"5h avg", avg, p.Purple},
+				{"Usable", fmt.Sprint(usable), p.Green},
+			} {
+				if i > 0 {
+					ui.Box(c).Size(1, 20).Background(tray.StatsDivider)
+				}
+				statColor := []ui.Color{tray.StatsValue, tray.StatsAverage, tray.StatsUsable}[i]
+				ui.Column(c).Grow(1).Center().Gap(1).Padding(7, 6, 6, 6).Children(func() {
+					ui.Text(c, stat.label).FontSize(10).FontWeight(750).TextColor(tray.StatsLabel)
+					ui.Text(c, stat.value).FontWeight(900).FontSize(16).LineHeight(1).TextColor(statColor)
+				})
+			}
+		})
+		// Keep the original active-source strip even when the current Codex
+		// mode has not published a concrete active identity.
+		ui.Row(c).Padding(8, 12).Background(tray.ActiveBG).
+			BorderWidth(0, 0, 1, 0).BorderColor(tray.ActiveBorder).Children(func() {
+			// The old .trayActiveSourceBar is a second inner chip, with its
+			// own 5x10 padding, 6px radius, 8px gap and green tinted border.
+			ui.Row(c).Grow(1).Gap(8).Padding(5, 10).Radius(6).
+				Background(ui.RGBA(16, 185, 129, .06)).Border(1, ui.RGBA(16, 185, 129, .12)).Children(func() {
+				ui.Text(c, "● ACTIVE").FontWeight(850).FontSize(10).TextColor(ui.Hex("#10b981"))
+				source := u.basic.State.ActivePAT
+				if source == "" {
+					source = "Codex profile mode"
+				}
+				ui.Text(c, source).FontWeight(800).FontSize(11).TextColor(tray.ActiveValue).SingleLine()
+			})
+		})
+		ui.Row(c).Padding(10, 14).Children(func() {
+			agCount := 0
+			for _, group := range u.quotaExtra.Groups {
+				agCount += len(group.Buckets)
+			}
+			ui.Tabs(c, &u.trayTab, fmt.Sprintf("Codex  %d", len(u.basic.Profiles)), fmt.Sprintf("Antigravity  %d", agCount))
+		})
 		if u.trayTab == 1 {
 			if ui.Button(c, "Refresh Antigravity").Disabled(u.busy).Clicked() {
 				u.task("Antigravity", func(ctx context.Context) (any, error) {
@@ -242,80 +314,129 @@ func (u *UI) trayView(c *ui.Context) {
 					return q, nil
 				}, func(v any) { u.quotaExtra = v.(model.QuotaSnapshot) })
 			}
-			if u.quotaExtra.Source != "" {
-				u.quotaView(c, u.quotaExtra)
-			} else {
-				ui.Text(c, "Antigravity: not refreshed / unavailable")
-			}
-			return
-		}
-		if ui.Button(c, u.t("refreshQuota")).Disabled(u.busy).Clicked() {
-			u.refreshQuotas()
-		}
-		ui.Scroll(c).Grow(1).Gap(10).Children(func() {
-			for _, p := range u.basic.Profiles {
-				_, registered := u.basic.State.Profiles[p.ID]
-				ui.Text(c, p.Name).Bold()
-				if q, ok := u.basic.Quotas[p.ID]; ok {
-					u.quotaView(c, q)
+			card(c, p).Grow(1).Children(func() {
+				if u.quotaExtra.Source != "" {
+					u.quotaView(c, u.quotaExtra)
 				} else {
-					ui.Text(c, u.t("unknown"))
+					infoLine(c, p, "Antigravity: not refreshed / unavailable")
 				}
-				if !registered {
-					ui.Text(c, "Discovered account - register in Overview").FontSize(11)
-					continue
+			})
+		} else {
+			ui.Row(c).Gap(10).Children(func() {
+				ui.Text(c, "Codex accounts").Bold().FontSize(15).TextColor(p.Ink).Grow(1)
+				if ui.Button(c, u.t("refreshQuota")).Disabled(u.busy).Clicked() {
+					u.refreshQuotas()
 				}
-				ui.Row(c).Gap(7).Children(func() {
-					if ui.Button(c, "Refresh "+p.Name).Disabled(u.busy).Clicked() {
-						id := p.ID
-						u.task("Refresh "+p.Name, func(ctx context.Context) (any, error) { return u.core.Quota.Refresh(ctx, id) }, func(v any) { u.basic.Quotas[id] = v.(model.QuotaSnapshot) })
-					}
-					if u.basic.State.Settings.AccountMode == "pat" {
-						if ui.Button(c, "Switch PAT").Disabled(u.busy || u.basic.State.ActivePAT == p.ID).Clicked() {
-							id := p.ID
-							u.confirm("Switch PAT", "Replace the shared Codex authentication; other running clients may be affected.", func() {
-								u.task("Switch PAT", func(ctx context.Context) (any, error) { return nil, u.core.Accounts.ActivatePAT(ctx, id, true) }, u.changed)
-							})
-							u.trayWin.Hide()
-							u.win.Show()
-							u.win.Focus()
-						}
-					} else if ui.Button(c, "Relay latest").Disabled(u.busy).Clicked() {
-						id := p.ID
-						u.task("Find last active session", func(ctx context.Context) (any, error) {
-							return u.core.Sessions.Query(ctx, session.Query{Sort: "modified", Descending: true, Limit: 1})
-						}, func(v any) {
-							page := v.(model.Page[model.Session])
-							if len(page.Items) == 0 {
-								u.fail(fault.New("SESSION_NOT_FOUND", "No active Codex session found"))
-								return
+			})
+			ui.Scroll(c).Grow(1).Padding(12, 12).Gap(10).Children(func() {
+				for _, acct := range u.basic.Profiles {
+					id := acct.ID
+					_, registered := u.basic.State.Profiles[id]
+					card(c, p).Children(func() {
+						ui.Row(c).Gap(7).Children(func() {
+							ui.Box(c).Size(8, 8).Radius(5).Background(p.Green)
+							ui.Text(c, acct.Name).Bold().FontSize(14).TextColor(p.Ink).Grow(1)
+							if !registered {
+								pill(c, p, "DISCOVERED", p.Amber, p.AmberSoft)
 							}
-							last := page.Items[0]
-							if last.ProfileID == id {
-								u.launch(id, last.ID, last.CWD)
-							} else {
-								u.handoffSource = last.ProfileID
-								u.handoffSession = last.ID
-								u.handoffTarget = id
-								u.handoffOpen = true
+							if acct.AuthMode != "" {
+								pill(c, p, acct.AuthMode, p.Accent, p.AccentSoft)
 							}
-							u.trayWin.Hide()
-							u.win.Show()
-							u.win.Focus()
 						})
-					}
-				})
+						quota, ok := u.basic.Quotas[id]
+						if ok {
+							ui.Row(c).Gap(10).Children(func() {
+								ui.Column(c).Grow(1).Gap(5).Children(func() {
+									infoLine(c, p, quota.Source+" · "+quota.PlanType)
+									if len(quota.Windows) > 0 {
+										infoLine(c, p, quota.Windows[0].ID)
+										if quota.Windows[0].ResetsAt != nil {
+											infoLine(c, p, quota.Windows[0].ResetsAt.Local().Format("Jan 2 · 15:04"))
+										}
+									}
+									if quota.Stale {
+										pill(c, p, "STALE", p.Amber, p.AmberSoft)
+									}
+									if len(quota.Windows) == 0 {
+										infoLine(c, p, "No reported quota windows")
+									}
+								})
+								if len(quota.Windows) > 0 {
+									quotaRing(c, p, quota.Windows[0].RemainingPercent)
+								}
+							})
+						} else {
+							infoLine(c, p, "No quota data — refresh to retry")
+						}
+						if registered {
+							ui.Row(c).Gap(7).Children(func() {
+								if ui.Button(c, "Refresh "+acct.Name).Grow(1).Disabled(u.busy).Clicked() {
+									u.task("Refresh "+acct.Name, func(ctx context.Context) (any, error) { return u.core.Quota.Refresh(ctx, id) }, func(v any) { u.basic.Quotas[id] = v.(model.QuotaSnapshot) })
+								}
+								if u.basic.State.Settings.AccountMode == "pat" {
+									if ui.Button(c, "Switch PAT").Disabled(u.busy || u.basic.State.ActivePAT == id).Clicked() {
+										u.confirm("Switch PAT", "Replace the shared Codex authentication; other running clients may be affected.", func() {
+											u.task("Switch PAT", func(ctx context.Context) (any, error) { return nil, u.core.Accounts.ActivatePAT(ctx, id, true) }, u.changed)
+										})
+										u.trayWin.Hide()
+										u.win.Show()
+										u.win.Focus()
+									}
+								} else if ui.Button(c, "Relay latest").Disabled(u.busy).Clicked() {
+									u.task("Find last active session", func(ctx context.Context) (any, error) {
+										return u.core.Sessions.Query(ctx, session.Query{Sort: "modified", Descending: true, Limit: 1})
+									}, func(v any) {
+										page := v.(model.Page[model.Session])
+										if len(page.Items) == 0 {
+											u.fail(fault.New("SESSION_NOT_FOUND", "No active Codex session found"))
+											return
+										}
+										last := page.Items[0]
+										if last.ProfileID == id {
+											u.launch(id, last.ID, last.CWD)
+										} else {
+											u.handoffSource = last.ProfileID
+											u.handoffSession = last.ID
+											u.handoffTarget = id
+											u.handoffOpen = true
+										}
+										u.trayWin.Hide()
+										u.win.Show()
+										u.win.Focus()
+									})
+								}
+							})
+						}
+					})
+				}
+				if len(u.basic.Profiles) == 0 {
+					infoLine(c, p, u.t("empty"))
+				}
+			})
+		}
+		if u.errorText != "" {
+			errorBanner(c, p, u.errorText)
+		}
+		ui.Row(c).Gap(8).Padding(6, 10, 8, 10).Background(tray.FooterBG).
+			BorderWidth(1, 0, 0, 0).BorderColor(tray.FooterBorder).Children(func() {
+			if ui.Button(c, "× Quit").Grow(1).Clicked() {
+				mygo.App.Quit()
 			}
-			if len(u.basic.Profiles) == 0 {
-				ui.Text(c, u.t("empty"))
+			if ui.Button(c, "⌁ Stats").Grow(1).Clicked() {
+				u.router.Push("/usage")
+				u.reload()
+				u.trayWin.Hide()
+				u.win.Show()
+				u.win.Focus()
+			}
+			if ui.Button(c, "↗ "+u.t("openMain")).Grow(1).Clicked() {
+				u.trayWin.Hide()
+				u.win.Show()
+				u.win.Focus()
 			}
 		})
-		if u.errorText != "" {
-			ui.Text(c, u.errorText).FontSize(11)
-		}
 	})
 }
-
 func (u *UI) launch(id, resume, cwd string, extra ...string) {
 	if u.settings.Terminal != "embedded" && !u.settings.EmbeddedTerminal {
 		u.task(u.t("launch"), func(ctx context.Context) (any, error) {

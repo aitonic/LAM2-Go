@@ -1,0 +1,12 @@
+2026-10-29 visual/layout review:
+- Visual structural gate: 21 checks PASS.
+- Extracted 12 original authored SVG icons: all child-path comparisons PASS.
+- Original app icon SHA match PASS; tray-menu PNG SHA match PASS.
+- Pure Go visualspec + visualdiff tests PASS.
+- Offline Go domain JSON: 187 top-level tests PASS, 208 test/subtest pass records, zero failure events.
+- Feature domain gate PASS: 125 actual test-evidenced items of 239; remaining not claimed verified.
+- Go offline vet PASS.
+- Offline race entire batch TIMEOUT, partial logs only; NOT PASSED.
+- Actual MyGo native visual screenshot comparison BLOCKED: no screenshots.
+- Full go test ./... BLOCKED: Go1.23.2 toolchain rejects go.mod tool directive; actual project needs Go1.27.3+.
+- macOS signed build/system verification NOT RUN.

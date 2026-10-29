@@ -1,0 +1,1558 @@
+[
+  {
+    "selector": ":root",
+    "property": "--surface",
+    "expected": "#ffffff",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Surface: ui.Hex(\"#ffffff\")",
+    "context": "base",
+    "label": ":root / --surface"
+  },
+  {
+    "selector": ":root",
+    "property": "--surface2",
+    "expected": "#f5f6f8",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "SurfaceAlt: ui.Hex(\"#f5f6f8\")",
+    "context": "base",
+    "label": ":root / --surface2"
+  },
+  {
+    "selector": ":root",
+    "property": "--text",
+    "expected": "#0f172a",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Ink: ui.Hex(\"#0f172a\")",
+    "context": "base",
+    "label": ":root / --text"
+  },
+  {
+    "selector": ":root",
+    "property": "--muted",
+    "expected": "#64748b",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Muted: ui.Hex(\"#64748b\")",
+    "context": "base",
+    "label": ":root / --muted"
+  },
+  {
+    "selector": ":root",
+    "property": "--faint",
+    "expected": "#94a3b8",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Faint: ui.Hex(\"#94a3b8\")",
+    "context": "base",
+    "label": ":root / --faint"
+  },
+  {
+    "selector": ":root",
+    "property": "--accent",
+    "expected": "#2563eb",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Accent: ui.Hex(\"#2563eb\")",
+    "context": "base",
+    "label": ":root / --accent"
+  },
+  {
+    "selector": ":root",
+    "property": "--accent-soft",
+    "expected": "#eff6ff",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "AccentSoft: ui.Hex(\"#eff6ff\")",
+    "context": "base",
+    "label": ":root / --accent-soft"
+  },
+  {
+    "selector": ":root",
+    "property": "--green",
+    "expected": "#16a34a",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Green: ui.Hex(\"#16a34a\")",
+    "context": "base",
+    "label": ":root / --green"
+  },
+  {
+    "selector": ":root",
+    "property": "--green-soft",
+    "expected": "#ecfdf3",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "GreenSoft: ui.Hex(\"#ecfdf3\")",
+    "context": "base",
+    "label": ":root / --green-soft"
+  },
+  {
+    "selector": ":root",
+    "property": "--amber",
+    "expected": "#b45309",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Amber: ui.Hex(\"#b45309\")",
+    "context": "base",
+    "label": ":root / --amber"
+  },
+  {
+    "selector": ":root",
+    "property": "--amber-soft",
+    "expected": "#fffbeb",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "AmberSoft: ui.Hex(\"#fffbeb\")",
+    "context": "base",
+    "label": ":root / --amber-soft"
+  },
+  {
+    "selector": ":root",
+    "property": "--red",
+    "expected": "#dc2626",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Danger: ui.Hex(\"#dc2626\")",
+    "context": "base",
+    "label": ":root / --red"
+  },
+  {
+    "selector": ":root",
+    "property": "--purple",
+    "expected": "#7c3aed",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Purple: ui.Hex(\"#7c3aed\")",
+    "context": "base",
+    "label": ":root / --purple"
+  },
+  {
+    "selector": ":root",
+    "property": "--purple-soft",
+    "expected": "#f5f3ff",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "PurpleSoft: ui.Hex(\"#f5f3ff\")",
+    "context": "base",
+    "label": ":root / --purple-soft"
+  },
+  {
+    "selector": ":root",
+    "property": "font-size",
+    "expected": "14px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "RootFontSize = 14",
+    "context": "base",
+    "label": ":root / font-size"
+  },
+  {
+    "selector": ":root",
+    "property": "line-height",
+    "expected": "1.45",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "RootLineHeight = 1.45",
+    "context": "base",
+    "label": ":root / line-height"
+  },
+  {
+    "selector": ":root[data-theme=\"dark\"]",
+    "property": "--surface",
+    "expected": "#141820",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Surface: ui.Hex(\"#141820\")",
+    "context": "base",
+    "label": ":root[data-theme=\"dark\"] / --surface"
+  },
+  {
+    "selector": ":root[data-theme=\"dark\"]",
+    "property": "--surface2",
+    "expected": "#1a2030",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "SurfaceAlt: ui.Hex(\"#1a2030\")",
+    "context": "base",
+    "label": ":root[data-theme=\"dark\"] / --surface2"
+  },
+  {
+    "selector": ":root[data-theme=\"dark\"]",
+    "property": "--text",
+    "expected": "#eef2ff",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Ink: ui.Hex(\"#eef2ff\")",
+    "context": "base",
+    "label": ":root[data-theme=\"dark\"] / --text"
+  },
+  {
+    "selector": ":root[data-theme=\"dark\"]",
+    "property": "--muted",
+    "expected": "#94a3b8",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Muted: ui.Hex(\"#94a3b8\")",
+    "context": "base",
+    "label": ":root[data-theme=\"dark\"] / --muted"
+  },
+  {
+    "selector": ":root[data-theme=\"dark\"]",
+    "property": "--faint",
+    "expected": "#64748b",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Faint: ui.Hex(\"#64748b\")",
+    "context": "base",
+    "label": ":root[data-theme=\"dark\"] / --faint"
+  },
+  {
+    "selector": ":root[data-theme=\"dark\"]",
+    "property": "--accent",
+    "expected": "#3b82f6",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Accent: ui.Hex(\"#3b82f6\")",
+    "context": "base",
+    "label": ":root[data-theme=\"dark\"] / --accent"
+  },
+  {
+    "selector": ":root[data-theme=\"dark\"]",
+    "property": "--accent-soft",
+    "expected": "rgba(59, 130, 246, 0.15)",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "AccentSoft: ui.RGBA(59, 130, 246, 0.15)",
+    "context": "base",
+    "label": ":root[data-theme=\"dark\"] / --accent-soft"
+  },
+  {
+    "selector": ":root[data-theme=\"dark\"]",
+    "property": "--green-soft",
+    "expected": "rgba(22, 163, 74, 0.15)",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "GreenSoft: ui.RGBA(22, 163, 74, 0.15)",
+    "context": "base",
+    "label": ":root[data-theme=\"dark\"] / --green-soft"
+  },
+  {
+    "selector": ":root[data-theme=\"dark\"]",
+    "property": "--amber-soft",
+    "expected": "rgba(180, 83, 9, 0.15)",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "AmberSoft: ui.RGBA(180, 83, 9, 0.15)",
+    "context": "base",
+    "label": ":root[data-theme=\"dark\"] / --amber-soft"
+  },
+  {
+    "selector": ":root[data-theme=\"dark\"]",
+    "property": "--purple-soft",
+    "expected": "rgba(124, 58, 237, 0.15)",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "PurpleSoft: ui.RGBA(124, 58, 237, 0.15)",
+    "context": "base",
+    "label": ":root[data-theme=\"dark\"] / --purple-soft"
+  },
+  {
+    "selector": ".titlebar",
+    "property": "gap",
+    "expected": "16px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": ".Gap(16)",
+    "context": "base",
+    "label": ".titlebar / gap"
+  },
+  {
+    "selector": ".titlebar",
+    "property": "padding",
+    "expected": "0 24px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "Padding(0, visualspec.PageSidePadding)",
+    "context": "base",
+    "label": ".titlebar / padding"
+  },
+  {
+    "selector": ".metricGrid",
+    "property": "gap",
+    "expected": "12px",
+    "file": "internal/desktop/overview.go",
+    "go_evidence": ".Gap(visualspec.OverviewStatCardGap)",
+    "context": "base",
+    "label": ".metricGrid / gap"
+  },
+  {
+    "selector": ".metricCard",
+    "property": "gap",
+    "expected": "14px",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Gap(visualspec.OverviewStatGap)",
+    "context": "base",
+    "label": ".metricCard / gap"
+  },
+  {
+    "selector": ".metricCard",
+    "property": "padding",
+    "expected": "16px 18px",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Padding(16, 18)",
+    "context": "base",
+    "label": ".metricCard / padding"
+  },
+  {
+    "selector": ".metricCard",
+    "property": "border-radius",
+    "expected": "14px",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Radius(visualspec.OverviewStatRadius)",
+    "context": "base",
+    "label": ".metricCard / border-radius"
+  },
+  {
+    "selector": ".metricCard strong",
+    "property": "font-size",
+    "expected": "26px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "OverviewStatValueFontSize = 26",
+    "context": "base",
+    "label": ".metricCard strong / font-size"
+  },
+  {
+    "selector": ".metricIcon",
+    "property": "width",
+    "expected": "42px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "OverviewStatIcon = 42",
+    "context": "base",
+    "label": ".metricIcon / width"
+  },
+  {
+    "selector": ".metricIcon",
+    "property": "height",
+    "expected": "42px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "OverviewStatIcon = 42",
+    "context": "base",
+    "label": ".metricIcon / height"
+  },
+  {
+    "selector": ".metricIcon",
+    "property": "border-radius",
+    "expected": "12px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "OverviewStatIconRadius = 12",
+    "context": "base",
+    "label": ".metricIcon / border-radius"
+  },
+  {
+    "selector": ".overviewPage",
+    "property": "gap",
+    "expected": "18px",
+    "file": "internal/desktop/overview.go",
+    "go_evidence": "ui.Scroll(c).Grow(1).Gap(18)",
+    "context": "base",
+    "label": ".overviewPage / gap"
+  },
+  {
+    "selector": ".accountCardGrid",
+    "property": "grid-template-columns",
+    "expected": "repeat(auto-fill, minmax(280px, 1fr))",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "AccountMinWidth = 280",
+    "context": "base",
+    "label": ".accountCardGrid / grid-template-columns"
+  },
+  {
+    "selector": ".accountCardGrid",
+    "property": "gap",
+    "expected": "10px",
+    "file": "internal/desktop/overview.go",
+    "go_evidence": ".Gap(visualspec.AccountGap)",
+    "context": "base",
+    "label": ".accountCardGrid / gap"
+  },
+  {
+    "selector": ".card",
+    "property": "padding",
+    "expected": "16px",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Padding(visualspec.CardPadding)",
+    "context": "base",
+    "label": ".card / padding"
+  },
+  {
+    "selector": ".card",
+    "property": "gap",
+    "expected": "10px",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Gap(visualspec.CardGap)",
+    "context": "base",
+    "label": ".card / gap"
+  },
+  {
+    "selector": ".card",
+    "property": "border-radius",
+    "expected": "14px",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Radius(visualspec.CardRadius)",
+    "context": "base",
+    "label": ".card / border-radius"
+  },
+  {
+    "selector": ".bottomDock",
+    "property": "bottom",
+    "expected": "26px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "StatusbarHeight = 26",
+    "context": "base",
+    "label": ".bottomDock / bottom"
+  },
+  {
+    "selector": ".bottomDockIsland",
+    "property": "padding",
+    "expected": "6px 14px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "islandPadX := visualspec.FloatingDockPaddingX",
+    "context": "base",
+    "label": ".bottomDockIsland / padding"
+  },
+  {
+    "selector": ".bottomDockIsland",
+    "property": "border-radius",
+    "expected": "18px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "DockRadius = 18",
+    "context": "base",
+    "label": ".bottomDockIsland / border-radius"
+  },
+  {
+    "selector": ".bottomDockIsland",
+    "property": "backdrop-filter",
+    "expected": "blur(28px) saturate(1.25)",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "glass.Blur{Radius: visualspec.DockBlur}",
+    "context": "base",
+    "label": "Dock filter only blur; saturation is NOT exact"
+  },
+  {
+    "selector": ".bottomNav",
+    "property": "gap",
+    "expected": "10px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "navGap := visualspec.FloatingDockGap",
+    "context": "base",
+    "label": ".bottomNav / gap"
+  },
+  {
+    "selector": ".bottomNavIcon",
+    "property": "width",
+    "expected": "32px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "FloatingDockIcon = 32",
+    "context": "base",
+    "label": ".bottomNavIcon / width"
+  },
+  {
+    "selector": ".bottomNavIcon",
+    "property": "height",
+    "expected": "32px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "FloatingDockIcon = 32",
+    "context": "base",
+    "label": ".bottomNavIcon / height"
+  },
+  {
+    "selector": ".bottomNavIcon",
+    "property": "border-radius",
+    "expected": "9px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "FloatingDockIconRadius = 9",
+    "context": "base",
+    "label": ".bottomNavIcon / border-radius"
+  },
+  {
+    "selector": ".bottomNavLabel",
+    "property": "font-size",
+    "expected": "10px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "FloatingDockLabelSize = 10",
+    "context": "base",
+    "label": ".bottomNavLabel / font-size"
+  },
+  {
+    "selector": ".statusbarOutside",
+    "property": "height",
+    "expected": "26px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "StatusbarHeight = 26",
+    "context": "base",
+    "label": ".statusbarOutside / height"
+  },
+  {
+    "selector": ".statusbarOutside",
+    "property": "padding",
+    "expected": "0 16px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "Padding(0, visualspec.StatusbarSidePadding)",
+    "context": "base",
+    "label": ".statusbarOutside / padding"
+  },
+  {
+    "selector": ".usageOverviewCardsGrid",
+    "property": "gap",
+    "expected": "16px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "ui.Row(c).Gap(16)",
+    "context": "base",
+    "label": ".usageOverviewCardsGrid / gap"
+  },
+  {
+    "selector": ".usageMetricCard",
+    "property": "padding",
+    "expected": "20px",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Padding(visualspec.UsageKpiPadding)",
+    "context": "base",
+    "label": ".usageMetricCard / padding"
+  },
+  {
+    "selector": ".usageMetricCard",
+    "property": "gap",
+    "expected": "16px",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Gap(visualspec.UsageKpiBodyGap)",
+    "context": "base",
+    "label": ".usageMetricCard / gap"
+  },
+  {
+    "selector": ".usageMetricCard",
+    "property": "border-radius",
+    "expected": "16px",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Radius(visualspec.UsageKpiRadius)",
+    "context": "base",
+    "label": ".usageMetricCard / border-radius"
+  },
+  {
+    "selector": ".usageMetricCard::before",
+    "property": "height",
+    "expected": "3px",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "Height(visualspec.UsageKpiAccentHeight)",
+    "context": "base",
+    "label": ".usageMetricCard::before / height"
+  },
+  {
+    "selector": ".usageMetricCard .cardHeader h4",
+    "property": "font-size",
+    "expected": "11.5px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "UsageKpiHeaderSize = 11.5",
+    "context": "base",
+    "label": ".usageMetricCard .cardHeader h4 / font-size"
+  },
+  {
+    "selector": ".usageMetricCard .cardIcon",
+    "property": "width",
+    "expected": "30px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "UsageKpiIconSize = 30",
+    "context": "base",
+    "label": ".usageMetricCard .cardIcon / width"
+  },
+  {
+    "selector": ".usageMetricCard .cardIcon",
+    "property": "height",
+    "expected": "30px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "UsageKpiIconSize = 30",
+    "context": "base",
+    "label": ".usageMetricCard .cardIcon / height"
+  },
+  {
+    "selector": ".usageMetricCard .statItem.main strong",
+    "property": "font-size",
+    "expected": "30px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "UsageKpiMainSize = 30",
+    "context": "base",
+    "label": ".usageMetricCard .statItem.main strong / font-size"
+  },
+  {
+    "selector": ".settingsSidebar",
+    "property": "width",
+    "expected": "220px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "SettingsSidebarWidth = 220",
+    "context": "base",
+    "label": ".settingsSidebar / width"
+  },
+  {
+    "selector": ".settingsSidebar",
+    "property": "padding",
+    "expected": "24px 16px",
+    "file": "internal/desktop/settings.go",
+    "go_evidence": "Padding(visualspec.SettingsSidebarPaddingY, visualspec.SettingsSidebarPaddingX)",
+    "context": "base",
+    "label": ".settingsSidebar / padding"
+  },
+  {
+    "selector": ".settingsSidebar",
+    "property": "gap",
+    "expected": "16px",
+    "file": "internal/desktop/settings.go",
+    "go_evidence": "Gap(visualspec.SettingsSidebarGap)",
+    "context": "base",
+    "label": ".settingsSidebar / gap"
+  },
+  {
+    "selector": ".settingsContent",
+    "property": "padding",
+    "expected": "32px 40px 140px",
+    "file": "internal/desktop/settings.go",
+    "go_evidence": "Padding(visualspec.SettingsContentPadTop, visualspec.SettingsContentPadX, visualspec.SettingsContentPadBottom, visualspec.SettingsContentPadX)",
+    "context": "base",
+    "label": ".settingsContent / padding"
+  },
+  {
+    "selector": ".settingsRowLayout",
+    "property": "padding",
+    "expected": "16px 20px",
+    "file": "internal/desktop/settings.go",
+    "go_evidence": "Padding(visualspec.SettingsRowPadY, visualspec.SettingsRowPadX)",
+    "context": "base",
+    "label": ".settingsRowLayout / padding"
+  },
+  {
+    "selector": ".settingsRowLayout",
+    "property": "gap",
+    "expected": "24px",
+    "file": "internal/desktop/settings.go",
+    "go_evidence": "Gap(visualspec.SettingsRowGap)",
+    "context": "base",
+    "label": ".settingsRowLayout / gap"
+  },
+  {
+    "selector": ".settingsRowTitle",
+    "property": "font-size",
+    "expected": "13.5px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "SettingsRowTitleSize = 13.5",
+    "context": "base",
+    "label": ".settingsRowTitle / font-size"
+  },
+  {
+    "selector": ".settingsRowDesc",
+    "property": "font-size",
+    "expected": "12px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "SettingsRowDescSize = 12",
+    "context": "base",
+    "label": ".settingsRowDesc / font-size"
+  },
+  {
+    "selector": ".settingsRowDesc",
+    "property": "line-height",
+    "expected": "1.4",
+    "file": "internal/desktop/settings.go",
+    "go_evidence": ".LineHeight(1.4)",
+    "context": "base",
+    "label": ".settingsRowDesc / line-height"
+  },
+  {
+    "selector": ".bottomDockIsland",
+    "property": "border-radius",
+    "expected": "14px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "NarrowDockRadius = 14",
+    "context": "@media (max-width: 1240px)",
+    "label": ".bottomDockIsland / border-radius"
+  },
+  {
+    "selector": ".bottomDockIsland",
+    "property": "padding",
+    "expected": "6px 12px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "islandPadX = visualspec.NarrowDockPaddingX",
+    "context": "@media (max-width: 1240px)",
+    "label": ".bottomDockIsland / padding"
+  },
+  {
+    "selector": ".bottomNav",
+    "property": "gap",
+    "expected": "6px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "NarrowDockGap = 6",
+    "context": "@media (max-width: 1240px)",
+    "label": ".bottomNav / gap"
+  },
+  {
+    "selector": ".bottomNavIcon",
+    "property": "width",
+    "expected": "28px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "NarrowDockIcon = 28",
+    "context": "@media (max-width: 1240px)",
+    "label": ".bottomNavIcon / width"
+  },
+  {
+    "selector": ".bottomNavIcon",
+    "property": "height",
+    "expected": "28px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "NarrowDockIcon = 28",
+    "context": "@media (max-width: 1240px)",
+    "label": ".bottomNavIcon / height"
+  },
+  {
+    "selector": ".bottomNavIcon",
+    "property": "border-radius",
+    "expected": "8px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "NarrowDockIconRadius = 8",
+    "context": "@media (max-width: 1240px)",
+    "label": ".bottomNavIcon / border-radius"
+  },
+  {
+    "selector": ".bottomNavLabel",
+    "property": "font-size",
+    "expected": "9px",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "NarrowDockLabelSize = 9",
+    "context": "@media (max-width: 1240px)",
+    "label": ".bottomNavLabel / font-size"
+  },
+  {
+    "selector": ".metricGrid, .accountCardGrid, .cardGrid",
+    "property": "grid-template-columns",
+    "expected": "1fr",
+    "file": "internal/visualspec/geometry.go",
+    "go_evidence": "OriginalNarrowBreakpoint = 1240",
+    "context": "@media (max-width: 1240px)",
+    "label": ".metricGrid, .accountCardGrid, .cardGrid / grid-template-columns"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"light\"]",
+    "property": "--head-border",
+    "expected": "rgba(15, 23, 42, 0.08)",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "HeadBorder: ui.RGBA(15, 23, 42, 0.08)",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"light\"] / --head-border"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"light\"]",
+    "property": "--head-bg",
+    "expected": "rgba(15, 23, 42, 0.01)",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "HeadBG: ui.RGBA(15, 23, 42, 0.01)",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"light\"] / --head-bg"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"light\"]",
+    "property": "--stats-border",
+    "expected": "rgba(15, 23, 42, 0.08)",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "StatsBorder: ui.RGBA(15, 23, 42, 0.08)",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"light\"] / --stats-border"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"light\"]",
+    "property": "--stats-bg",
+    "expected": "rgba(15, 23, 42, 0.025)",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "StatsBG: ui.RGBA(15, 23, 42, 0.025)",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"light\"] / --stats-bg"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"light\"]",
+    "property": "--stats-divider",
+    "expected": "rgba(15, 23, 42, 0.08)",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "StatsDivider: ui.RGBA(15, 23, 42, 0.08)",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"light\"] / --stats-divider"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"light\"]",
+    "property": "--stats-label",
+    "expected": "#64748b",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "StatsLabel: ui.Hex(\"#64748b\")",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"light\"] / --stats-label"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"light\"]",
+    "property": "--stats-val",
+    "expected": "#2563eb",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "StatsValue: ui.Hex(\"#2563eb\")",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"light\"] / --stats-val"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"light\"]",
+    "property": "--stats-avg-val",
+    "expected": "#7c3aed",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "StatsAverage: ui.Hex(\"#7c3aed\")",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"light\"] / --stats-avg-val"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"light\"]",
+    "property": "--stats-usable-val",
+    "expected": "#059669",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "StatsUsable: ui.Hex(\"#059669\")",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"light\"] / --stats-usable-val"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"light\"]",
+    "property": "--active-border",
+    "expected": "rgba(15, 23, 42, 0.05)",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "ActiveBorder: ui.RGBA(15, 23, 42, 0.05)",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"light\"] / --active-border"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"light\"]",
+    "property": "--active-bg",
+    "expected": "rgba(15, 23, 42, 0.01)",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "ActiveBG: ui.RGBA(15, 23, 42, 0.01)",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"light\"] / --active-bg"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"light\"]",
+    "property": "--active-val",
+    "expected": "#0f172a",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "ActiveValue: ui.Hex(\"#0f172a\")",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"light\"] / --active-val"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"light\"]",
+    "property": "--foot-border",
+    "expected": "rgba(15, 23, 42, 0.08)",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "FooterBorder: ui.RGBA(15, 23, 42, 0.08)",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"light\"] / --foot-border"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"light\"]",
+    "property": "--foot-bg",
+    "expected": "rgba(15, 23, 42, 0.02)",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "FooterBG: ui.RGBA(15, 23, 42, 0.02)",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"light\"] / --foot-bg"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"dark\"]",
+    "property": "--head-border",
+    "expected": "rgba(255, 255, 255, 0.08)",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "HeadBorder: ui.RGBA(255, 255, 255, 0.08)",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"dark\"] / --head-border"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"dark\"]",
+    "property": "--head-bg",
+    "expected": "rgba(255, 255, 255, 0.015)",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "HeadBG: ui.RGBA(255, 255, 255, 0.015)",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"dark\"] / --head-bg"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"dark\"]",
+    "property": "--stats-border",
+    "expected": "rgba(255, 255, 255, 0.08)",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "StatsBorder: ui.RGBA(255, 255, 255, 0.08)",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"dark\"] / --stats-border"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"dark\"]",
+    "property": "--stats-bg",
+    "expected": "rgba(255, 255, 255, 0.025)",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "StatsBG: ui.RGBA(255, 255, 255, 0.025)",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"dark\"] / --stats-bg"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"dark\"]",
+    "property": "--stats-divider",
+    "expected": "rgba(255, 255, 255, 0.1)",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "StatsDivider: ui.RGBA(255, 255, 255, 0.1)",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"dark\"] / --stats-divider"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"dark\"]",
+    "property": "--stats-label",
+    "expected": "#94a3b8",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "StatsLabel: ui.Hex(\"#94a3b8\")",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"dark\"] / --stats-label"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"dark\"]",
+    "property": "--stats-val",
+    "expected": "#38bdf8",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "StatsValue: ui.Hex(\"#38bdf8\")",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"dark\"] / --stats-val"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"dark\"]",
+    "property": "--stats-avg-val",
+    "expected": "#a78bfa",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "StatsAverage: ui.Hex(\"#a78bfa\")",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"dark\"] / --stats-avg-val"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"dark\"]",
+    "property": "--stats-usable-val",
+    "expected": "#34d399",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "StatsUsable: ui.Hex(\"#34d399\")",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"dark\"] / --stats-usable-val"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"dark\"]",
+    "property": "--active-border",
+    "expected": "rgba(255, 255, 255, 0.06)",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "ActiveBorder: ui.RGBA(255, 255, 255, 0.06)",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"dark\"] / --active-border"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"dark\"]",
+    "property": "--active-bg",
+    "expected": "rgba(255, 255, 255, 0.015)",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "ActiveBG: ui.RGBA(255, 255, 255, 0.015)",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"dark\"] / --active-bg"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"dark\"]",
+    "property": "--active-val",
+    "expected": "#f1f5f9",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "ActiveValue: ui.Hex(\"#f1f5f9\")",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"dark\"] / --active-val"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"dark\"]",
+    "property": "--foot-border",
+    "expected": "rgba(255, 255, 255, 0.08)",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "FooterBorder: ui.RGBA(255, 255, 255, 0.08)",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"dark\"] / --foot-border"
+  },
+  {
+    "selector": ".trayPopoverPanel[data-theme=\"dark\"]",
+    "property": "--foot-bg",
+    "expected": "rgba(255, 255, 255, 0.02)",
+    "file": "internal/desktop/tray_tokens.go",
+    "go_evidence": "FooterBG: ui.RGBA(255, 255, 255, 0.02)",
+    "context": "base",
+    "label": ".trayPopoverPanel[data-theme=\"dark\"] / --foot-bg"
+  },
+  {
+    "selector": ".trayPopoverHead",
+    "property": "gap",
+    "expected": "8px",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "ui.Row(c).Padding(10, 12, 9, 12).Gap(8)",
+    "context": "base",
+    "label": ".trayPopoverHead / gap"
+  },
+  {
+    "selector": ".trayPopoverHead",
+    "property": "padding",
+    "expected": "10px 12px 9px",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "Padding(10, 12, 9, 12)",
+    "context": "base",
+    "label": ".trayPopoverHead / padding"
+  },
+  {
+    "selector": ".trayPopoverHead h2",
+    "property": "font-size",
+    "expected": "15px",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "ui.Text(c, \"LAM\").FontWeight(800).FontSize(15)",
+    "context": "base",
+    "label": ".trayPopoverHead h2 / font-size"
+  },
+  {
+    "selector": ".trayPopoverHead h2",
+    "property": "font-weight",
+    "expected": "800",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "ui.Text(c, \"LAM\").FontWeight(800)",
+    "context": "base",
+    "label": ".trayPopoverHead h2 / font-weight"
+  },
+  {
+    "selector": ".trayPopoverHead p",
+    "property": "font-size",
+    "expected": "11px",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "ui.Text(c, state).FontSize(11)",
+    "context": "base",
+    "label": ".trayPopoverHead p / font-size"
+  },
+  {
+    "selector": ".trayStats div",
+    "property": "gap",
+    "expected": "1px",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "ui.Column(c).Grow(1).Center().Gap(1)",
+    "context": "base",
+    "label": ".trayStats div / gap"
+  },
+  {
+    "selector": ".trayStats div",
+    "property": "padding",
+    "expected": "7px 6px 6px",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "Padding(7, 6, 6, 6)",
+    "context": "base",
+    "label": ".trayStats div / padding"
+  },
+  {
+    "selector": ".trayStats span",
+    "property": "font-size",
+    "expected": "10px",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "ui.Text(c, stat.label).FontSize(10)",
+    "context": "base",
+    "label": ".trayStats span / font-size"
+  },
+  {
+    "selector": ".trayStats span",
+    "property": "font-weight",
+    "expected": "750",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "FontWeight(750)",
+    "context": "base",
+    "label": ".trayStats span / font-weight"
+  },
+  {
+    "selector": ".trayStats strong",
+    "property": "font-size",
+    "expected": "16px",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "ui.Text(c, stat.value).FontWeight(900).FontSize(16)",
+    "context": "base",
+    "label": ".trayStats strong / font-size"
+  },
+  {
+    "selector": ".trayStats strong",
+    "property": "font-weight",
+    "expected": "900",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "ui.Text(c, stat.value).FontWeight(900)",
+    "context": "base",
+    "label": ".trayStats strong / font-weight"
+  },
+  {
+    "selector": ".trayStats strong",
+    "property": "line-height",
+    "expected": "1",
+    "file": "internal/desktop/run.go",
+    "go_evidence": ".LineHeight(1).TextColor(statColor)",
+    "context": "base",
+    "label": ".trayStats strong / line-height"
+  },
+  {
+    "selector": ".trayActiveSource",
+    "property": "padding",
+    "expected": "8px 12px",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "ui.Row(c).Padding(8, 12).Background(tray.ActiveBG)",
+    "context": "base",
+    "label": ".trayActiveSource / padding"
+  },
+  {
+    "selector": ".trayActiveSourceBar",
+    "property": "gap",
+    "expected": "8px",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "ui.Row(c).Grow(1).Gap(8).Padding(5, 10).Radius(6)",
+    "context": "base",
+    "label": ".trayActiveSourceBar / gap"
+  },
+  {
+    "selector": ".trayActiveSourceBar",
+    "property": "padding",
+    "expected": "5px 10px",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "ui.Row(c).Grow(1).Gap(8).Padding(5, 10).Radius(6)",
+    "context": "base",
+    "label": ".trayActiveSourceBar / padding"
+  },
+  {
+    "selector": ".trayActiveSourceBar",
+    "property": "border-radius",
+    "expected": "6px",
+    "file": "internal/desktop/run.go",
+    "go_evidence": ".Padding(5, 10).Radius(6)",
+    "context": "base",
+    "label": ".trayActiveSourceBar / border-radius"
+  },
+  {
+    "selector": ".activeLabel",
+    "property": "font-size",
+    "expected": "10px",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "FontWeight(850).FontSize(10)",
+    "context": "base",
+    "label": ".activeLabel / font-size"
+  },
+  {
+    "selector": ".activeLabel",
+    "property": "font-weight",
+    "expected": "850",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "ui.Text(c, \"● ACTIVE\").FontWeight(850)",
+    "context": "base",
+    "label": ".activeLabel / font-weight"
+  },
+  {
+    "selector": ".activeAccount",
+    "property": "font-size",
+    "expected": "11px",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "FontWeight(800).FontSize(11)",
+    "context": "base",
+    "label": ".activeAccount / font-size"
+  },
+  {
+    "selector": ".activeAccount",
+    "property": "font-weight",
+    "expected": "800",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "ui.Text(c, source).FontWeight(800)",
+    "context": "base",
+    "label": ".activeAccount / font-weight"
+  },
+  {
+    "selector": ".trayPopoverFoot",
+    "property": "padding",
+    "expected": "6px 10px 8px",
+    "file": "internal/desktop/run.go",
+    "go_evidence": "Padding(6, 10, 8, 10)",
+    "context": "base",
+    "label": ".trayPopoverFoot / padding"
+  },
+  {
+    "selector": ".usageMetricCard .statItem.main strong",
+    "property": "font-weight",
+    "expected": "800",
+    "file": "internal/desktop/design.go",
+    "go_evidence": "FontWeight(800).LetterSpacing",
+    "context": "base",
+    "label": ".usageMetricCard .statItem.main strong / font-weight"
+  },
+  {
+    "selector": ".usageDashboardPage",
+    "property": "gap",
+    "expected": "14px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "ui.Scroll(c).Grow(1).Padding(visualspec.UsagePagePadding).Gap(visualspec.UsagePageGap)",
+    "context": "base",
+    "label": ".usageDashboardPage / gap",
+    "constant_file": "internal/visualspec/geometry.go",
+    "constant_evidence": "UsagePageGap = 14"
+  },
+  {
+    "selector": ".usageDashboardPage",
+    "property": "padding",
+    "expected": "18px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "ui.Scroll(c).Grow(1).Padding(visualspec.UsagePagePadding).Gap(visualspec.UsagePageGap)",
+    "context": "base",
+    "label": ".usageDashboardPage / padding",
+    "constant_file": "internal/visualspec/geometry.go",
+    "constant_evidence": "UsagePagePadding = 18"
+  },
+  {
+    "selector": ".usageDashboardHeader",
+    "property": "align-items",
+    "expected": "flex-start",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "ui.Row(c).Gap(visualspec.UsagePageGap).AlignItems(ui.Start)",
+    "context": "base",
+    "label": ".usageDashboardHeader / align-items"
+  },
+  {
+    "selector": ".usageDashboardHeader",
+    "property": "gap",
+    "expected": "14px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "ui.Row(c).Gap(visualspec.UsagePageGap).AlignItems(ui.Start)",
+    "context": "base",
+    "label": ".usageDashboardHeader / gap",
+    "constant_file": "internal/visualspec/geometry.go",
+    "constant_evidence": "UsagePageGap = 14"
+  },
+  {
+    "selector": ".usageDashboardHeader h2",
+    "property": "font-size",
+    "expected": "22px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "ui.Text(c, \"Usage\").Bold().FontSize(visualspec.UsageHeaderTitleSize)",
+    "context": "base",
+    "label": ".usageDashboardHeader h2 / font-size",
+    "constant_file": "internal/visualspec/geometry.go",
+    "constant_evidence": "UsageHeaderTitleSize = 22"
+  },
+  {
+    "selector": ".usageDashboardTitle",
+    "property": "gap",
+    "expected": "10px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "ui.Row(c).Grow(1).Gap(10)",
+    "context": "base",
+    "label": ".usageDashboardTitle / gap"
+  },
+  {
+    "selector": ".usageDashboardLogo",
+    "property": "width",
+    "expected": "34px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "ui.Box(c).Size(visualspec.UsageHeaderLogoSize, visualspec.UsageHeaderLogoSize)",
+    "context": "base",
+    "label": ".usageDashboardLogo / width",
+    "constant_file": "internal/visualspec/geometry.go",
+    "constant_evidence": "UsageHeaderLogoSize = 34"
+  },
+  {
+    "selector": ".usageDashboardLogo",
+    "property": "height",
+    "expected": "34px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "ui.Box(c).Size(visualspec.UsageHeaderLogoSize, visualspec.UsageHeaderLogoSize)",
+    "context": "base",
+    "label": ".usageDashboardLogo / height",
+    "constant_file": "internal/visualspec/geometry.go",
+    "constant_evidence": "UsageHeaderLogoSize = 34"
+  },
+  {
+    "selector": ".usageDashboardLogo",
+    "property": "border-radius",
+    "expected": "8px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "Radius(visualspec.UsageHeaderLogoRadius).Background(p.Surface)",
+    "context": "base",
+    "label": ".usageDashboardLogo / border-radius",
+    "constant_file": "internal/visualspec/geometry.go",
+    "constant_evidence": "UsageHeaderLogoRadius = 8"
+  },
+  {
+    "selector": ".usageDashboardHeader p",
+    "property": "font-size",
+    "expected": "13px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "ui.Text(c, latest).FontSize(visualspec.UsageHeaderSubtitleSize)",
+    "context": "base",
+    "label": ".usageDashboardHeader p / font-size",
+    "constant_file": "internal/visualspec/geometry.go",
+    "constant_evidence": "UsageHeaderSubtitleSize = 13"
+  },
+  {
+    "selector": ".usageDashboardControls",
+    "property": "gap",
+    "expected": "12px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "ui.Row(c).Gap(visualspec.UsageHeaderControlsGap)",
+    "context": "base",
+    "label": ".usageDashboardControls / gap",
+    "constant_file": "internal/visualspec/geometry.go",
+    "constant_evidence": "UsageHeaderControlsGap = 12"
+  },
+  {
+    "selector": ".usageControlLabelInline",
+    "property": "gap",
+    "expected": "8px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "ui.Row(c).Gap(8).Center()",
+    "context": "base",
+    "label": ".usageControlLabelInline / gap"
+  },
+  {
+    "selector": ".usageControlLabelInline",
+    "property": "font-size",
+    "expected": "11px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "ui.Text(c, \"LOAD LIMIT\").Bold().FontSize(11)",
+    "context": "base",
+    "label": ".usageControlLabelInline / font-size"
+  },
+  {
+    "selector": ".usageControlLabelInline",
+    "property": "font-weight",
+    "expected": "700",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "ui.Text(c, \"LOAD LIMIT\").Bold().FontSize(11)",
+    "context": "base",
+    "label": ".usageControlLabelInline / font-weight"
+  },
+  {
+    "selector": ".usageControlLabelInline",
+    "property": "letter-spacing",
+    "expected": "0.05em",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "FontSize(11).LetterSpacing(.55).TextColor(p.Muted)",
+    "context": "base",
+    "label": ".usageControlLabelInline / letter-spacing"
+  },
+  {
+    "selector": ".usageControlLabelInline select",
+    "property": "width",
+    "expected": "130px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "ui.Select(c, &u.usageLoadLimit, []string{\"5000\", \"10000\", \"20000\", \"all\"}).Width(130)",
+    "context": "base",
+    "label": ".usageControlLabelInline select / width"
+  },
+  {
+    "selector": ":root",
+    "property": "--heatmap-bg-0",
+    "expected": "#ebedf0",
+    "context": "base",
+    "file": "internal/desktop/activity.go",
+    "go_evidence": "return [5]ui.Color{ui.Hex(\"#ebedf0\"), ui.Hex(\"#fbcfe8\"), ui.Hex(\"#f472b6\"), ui.Hex(\"#ec4899\"), ui.Hex(\"#db2777\")}",
+    "label": ":root / --heatmap-bg-0",
+    "use_evidence": "colors := heatmapPalette(p.Dark)"
+  },
+  {
+    "selector": ":root",
+    "property": "--heatmap-bg-1",
+    "expected": "#fbcfe8",
+    "context": "base",
+    "file": "internal/desktop/activity.go",
+    "go_evidence": "return [5]ui.Color{ui.Hex(\"#ebedf0\"), ui.Hex(\"#fbcfe8\"), ui.Hex(\"#f472b6\"), ui.Hex(\"#ec4899\"), ui.Hex(\"#db2777\")}",
+    "label": ":root / --heatmap-bg-1",
+    "use_evidence": "colors := heatmapPalette(p.Dark)"
+  },
+  {
+    "selector": ":root",
+    "property": "--heatmap-bg-2",
+    "expected": "#f472b6",
+    "context": "base",
+    "file": "internal/desktop/activity.go",
+    "go_evidence": "return [5]ui.Color{ui.Hex(\"#ebedf0\"), ui.Hex(\"#fbcfe8\"), ui.Hex(\"#f472b6\"), ui.Hex(\"#ec4899\"), ui.Hex(\"#db2777\")}",
+    "label": ":root / --heatmap-bg-2",
+    "use_evidence": "colors := heatmapPalette(p.Dark)"
+  },
+  {
+    "selector": ":root",
+    "property": "--heatmap-bg-3",
+    "expected": "#ec4899",
+    "context": "base",
+    "file": "internal/desktop/activity.go",
+    "go_evidence": "return [5]ui.Color{ui.Hex(\"#ebedf0\"), ui.Hex(\"#fbcfe8\"), ui.Hex(\"#f472b6\"), ui.Hex(\"#ec4899\"), ui.Hex(\"#db2777\")}",
+    "label": ":root / --heatmap-bg-3",
+    "use_evidence": "colors := heatmapPalette(p.Dark)"
+  },
+  {
+    "selector": ":root",
+    "property": "--heatmap-bg-4",
+    "expected": "#db2777",
+    "context": "base",
+    "file": "internal/desktop/activity.go",
+    "go_evidence": "return [5]ui.Color{ui.Hex(\"#ebedf0\"), ui.Hex(\"#fbcfe8\"), ui.Hex(\"#f472b6\"), ui.Hex(\"#ec4899\"), ui.Hex(\"#db2777\")}",
+    "label": ":root / --heatmap-bg-4",
+    "use_evidence": "colors := heatmapPalette(p.Dark)"
+  },
+  {
+    "selector": ":root[data-theme=\"dark\"]",
+    "property": "--heatmap-bg-0",
+    "expected": "#1e293b",
+    "context": "base",
+    "file": "internal/desktop/activity.go",
+    "go_evidence": "return [5]ui.Color{ui.Hex(\"#1e293b\"), ui.Hex(\"#4a153b\"), ui.Hex(\"#7c1a60\"), ui.Hex(\"#ae1e88\"), ui.Hex(\"#ec4899\")}",
+    "label": ":root[data-theme=\"dark\"] / --heatmap-bg-0",
+    "use_evidence": "colors := heatmapPalette(p.Dark)"
+  },
+  {
+    "selector": ":root[data-theme=\"dark\"]",
+    "property": "--heatmap-bg-1",
+    "expected": "#4a153b",
+    "context": "base",
+    "file": "internal/desktop/activity.go",
+    "go_evidence": "return [5]ui.Color{ui.Hex(\"#1e293b\"), ui.Hex(\"#4a153b\"), ui.Hex(\"#7c1a60\"), ui.Hex(\"#ae1e88\"), ui.Hex(\"#ec4899\")}",
+    "label": ":root[data-theme=\"dark\"] / --heatmap-bg-1",
+    "use_evidence": "colors := heatmapPalette(p.Dark)"
+  },
+  {
+    "selector": ":root[data-theme=\"dark\"]",
+    "property": "--heatmap-bg-2",
+    "expected": "#7c1a60",
+    "context": "base",
+    "file": "internal/desktop/activity.go",
+    "go_evidence": "return [5]ui.Color{ui.Hex(\"#1e293b\"), ui.Hex(\"#4a153b\"), ui.Hex(\"#7c1a60\"), ui.Hex(\"#ae1e88\"), ui.Hex(\"#ec4899\")}",
+    "label": ":root[data-theme=\"dark\"] / --heatmap-bg-2",
+    "use_evidence": "colors := heatmapPalette(p.Dark)"
+  },
+  {
+    "selector": ":root[data-theme=\"dark\"]",
+    "property": "--heatmap-bg-3",
+    "expected": "#ae1e88",
+    "context": "base",
+    "file": "internal/desktop/activity.go",
+    "go_evidence": "return [5]ui.Color{ui.Hex(\"#1e293b\"), ui.Hex(\"#4a153b\"), ui.Hex(\"#7c1a60\"), ui.Hex(\"#ae1e88\"), ui.Hex(\"#ec4899\")}",
+    "label": ":root[data-theme=\"dark\"] / --heatmap-bg-3",
+    "use_evidence": "colors := heatmapPalette(p.Dark)"
+  },
+  {
+    "selector": ":root[data-theme=\"dark\"]",
+    "property": "--heatmap-bg-4",
+    "expected": "#ec4899",
+    "context": "base",
+    "file": "internal/desktop/activity.go",
+    "go_evidence": "return [5]ui.Color{ui.Hex(\"#1e293b\"), ui.Hex(\"#4a153b\"), ui.Hex(\"#7c1a60\"), ui.Hex(\"#ae1e88\"), ui.Hex(\"#ec4899\")}",
+    "label": ":root[data-theme=\"dark\"] / --heatmap-bg-4",
+    "use_evidence": "colors := heatmapPalette(p.Dark)"
+  },
+  {
+    "selector": ".titlebar",
+    "property": "flex-wrap",
+    "expected": "wrap",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "header.Wrap().Padding(visualspec.NarrowTitlebarPadY, visualspec.NarrowTitlebarPadX)",
+    "context": "@media (max-width: 1240px)",
+    "label": ".titlebar / flex-wrap / 1240px"
+  },
+  {
+    "selector": ".titlebar",
+    "property": "padding",
+    "expected": "12px 16px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "header.Wrap().Padding(visualspec.NarrowTitlebarPadY, visualspec.NarrowTitlebarPadX)",
+    "context": "@media (max-width: 1240px)",
+    "label": ".titlebar / padding / 1240px",
+    "constant_file": "internal/visualspec/geometry.go",
+    "constant_evidence": "NarrowTitlebarPadY = 12"
+  },
+  {
+    "selector": ".titlebarActions",
+    "property": "width",
+    "expected": "100%",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "actions.FillWidth().Justify(ui.SpaceBetween)",
+    "context": "@media (max-width: 1240px)",
+    "label": ".titlebarActions / width / 1240px"
+  },
+  {
+    "selector": ".titlebarActions",
+    "property": "justify-content",
+    "expected": "space-between",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "actions.FillWidth().Justify(ui.SpaceBetween)",
+    "context": "@media (max-width: 1240px)",
+    "label": ".titlebarActions / justify-content / 1240px"
+  },
+  {
+    "selector": ".sessionsTable",
+    "property": "min-width",
+    "expected": "1280px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "SessionColumnWidths(int(panelWidth)",
+    "context": "base",
+    "label": ".sessionsTable / min-width / base",
+    "constant_file": "internal/visualspec/geometry.go",
+    "constant_evidence": "SessionsTableMinWidth     = 1280"
+  },
+  {
+    "selector": ".sessionsTable .sessionColSession",
+    "property": "width",
+    "expected": "22%",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "Width: float32(widths[0])",
+    "context": "base",
+    "label": ".sessionsTable .sessionColSession / width / base",
+    "constant_file": "internal/visualspec/geometry.go",
+    "constant_evidence": "pct := [6]int{22, 7, 13, 16, 12, 30}"
+  },
+  {
+    "selector": ".sessionsTable .sessionColSize",
+    "property": "width",
+    "expected": "7%",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "Width: float32(widths[1])",
+    "context": "base",
+    "label": ".sessionsTable .sessionColSize / width / base",
+    "constant_file": "internal/visualspec/geometry.go",
+    "constant_evidence": "pct := [6]int{22, 7, 13, 16, 12, 30}"
+  },
+  {
+    "selector": ".sessionsTable .sessionColLastActive",
+    "property": "width",
+    "expected": "13%",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "Width: float32(widths[2])",
+    "context": "base",
+    "label": ".sessionsTable .sessionColLastActive / width / base",
+    "constant_file": "internal/visualspec/geometry.go",
+    "constant_evidence": "pct := [6]int{22, 7, 13, 16, 12, 30}"
+  },
+  {
+    "selector": ".sessionsTable .sessionColCwd",
+    "property": "width",
+    "expected": "16%",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "Width: float32(widths[3])",
+    "context": "base",
+    "label": ".sessionsTable .sessionColCwd / width / base",
+    "constant_file": "internal/visualspec/geometry.go",
+    "constant_evidence": "pct := [6]int{22, 7, 13, 16, 12, 30}"
+  },
+  {
+    "selector": ".sessionsTable .sessionColProvider",
+    "property": "width",
+    "expected": "12%",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "Width: float32(widths[4])",
+    "context": "base",
+    "label": ".sessionsTable .sessionColProvider / width / base",
+    "constant_file": "internal/visualspec/geometry.go",
+    "constant_evidence": "pct := [6]int{22, 7, 13, 16, 12, 30}"
+  },
+  {
+    "selector": ".sessionsTable .sessionColActions",
+    "property": "width",
+    "expected": "30%",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "Width: float32(widths[5])",
+    "context": "base",
+    "label": ".sessionsTable .sessionColActions / width / base",
+    "constant_file": "internal/visualspec/geometry.go",
+    "constant_evidence": "pct := [6]int{22, 7, 13, 16, 12, 30}"
+  },
+  {
+    "selector": ".tableWrap",
+    "property": "border-radius",
+    "expected": "12px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "}).Grow(1).MaxHeight(560).Radius(12)",
+    "context": "base",
+    "label": ".tableWrap / border-radius / base"
+  },
+  {
+    "selector": ".tableWrap",
+    "property": "max-height",
+    "expected": "560px",
+    "file": "internal/desktop/view.go",
+    "go_evidence": "}).Grow(1).MaxHeight(560).Radius(12)",
+    "context": "base",
+    "label": ".tableWrap / max-height / base"
+  }
+]
