@@ -37,7 +37,7 @@ func Factory(path func() string, extra func(context.Context, model.Profile) (map
 			}
 		}
 		callbacks := sdk.RejectingApprovalCallbacks()
-		c, err := sdk.New(ctx, sdk.Options{Spawn: sdk.SpawnOptions{CodexPath: binary, Env: env, Stderr: io.Discard}, RequestHandler: &callbacks})
+		c, err := sdk.New(ctx, sdk.Options{Spawn: sdk.SpawnOptions{CodexPath: binary, Env: env, Stderr: io.Discard}, RequestHandler: callbacks})
 		if err != nil {
 			var mismatch *sdk.CodexCompatibilityError
 			if errors.As(err, &mismatch) {

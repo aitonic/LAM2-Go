@@ -57,8 +57,12 @@ func Run(core *app.Core) error {
 			u.win.Focus()
 		}
 	})
-	mygo.App.OnLocaleChanged(func() {
-		u.locale = mygo.App.Locale()
+	mygo.App.OnLocaleChanged(func(locale string) {
+		if locale != "" {
+			u.locale = locale
+		} else {
+			u.locale = mygo.App.Locale()
+		}
 		u.setMenu()
 		if u.win != nil {
 			u.win.Invalidate()

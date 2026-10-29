@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"math"
-	"os"
 	"time"
 
 	"github.com/egoist/mygo/ui"
