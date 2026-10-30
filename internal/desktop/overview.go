@@ -82,8 +82,9 @@ func (u *UI) overview(c *ui.Context) {
 			Border(1, p.Border).Children(func() {
 			ui.Text(c, "Active source").FontSize(12).TextColor(p.Muted)
 			ui.Spacer(c).Width(9)
+			isPATMode := u.settings.AccountMode == "pat" || u.basic.State.Settings.AccountMode == "pat"
 			source := "Codex profile mode"
-			if u.settings.AccountMode == "pat" || u.basic.State.Settings.AccountMode == "pat" {
+			if isPATMode {
 				if u.basic.State.ActivePAT != "" {
 					source = "PAT · " + u.basic.State.ActivePAT
 				} else {
@@ -117,6 +118,8 @@ func (u *UI) accountTile(c *ui.Context, p palette, i int) {
 	acct := u.basic.Profiles[i]
 	q, qok := u.basic.Quotas[acct.ID]
 	_, registered := u.basic.State.Profiles[acct.ID]
+	isPATMode := u.settings.AccountMode == "pat" || u.basic.State.Settings.AccountMode == "pat"
+	activePAT := u.basic.State.ActivePAT
 	// Preserve the legacy 152-degree three-stop gradient in both appearance
 	// modes, rather than a two-stop 105-degree approximation.
 	gradient := ui.LinearGradient{Angle: 152, Stops: []ui.GradientStop{
@@ -167,7 +170,7 @@ func (u *UI) accountTile(c *ui.Context, p palette, i int) {
 			if acct.ID == "main" {
 				pill(c, p, "MAIN", p.Accent, p.AccentSoft)
 			}
-			if u.basic.State.ActivePAT == acct.ID {
+			if activePAT == acct.ID {
 				pill(c, p, "ACTIVE", p.Green, p.GreenSoft)
 			}
 			if !registered {
@@ -227,19 +230,23 @@ func (u *UI) accountTile(c *ui.Context, p palette, i int) {
 		// account) plus Handoff. In PAT mode, unactivated accounts present Switch PAT.
 		ui.Row(c).Gap(8).Children(func() {
 			_, isAPI := u.basic.State.Bindings[acct.ID]
-			isPATMode := u.settings.AccountMode == "pat" || u.basic.State.Settings.AccountMode == "pat"
-			canSwitchPAT := isPATMode && !isAPI && acct.ID != "main" && u.basic.State.ActivePAT != acct.ID
-			canRestorePAT := isPATMode && !isAPI && acct.ID == "main" && u.basic.State.ActivePAT != ""
+			canSwitchPAT := isPATMode && !isAPI && acct.ID != "main" && activePAT != acct.ID
+			canRestorePAT := isPATMode && !isAPI && acct.ID == "main" && activePAT != ""
+			isPATActive := isPATMode && !isAPI && activePAT == acct.ID
 
 			action := "▷ Relay Latest"
+			primaryDisabled := u.busy
 			if isAPI {
 				action = "Switch Model"
+			} else if isPATActive {
+				action = "Active PAT"
+				primaryDisabled = true
 			} else if canSwitchPAT {
 				action = "Switch PAT"
 			} else if canRestorePAT {
 				action = "Restore PAT"
 			}
-			if ui.PrimaryButton(c, action).Disabled(u.busy).Grow(1).Clicked() {
+			if ui.PrimaryButton(c, action).Disabled(primaryDisabled).Grow(1).Clicked() {
 				u.profileRow = i
 				if isAPI {
 					b := u.basic.State.Bindings[acct.ID]
@@ -260,11 +267,22 @@ func (u *UI) accountTile(c *ui.Context, p palette, i int) {
 					u.relayLatestTo(acct.ID)
 				}
 			}
-			if ui.Button(c, "▷ Handoff").Disabled(u.busy).Grow(1).Clicked() {
+			secondaryAction := "▷ Handoff"
+			if isPATMode && !isAPI {
+				secondaryAction = "Update Session"
+			}
+			if ui.Button(c, secondaryAction).Disabled(u.busy).Grow(1).Clicked() {
 				u.profileRow = i
-				u.queryProfile = acct.ID
-				u.router.Push("/sessions")
-				u.reload()
+				if isPATMode && !isAPI {
+					u.clearCredentialDraft()
+					u.authProfile = acct.ID
+					u.authPurpose = "quota-session"
+					u.credentialOpen = true
+				} else {
+					u.queryProfile = acct.ID
+					u.router.Push("/sessions")
+					u.reload()
+				}
 			}
 		})
 		if u.settings.ExpandedCardActions {
@@ -331,7 +349,13 @@ func (u *UI) accountOperations(c *ui.Context) {
 			u.authPurpose = "runtime"
 			u.credentialOpen = true
 		}
-		if ui.Button(c, u.t("export")).Disabled(!ready || u.busy).Clicked() {
+		if ui.Button(c, "Update Session Quota").Disabled(!ready || u.busy).Clicked() {
+			u.clearCredentialDraft()
+			u.authProfile = p.ID
+			u.authPurpose = "quota-session"
+			u.credentialOpen = true
+		}
+		if ui.Button(c, "Export CPA").Disabled(!ready || u.busy).Clicked() {
 			u.exportAuth(p.ID)
 		}
 		if ui.Button(c, u.t("activate")).Disabled(!ready || p.ID == "main" || u.busy).Clicked() {

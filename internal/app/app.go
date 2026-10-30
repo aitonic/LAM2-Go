@@ -341,6 +341,11 @@ func (c *Core) BasicSnapshot(ctx context.Context) (Basic, error) {
 		return v, e
 	}
 	v.State = st
+	if v.State.ActivePAT == "" && c.Accounts != nil {
+		if detected, _ := c.Accounts.DetectActivePAT(ctx); detected != "" {
+			v.State.ActivePAT = detected
+		}
+	}
 	v.Quotas = map[string]model.QuotaSnapshot{}
 	// Match original list_accounts: existing ~/.codex* accounts with real
 	// Codex signals are visible immediately. Discovery remains read-only;

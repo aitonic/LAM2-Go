@@ -290,9 +290,17 @@ func (u *UI) trayView(c *ui.Context) {
 			ui.Row(c).Grow(1).Gap(8).Padding(5, 10).Radius(6).
 				Background(ui.RGBA(16, 185, 129, .06)).Border(1, ui.RGBA(16, 185, 129, .12)).Children(func() {
 				ui.Text(c, "● ACTIVE").FontWeight(850).FontSize(10).TextColor(ui.Hex("#10b981"))
-				source := u.basic.State.ActivePAT
-				if source == "" {
-					source = "Codex profile mode"
+				isPATMode := u.settings.AccountMode == "pat" || u.basic.State.Settings.AccountMode == "pat"
+				activeID := u.basic.State.ActivePAT
+				source := "Codex profile mode"
+				if isPATMode {
+					if activeID != "" {
+						source = "PAT · " + activeID
+					} else {
+						source = "PAT mode · Main slot"
+					}
+				} else if activeID != "" {
+					source = "PAT · " + activeID
 				}
 				ui.Text(c, source).FontWeight(800).FontSize(11).TextColor(tray.ActiveValue).SingleLine()
 			})
@@ -368,21 +376,27 @@ func (u *UI) trayView(c *ui.Context) {
 						} else {
 							infoLine(c, p, "No quota data — refresh to retry")
 						}
-						if registered {
-							ui.Row(c).Gap(7).Children(func() {
-								if ui.Button(c, "Refresh "+acct.Name).Grow(1).Disabled(u.busy).Clicked() {
-									u.task("Refresh "+acct.Name, func(ctx context.Context) (any, error) { return u.core.Quota.Refresh(ctx, id) }, func(v any) { u.basic.Quotas[id] = v.(model.QuotaSnapshot) })
+						isPATMode := u.settings.AccountMode == "pat" || u.basic.State.Settings.AccountMode == "pat"
+						ui.Row(c).Gap(7).Children(func() {
+							if ui.Button(c, "Refresh "+acct.Name).Grow(1).Disabled(u.busy).Clicked() {
+								u.task("Refresh "+acct.Name, func(ctx context.Context) (any, error) { return u.core.Quota.Refresh(ctx, id) }, func(v any) { u.basic.Quotas[id] = v.(model.QuotaSnapshot) })
+							}
+							if isPATMode {
+								activeID := u.basic.State.ActivePAT
+								isActive := activeID == id
+								label := "Switch PAT"
+								if isActive {
+									label = "Active"
 								}
-								if u.basic.State.Settings.AccountMode == "pat" {
-									if ui.Button(c, "Switch PAT").Disabled(u.busy || u.basic.State.ActivePAT == id).Clicked() {
-										u.confirm("Switch PAT", "Replace the shared Codex authentication; other running clients may be affected.", func() {
-											u.task("Switch PAT", func(ctx context.Context) (any, error) { return nil, u.core.Accounts.ActivatePAT(ctx, id, true) }, u.changed)
-										})
-										u.trayWin.Hide()
-										u.win.Show()
-										u.win.Focus()
-									}
-								} else if ui.Button(c, "Relay latest").Disabled(u.busy).Clicked() {
+								if ui.Button(c, label).Disabled(u.busy || isActive || id == "main").Clicked() {
+									u.confirm("Switch PAT", "Replace the shared Codex authentication; other running clients may be affected.", func() {
+										u.task("Switch PAT", func(ctx context.Context) (any, error) { return nil, u.core.Accounts.ActivatePAT(ctx, id, true) }, u.changed)
+									})
+									u.trayWin.Hide()
+									u.win.Show()
+									u.win.Focus()
+								}
+							} else if ui.Button(c, "Relay latest").Disabled(u.busy).Clicked() {
 									u.task("Find last active session", func(ctx context.Context) (any, error) {
 										return u.core.Sessions.Query(ctx, session.Query{Sort: "modified", Descending: true, Limit: 1})
 									}, func(v any) {
@@ -406,7 +420,6 @@ func (u *UI) trayView(c *ui.Context) {
 									})
 								}
 							})
-						}
 					})
 				}
 				if len(u.basic.Profiles) == 0 {

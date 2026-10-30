@@ -24,11 +24,14 @@ func (u *UI) newProfile() {
 	u.profileDraft = model.Profile{AuthMode: mode, Proxy: model.Proxy{Mode: "inherit"}}
 	u.profileHome = ""
 	u.profileImportJSON = ""
-	u.profileCreateMethodTab = 1
+	u.patDraft = ""
+	u.expiryDraft = ""
 	if mode == "pat" {
 		u.profileCreateModeTab = 1
+		u.profileCreateMethodTab = 0
 	} else {
 		u.profileCreateModeTab = 0
+		u.profileCreateMethodTab = 1
 	}
 	u.profileOverwriteWrapper = false
 	u.profileEdit = false
@@ -152,10 +155,23 @@ func (u *UI) dialogs(c *ui.Context) {
 				if u.profileDraft.AuthMode == "profile" {
 					ui.Tabs(c, &u.profileCreateMethodTab, "CLI Auth", "Import Session")
 				} else {
-					u.profileCreateMethodTab = 1
+					ui.Tabs(c, &u.profileCreateMethodTab, "Token & Session", "Upload auth.json")
 				}
 				ui.Field(c, "Account name *", func() { ui.TextInput(c, &u.profileDraft.Name).AutoFocus() })
-				if u.profileCreateMethodTab == 1 {
+				if u.profileDraft.AuthMode == "pat" {
+					if u.profileCreateMethodTab == 0 {
+						// Token & Session: complete PAT pairing with secondary session quota
+						ui.Field(c, "Personal Access Token *", func() { ui.TextInput(c, &u.patDraft).Password() })
+						ui.Row(c).Padding(10).Radius(10).Background(p.AmberSoft).Border(1, p.Amber.Alpha(.2)).Children(func() {
+							ui.Text(c, "ⓘ Sensitive credentials — Do not share or expose session JSON files. Only paste trusted session data.").FontSize(12).TextColor(p.Amber)
+						})
+						ui.Field(c, "Session JSON *", func() { ui.TextArea(c, &u.profileImportJSON).Height(130) })
+						ui.Field(c, "Token Expiration (optional, e.g. RFC3339)", func() { ui.TextInput(c, &u.expiryDraft) })
+					} else {
+						// Direct auth.json upload / paste
+						ui.Field(c, "auth.json content *", func() { ui.TextArea(c, &u.profileImportJSON).Height(180) })
+					}
+				} else if u.profileCreateMethodTab == 1 {
 					ui.Row(c).Padding(12).Radius(10).Background(p.AmberSoft).Border(1, p.Amber.Alpha(.2)).Children(func() {
 						ui.Text(c, "ⓘ Sensitive credentials — Do not share or expose session JSON files. Only paste trusted session data.").FontSize(12).TextColor(p.Amber)
 					})
@@ -177,7 +193,13 @@ func (u *UI) dialogs(c *ui.Context) {
 						infoLine(c, p, "Auth")
 						ui.Spacer(c).Grow(1)
 						method := "Codex CLI login"
-						if u.profileCreateMethodTab == 1 {
+						if u.profileDraft.AuthMode == "pat" {
+							if u.profileCreateMethodTab == 0 {
+								method = "PAT Runtime + Quota Session"
+							} else {
+								method = "Direct auth.json"
+							}
+						} else if u.profileCreateMethodTab == 1 {
 							method = "Converted Codex auth.json"
 						}
 						ui.Text(c, method).Bold().FontSize(12)
@@ -208,25 +230,38 @@ func (u *UI) dialogs(c *ui.Context) {
 				if ui.Button(c, u.t("cancel")).Clicked() {
 					u.profileOpen = false
 					u.profileImportJSON = ""
+					u.patDraft = ""
+					u.expiryDraft = ""
 				}
 				ui.Spacer(c).Grow(1)
 				label := "Create Profile"
 				if u.profileEdit {
 					label = "Save Changes"
-				} else if u.profileCreateMethodTab == 1 {
+				} else if u.profileDraft.AuthMode == "pat" || u.profileCreateMethodTab == 1 {
 					label = "Import Profile"
 				}
 				if ui.PrimaryButton(c, label).Disabled(u.busy).Clicked() {
 					p, home, edit, rev := u.profileDraft, u.profileHome, u.profileEdit, u.basic.State.Revision
 					template := u.configTemplate
-					importing := !edit && u.profileCreateMethodTab == 1
+					isPAT := !edit && p.AuthMode == "pat"
+					isPATTokenSession := isPAT && u.profileCreateMethodTab == 0
+					importing := !edit && (isPAT || u.profileCreateMethodTab == 1)
 					raw := []byte(u.profileImportJSON)
+					patToken := u.patDraft
+					expiry := u.expiryDraft
+
+					if isPATTokenSession && strings.TrimSpace(patToken) == "" {
+						u.fail(fault.New("INPUT_INVALID", "Personal Access Token is required"))
+						return
+					}
 					if importing && !json.Valid(raw) {
 						clear(raw)
-						u.fail(fault.New("INPUT_INVALID", "Valid Session JSON is required"))
+						u.fail(fault.New("INPUT_INVALID", "Valid Session or Auth JSON is required"))
 						return
 					}
 					u.profileImportJSON = ""
+					u.patDraft = ""
+					u.expiryDraft = ""
 					u.task(label, func(ctx context.Context) (any, error) {
 						defer clear(raw)
 						if edit {
@@ -239,7 +274,15 @@ func (u *UI) dialogs(c *ui.Context) {
 						if e != nil {
 							return nil, e
 						}
-						if importing {
+						if isPATTokenSession {
+							normalized, normErr := account.NormalizePAT(raw, patToken, expiry)
+							if normErr != nil {
+								return nil, normErr
+							}
+							if e := u.core.Accounts.ImportAuth(ctx, created.ID, normalized, true); e != nil {
+								return nil, fault.New("IMPORT_AUTH_FAILED", "Profile was created but PAT credentials could not be imported: "+e.Error())
+							}
+						} else if importing {
 							if e := u.core.Accounts.ImportAuth(ctx, created.ID, raw, true); e != nil {
 								return nil, fault.New("IMPORT_AUTH_FAILED", "Profile was created but credentials could not be imported. Use the account menu to retry; the profile was not deleted")
 							}
@@ -252,6 +295,8 @@ func (u *UI) dialogs(c *ui.Context) {
 	})
 	if !u.profileOpen {
 		u.profileImportJSON = ""
+		u.patDraft = ""
+		u.expiryDraft = ""
 	}
 
 	ui.Modal(c, &u.providerOpen, func() {

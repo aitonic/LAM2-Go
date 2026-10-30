@@ -194,3 +194,32 @@ func TestPATModeAccountCardsExposeActiveBadgeAndSwitchPAT(t *testing.T) {
 		t.Fatalf("expected 'PAT · pat-1' in active source bar: %v", ttActive.Texts())
 	}
 }
+
+func TestPATAccountCreationModalLayoutAndTokenImport(t *testing.T) {
+	u := New(nil)
+	u.locale = "en"
+	u.settings.AccountMode = "pat"
+	u.basic.State.Settings.AccountMode = "pat"
+
+	u.newProfile()
+	if !u.profileOpen {
+		t.Fatal("expected profileOpen to be true")
+	}
+	if u.profileDraft.AuthMode != "pat" {
+		t.Fatalf("expected AuthMode to be 'pat', got %s", u.profileDraft.AuthMode)
+	}
+
+	tt := ui.NewTester(u.view, 1280, 850)
+	for _, expectedText := range []string{
+		"PAT Account",
+		"Token & Session",
+		"Upload auth.json",
+		"Personal Access Token *",
+		"Session JSON *",
+		"Token Expiration",
+	} {
+		if !tt.HasText(expectedText) {
+			t.Errorf("expected modal to contain %q, but texts were: %v", expectedText, tt.Texts())
+		}
+	}
+}

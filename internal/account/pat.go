@@ -75,6 +75,18 @@ func (s *Service) ActivatePAT(ctx context.Context, id string, confirmed bool) er
 		return e
 	}
 	p, ok := st.Profiles[id]
+	if !ok {
+		// Fallback to discovered visible profiles if not yet registered in state.
+		if visible, vErr := s.ListVisible(ctx, filepath.Dir(s.SharedHome)); vErr == nil {
+			for _, item := range visible {
+				if item.ID == id {
+					p = item
+					ok = true
+					break
+				}
+			}
+		}
+	}
 	if !ok || id == "main" || (p.Home == s.SharedHome && p.AuthMode != "pat") {
 		return fault.New("PROFILE_NOT_FOUND", "Select a non-main account")
 	}
@@ -284,7 +296,64 @@ func recordPATSwitch(st *model.State, id string, now time.Time) {
 		}
 	}
 	if id != "" {
-		p := st.Profiles[id]
-		st.PATTimeline = append(st.PATTimeline, model.PATPeriod{ProfileID: id, Label: p.Name, StartedAt: now})
+		label := id
+		if p, ok := st.Profiles[id]; ok && p.Name != "" {
+			label = p.Name
+		}
+		st.PATTimeline = append(st.PATTimeline, model.PATPeriod{ProfileID: id, Label: label, StartedAt: now})
 	}
+}
+
+// DetectActivePAT inspects the shared ~/.codex/auth.json against all profiles
+// and returns the matching profile ID, mirroring the legacy mark_active_auth_account behavior.
+func (s *Service) DetectActivePAT(ctx context.Context) (string, error) {
+	activePath := filepath.Join(s.SharedHome, "auth.json")
+	activeBytes, err := optionalAuth(activePath)
+	if err != nil || len(activeBytes) == 0 {
+		return "", err
+	}
+	activeHash := authHash(activeBytes)
+	activeSuffix := extractAccountIDSuffix(activeBytes)
+
+	profiles, err := s.ListVisible(ctx, filepath.Dir(s.SharedHome))
+	if err != nil {
+		st, rErr := s.Store.Read(ctx)
+		if rErr != nil {
+			return "", rErr
+		}
+		for _, p := range st.Profiles {
+			profiles = append(profiles, p)
+		}
+	}
+
+	for _, p := range profiles {
+		if p.ID == "main" {
+			continue
+		}
+		cred, cErr := s.readCredential(ctx, p, false)
+		if cErr != nil || len(cred) == 0 {
+			continue
+		}
+		if authHash(cred) == activeHash {
+			return p.ID, nil
+		}
+		if activeSuffix != "" {
+			if suffix := extractAccountIDSuffix(cred); suffix != "" && suffix == activeSuffix {
+				return p.ID, nil
+			}
+		}
+	}
+	return "", nil
+}
+
+func extractAccountIDSuffix(b []byte) string {
+	var v struct {
+		Tokens struct {
+			AccountID string `json:"account_id"`
+		} `json:"tokens"`
+	}
+	if json.Unmarshal(b, &v) != nil || len(v.Tokens.AccountID) < 4 {
+		return ""
+	}
+	return v.Tokens.AccountID[len(v.Tokens.AccountID)-4:]
 }

@@ -158,6 +158,9 @@ func (u *UI) authModeTabs(c *ui.Context, p palette) {
 	ui.Row(c).Padding(3).Gap(2).Radius(8).Background(p.SurfaceAlt).Border(1, p.Border).Children(func() {
 		for _, opt := range options {
 			selected := u.settings.AccountMode == opt.mode
+			if u.settings.AccountMode == "" && opt.mode == "profile" {
+				selected = true
+			}
 			fg := p.Muted
 			bg := p.SurfaceAlt
 			if selected {
