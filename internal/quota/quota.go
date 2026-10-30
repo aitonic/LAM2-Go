@@ -268,7 +268,13 @@ func (s *Service) PrepareReset(ctx context.Context, profileID, creditID string) 
 	if e != nil {
 		return "", e
 	}
-	if _, ok := st.Profiles[profileID]; !ok {
+	_, ok := st.Profiles[profileID]
+	if !ok && s.LookupProfile != nil {
+		if _, err := s.LookupProfile(ctx, profileID); err == nil {
+			ok = true
+		}
+	}
+	if !ok {
 		return "", fault.New("PROFILE_NOT_FOUND", "Profile not found")
 	}
 	op := resetOperation{ID: storage.NewID(), ProfileID: profileID, CreditID: creditID, CreatedAt: time.Now().UTC()}
@@ -302,6 +308,12 @@ func (s *Service) ConsumeReset(ctx context.Context, id string, confirm bool) (st
 		return "", e
 	}
 	p, ok := st.Profiles[op.ProfileID]
+	if !ok && s.LookupProfile != nil {
+		if found, err := s.LookupProfile(ctx, op.ProfileID); err == nil {
+			p = found
+			ok = true
+		}
+	}
 	if !ok {
 		return "", fault.New("PROFILE_NOT_FOUND", "Profile not found")
 	}

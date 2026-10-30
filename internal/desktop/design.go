@@ -2,6 +2,8 @@ package desktop
 
 import (
 	"fmt"
+	"os"
+	"strings"
 
 	"github.com/egoist/mygo/ui"
 	"github.com/egoist/mygo/ui/chart"
@@ -104,7 +106,7 @@ func pill(c *ui.Context, p palette, label string, fg, bg ui.Color) {
 func infoLine(c *ui.Context, p palette, value string) {
 	ui.Text(c, value).FontSize(12).TextColor(p.Muted)
 }
-func metricCard(c *ui.Context, p palette, title, value, footer string, accent, tint ui.Color) ui.Element {
+func metricCard(c *ui.Context, p palette, title, value string, accent, tint ui.Color) ui.Element {
 	// Original .metricCard has no height declaration: its height comes from
 	// the 42px icon, 16px vertical padding and intrinsic text line boxes.
 	// Do not freeze this box to 85 DIP.
@@ -131,6 +133,157 @@ func metricCard(c *ui.Context, p palette, title, value, footer string, accent, t
 		})
 	})
 	return card
+}
+
+func shortenPath(path string) string {
+	if path == "" {
+		return ""
+	}
+	if u, err := os.UserHomeDir(); err == nil && u != "" {
+		if strings.HasPrefix(path, u) {
+			return "~" + strings.TrimPrefix(path, u)
+		}
+	}
+	return path
+}
+
+func planTypeBadge(c *ui.Context, p palette, planType string) {
+	if planType == "" {
+		return
+	}
+	typ := strings.ToLower(strings.TrimSpace(planType))
+	label := strings.ToUpper(typ)
+
+	badge := ui.Row(c).Height(18).Padding(0, 6).Radius(999).Center().Gap(3)
+	switch typ {
+	case "team":
+		grad := ui.LinearGradient{Angle: 135, Stops: []ui.GradientStop{
+			{Color: ui.Hex("#6366f1"), At: 0},
+			{Color: ui.Hex("#3b82f6"), At: 1},
+		}}
+		badge.LinearGradient(grad).Children(func() {
+			ui.Text(c, "👥").FontSize(9).TextColor(ui.Hex("#ffffff"))
+			ui.Text(c, label).Bold().FontSize(9).TextColor(ui.Hex("#ffffff"))
+		})
+	case "pro":
+		grad := ui.LinearGradient{Angle: 135, Stops: []ui.GradientStop{
+			{Color: ui.Hex("#f97316"), At: 0},
+			{Color: ui.Hex("#ea580c"), At: 1},
+		}}
+		badge.LinearGradient(grad).Children(func() {
+			ui.Text(c, "⚡").FontSize(9).TextColor(ui.Hex("#ffffff"))
+			ui.Text(c, label).Bold().FontSize(9).TextColor(ui.Hex("#ffffff"))
+		})
+	case "business":
+		grad := ui.LinearGradient{Angle: 135, Stops: []ui.GradientStop{
+			{Color: ui.Hex("#ec4899"), At: 0},
+			{Color: ui.Hex("#8b5cf6"), At: 1},
+		}}
+		badge.LinearGradient(grad).Children(func() {
+			ui.Text(c, label).Bold().FontSize(9).TextColor(ui.Hex("#ffffff"))
+		})
+	case "plus":
+		badge.Background(ui.RGBA(22, 163, 74, 0.10)).Border(1, ui.RGBA(22, 163, 74, 0.25)).Children(func() {
+			ui.Text(c, "+").Bold().FontSize(10).TextColor(ui.Hex("#16a34a"))
+			ui.Text(c, label).Bold().FontSize(9).TextColor(ui.Hex("#16a34a"))
+		})
+	case "free":
+		badge.Border(1, p.Border).Children(func() {
+			ui.Text(c, label).Bold().FontSize(9).TextColor(p.Muted)
+		})
+	default:
+		badge.Background(p.AccentSoft).Border(1, p.Accent.Alpha(0.25)).Children(func() {
+			ui.Text(c, label).Bold().FontSize(9).TextColor(p.Accent)
+		})
+	}
+}
+
+func quotaWindowBar(c *ui.Context, p palette, label string, remaining *float64, resetText string) {
+	hasData := remaining != nil
+	remVal := 0.0
+	if hasData {
+		remVal = *remaining
+		if remVal < 0 {
+			remVal = 0
+		} else if remVal > 100 {
+			remVal = 100
+		}
+	}
+
+	state := "safe"
+	if !hasData {
+		state = "na"
+	} else if remVal == 0 {
+		state = "empty"
+	} else if remVal < 25 {
+		state = "danger"
+	} else if remVal < 70 {
+		state = "warn"
+	}
+
+	ui.Column(c).Gap(4).Children(func() {
+		ui.Row(c).Children(func() {
+			ui.Text(c, label).FontSize(12).TextColor(p.Muted).Grow(1)
+			valStr := "N/A"
+			if hasData {
+				valStr = fmt.Sprintf("%.0f%% left", remVal)
+			}
+			ui.Text(c, valStr).Bold().FontSize(13).TextColor(p.Ink)
+		})
+
+		slotBg := p.SurfaceAlt
+		switch state {
+		case "safe":
+			slotBg = ui.RGBA(22, 163, 74, 0.12)
+		case "warn":
+			slotBg = ui.RGBA(245, 158, 11, 0.14)
+		case "danger":
+			slotBg = ui.RGBA(220, 38, 38, 0.12)
+		default:
+			slotBg = p.Border
+		}
+
+		barSlot := ui.Box(c).Height(10).Radius(5).Background(slotBg)
+		if hasData && state != "empty" {
+			barSlot.Draw(func(painter *ui.Painter, r ui.Rect) {
+				w := r.W * float32(remVal/100.0)
+				if w < 4 {
+					w = 4
+				}
+				if w > r.W {
+					w = r.W
+				}
+				var grad ui.LinearGradient
+				switch state {
+				case "safe":
+					grad = ui.LinearGradient{Angle: 90, Stops: []ui.GradientStop{
+						{Color: ui.Hex("#15803d"), At: 0},
+						{Color: ui.Hex("#16a34a"), At: 0.55},
+						{Color: ui.Hex("#22c55e"), At: 1},
+					}}
+				case "warn":
+					grad = ui.LinearGradient{Angle: 90, Stops: []ui.GradientStop{
+						{Color: ui.Hex("#ca8a04"), At: 0},
+						{Color: ui.Hex("#f59e0b"), At: 0.55},
+						{Color: ui.Hex("#fbbf24"), At: 1},
+					}}
+				case "danger":
+					grad = ui.LinearGradient{Angle: 90, Stops: []ui.GradientStop{
+						{Color: ui.Hex("#b91c1c"), At: 0},
+						{Color: ui.Hex("#dc2626"), At: 0.55},
+						{Color: ui.Hex("#ef4444"), At: 1},
+					}}
+				}
+				painter.FillGradient(ui.Rect{X: r.X, Y: r.Y, W: w, H: r.H}, grad, r.H/2)
+			})
+		}
+
+		if resetText != "" {
+			ui.Text(c, resetText).FontSize(11).TextColor(p.Faint)
+		} else if !hasData {
+			ui.Text(c, "No quota data").FontSize(11).TextColor(p.Faint)
+		}
+	})
 }
 func errorBanner(c *ui.Context, p palette, message string) {
 	ui.Row(c).Padding(12).Gap(8).Radius(10).

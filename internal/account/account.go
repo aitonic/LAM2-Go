@@ -210,9 +210,22 @@ func Discover(userHome string) ([]model.Profile, error) {
 		if _, err := os.Stat(filepath.Join(path, "auth.json")); err == nil {
 			authStatus = "ready"
 		}
-		out = append(out, model.Profile{ID: id, Name: name, Home: path, AuthMode: "profile", Managed: false, Proxy: model.Proxy{Mode: "inherit"}, AuthStatus: authStatus})
+		sessionCount := countSessions(path)
+		out = append(out, model.Profile{ID: id, Name: name, Home: path, AuthMode: "profile", Managed: false, Proxy: model.Proxy{Mode: "inherit"}, AuthStatus: authStatus, SessionCount: sessionCount})
 	}
 	return out, nil
+}
+
+func countSessions(home string) int {
+	dir := filepath.Join(home, "sessions")
+	count := 0
+	_ = filepath.WalkDir(dir, func(path string, d os.DirEntry, err error) error {
+		if err == nil && !d.IsDir() {
+			count++
+		}
+		return nil
+	})
+	return count
 }
 
 // hasCodexSignal mirrors the original list_accounts discovery boundary. An
@@ -246,6 +259,11 @@ func (s *Service) ListVisible(ctx context.Context, userHome string) ([]model.Pro
 		if !seen[filepath.Clean(p.Home)] {
 			registered = append(registered, p)
 			seen[filepath.Clean(p.Home)] = true
+		}
+	}
+	for i := range registered {
+		if registered[i].SessionCount == 0 {
+			registered[i].SessionCount = countSessions(registered[i].Home)
 		}
 	}
 	sort.Slice(registered, func(i, j int) bool {

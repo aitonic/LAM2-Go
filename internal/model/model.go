@@ -48,6 +48,7 @@ type Profile struct {
 	CredentialID      string         `json:"credentialId,omitempty"`
 	AuthStatus        string         `json:"authStatus,omitempty"`
 	Email             string         `json:"email,omitempty"`
+	SessionCount      int            `json:"sessionCount"`
 }
 type Capabilities struct {
 	Streaming         string `json:"streaming"`

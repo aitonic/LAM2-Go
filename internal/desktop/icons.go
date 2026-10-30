@@ -45,6 +45,9 @@ var moonSVG []byte
 //go:embed assets/icons/refresh.svg
 var refreshSVG []byte
 
+//go:embed assets/icons/sliders.svg
+var slidersSVG []byte
+
 var originalOverviewIcon = ui.MustParseSVG(overviewSVG)
 var originalUsageIcon = ui.MustParseSVG(usageSVG)
 var originalSessionsIcon = ui.MustParseSVG(sessionsSVG)
@@ -57,6 +60,7 @@ var originalDeviceIcon = ui.MustParseSVG(deviceSVG)
 var originalSunIcon = ui.MustParseSVG(sunSVG)
 var originalMoonIcon = ui.MustParseSVG(moonSVG)
 var originalRefreshIcon = ui.MustParseSVG(refreshSVG)
+var originalSlidersIcon = ui.MustParseSVG(slidersSVG)
 
 func originalIcon(c *ui.Context, name string, size float32, color ui.Color) {
 	var icon ui.Element
@@ -85,6 +89,8 @@ func originalIcon(c *ui.Context, name string, size float32, color ui.Color) {
 		icon = ui.Icon(c, originalMoonIcon)
 	case "refresh":
 		icon = ui.Icon(c, originalRefreshIcon)
+	case "sliders":
+		icon = ui.Icon(c, originalSlidersIcon)
 	default:
 		icon = ui.Icon(c, originalOverviewIcon)
 	}
