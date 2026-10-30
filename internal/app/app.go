@@ -100,7 +100,7 @@ func Open(home string, secrets storage.Secrets) (*Core, error) {
 	c.Providers.ProfileToken = c.Accounts.ProviderAPIKey
 	c.APIAccounts = &provider.APIAccountService{Providers: c.Providers, Accounts: c.Accounts}
 	c.Quota = quota.New(store, c.Codex)
-	c.Quota.LookupProfile = c.Accounts.RuntimeProfile
+	c.Quota.LookupProfile = c.Accounts.Get
 	c.Quota.PrepareProfile = c.Accounts.QuotaProfile
 	c.AntigravityCache = quota.NewAntigravityCache()
 	c.Settings = settings.Service{Store: store}

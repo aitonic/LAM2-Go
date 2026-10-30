@@ -262,11 +262,18 @@ func (s *Service) Get(ctx context.Context, id string) (model.Profile, error) {
 	if err != nil {
 		return model.Profile{}, err
 	}
-	p, ok := st.Profiles[id]
-	if !ok {
-		return p, fault.New("PROFILE_NOT_FOUND", "The requested profile is not registered")
+	if p, ok := st.Profiles[id]; ok {
+		return p, nil
 	}
-	return p, nil
+	userHome := filepath.Dir(s.SharedHome)
+	if vis, err := s.ListVisible(ctx, userHome); err == nil {
+		for _, item := range vis {
+			if item.ID == id {
+				return item, nil
+			}
+		}
+	}
+	return model.Profile{}, fault.New("PROFILE_NOT_FOUND", "The requested profile is not registered")
 }
 func (s *Service) Edit(ctx context.Context, id, name, note, renewal string, proxy model.Proxy, expected uint64) error {
 	if !validName(name) || len(note) > 8192 {
