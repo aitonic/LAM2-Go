@@ -2,6 +2,8 @@ package account
 
 import (
 	"context"
+	"path/filepath"
+
 	"lam.local/lam2/internal/fault"
 	"lam.local/lam2/internal/model"
 )
@@ -14,6 +16,18 @@ func (s *Service) RuntimeProfile(ctx context.Context, id string) (model.Profile,
 		return model.Profile{}, e
 	}
 	p, ok := st.Profiles[id]
+	if !ok {
+		userHome := filepath.Dir(s.SharedHome)
+		if vis, err := s.ListVisible(ctx, userHome); err == nil {
+			for _, item := range vis {
+				if item.ID == id {
+					p = item
+					ok = true
+					break
+				}
+			}
+		}
+	}
 	if !ok {
 		return p, fault.New("PROFILE_NOT_FOUND", "Profile not found")
 	}

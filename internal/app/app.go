@@ -100,6 +100,7 @@ func Open(home string, secrets storage.Secrets) (*Core, error) {
 	c.Providers.ProfileToken = c.Accounts.ProviderAPIKey
 	c.APIAccounts = &provider.APIAccountService{Providers: c.Providers, Accounts: c.Accounts}
 	c.Quota = quota.New(store, c.Codex)
+	c.Quota.LookupProfile = c.Accounts.RuntimeProfile
 	c.Quota.PrepareProfile = c.Accounts.QuotaProfile
 	c.AntigravityCache = quota.NewAntigravityCache()
 	c.Settings = settings.Service{Store: store}
@@ -349,14 +350,10 @@ func (c *Core) BasicSnapshot(ctx context.Context) (Basic, error) {
 		return v, e
 	}
 	for _, p := range v.Profiles {
-		if _, registered := st.Profiles[p.ID]; !registered {
-			continue
-		}
 		q, e := c.Quota.Read(ctx, p.ID)
-		if e != nil {
-			return v, e
+		if e == nil {
+			v.Quotas[p.ID] = q
 		}
-		v.Quotas[p.ID] = q
 	}
 	sort.Slice(v.Profiles, func(i, j int) bool {
 		if v.Profiles[i].Name == v.Profiles[j].Name {
@@ -372,7 +369,7 @@ func (c *Core) BasicSnapshot(ctx context.Context) (Basic, error) {
 }
 func (c *Core) RefreshQuotas(ctx context.Context, ids []string) (map[string]model.QuotaSnapshot, error) {
 	if len(ids) == 0 {
-		ps, e := c.Accounts.List(ctx)
+		ps, e := c.Accounts.ListVisible(ctx, filepath.Dir(c.Accounts.SharedHome))
 		if e != nil {
 			return nil, e
 		}

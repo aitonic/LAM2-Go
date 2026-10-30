@@ -228,7 +228,7 @@ func (u *UI) accountTile(c *ui.Context, p palette, i int) {
 		ui.Row(c).Gap(8).Children(func() {
 			_, isAPI := u.basic.State.Bindings[acct.ID]
 			isPATMode := u.settings.AccountMode == "pat" || u.basic.State.Settings.AccountMode == "pat"
-			canSwitchPAT := isPATMode && !isAPI && registered && acct.ID != "main" && u.basic.State.ActivePAT != acct.ID
+			canSwitchPAT := isPATMode && !isAPI && acct.ID != "main" && u.basic.State.ActivePAT != acct.ID
 			canRestorePAT := isPATMode && !isAPI && acct.ID == "main" && u.basic.State.ActivePAT != ""
 
 			action := "▷ Relay Latest"
@@ -239,7 +239,7 @@ func (u *UI) accountTile(c *ui.Context, p palette, i int) {
 			} else if canRestorePAT {
 				action = "Restore PAT"
 			}
-			if ui.PrimaryButton(c, action).Disabled(!registered || u.busy).Grow(1).Clicked() {
+			if ui.PrimaryButton(c, action).Disabled(u.busy).Grow(1).Clicked() {
 				u.profileRow = i
 				if isAPI {
 					b := u.basic.State.Bindings[acct.ID]
@@ -260,7 +260,7 @@ func (u *UI) accountTile(c *ui.Context, p palette, i int) {
 					u.relayLatestTo(acct.ID)
 				}
 			}
-			if ui.Button(c, "▷ Handoff").Disabled(!registered || u.busy).Grow(1).Clicked() {
+			if ui.Button(c, "▷ Handoff").Disabled(u.busy).Grow(1).Clicked() {
 				u.profileRow = i
 				u.queryProfile = acct.ID
 				u.router.Push("/sessions")
@@ -269,7 +269,7 @@ func (u *UI) accountTile(c *ui.Context, p palette, i int) {
 		})
 		if u.settings.ExpandedCardActions {
 			ui.Row(c).Gap(8).Wrap().Children(func() {
-				if ui.Button(c, "View & Edit").Disabled(!registered || u.busy).Clicked() {
+				if ui.Button(c, "View & Edit").Disabled(u.busy).Clicked() {
 					u.profileRow = i
 					u.profileDraft = acct
 					u.profileEdit = true
@@ -287,7 +287,7 @@ func (u *UI) accountTile(c *ui.Context, p palette, i int) {
 func (u *UI) accountOperations(c *ui.Context) {
 	p, has := u.profile()
 	_, registered := u.basic.State.Profiles[p.ID]
-	ready := has && registered
+	ready := has
 	ui.Row(c).Gap(6).Wrap().Children(func() {
 		if ui.Button(c, u.t("newProfile")).Disabled(u.busy).Clicked() {
 			u.newProfile()

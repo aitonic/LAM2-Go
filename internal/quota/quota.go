@@ -107,6 +107,7 @@ type flight struct {
 	err   error
 }
 type Service struct {
+	LookupProfile  func(context.Context, string) (model.Profile, error)
 	PrepareProfile func(context.Context, model.Profile) (model.Profile, error)
 	Store          *storage.Store
 	Codex          codex.Caller
@@ -190,6 +191,12 @@ func (s *Service) fetch(ctx context.Context, id string) (model.QuotaSnapshot, er
 		return model.QuotaSnapshot{}, e
 	}
 	p, ok := st.Profiles[id]
+	if !ok && s.LookupProfile != nil {
+		if found, err := s.LookupProfile(ctx, id); err == nil {
+			p = found
+			ok = true
+		}
+	}
 	if !ok {
 		return model.QuotaSnapshot{}, fault.New("PROFILE_NOT_FOUND", "Profile not found")
 	}
@@ -219,6 +226,12 @@ func (s *Service) AccountUsage(ctx context.Context, id string) (json.RawMessage,
 		return nil, e
 	}
 	p, ok := st.Profiles[id]
+	if !ok && s.LookupProfile != nil {
+		if found, err := s.LookupProfile(ctx, id); err == nil {
+			p = found
+			ok = true
+		}
+	}
 	if !ok {
 		return nil, fault.New("PROFILE_NOT_FOUND", "Profile not found")
 	}

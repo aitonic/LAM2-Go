@@ -7,6 +7,7 @@ import (
 	"errors"
 	"io"
 	"io/fs"
+	"lam.local/lam2/internal/account"
 	"lam.local/lam2/internal/fault"
 	"lam.local/lam2/internal/model"
 	"lam.local/lam2/internal/storage"
@@ -62,6 +63,21 @@ func (s *Service) now() time.Time {
 	return time.Now()
 }
 func (s *Service) Invalidate() { s.mu.Lock(); s.cache = nil; s.mu.Unlock() }
+
+func (s *Service) allProfiles(ctx context.Context, st model.State) map[string]model.Profile {
+	res := make(map[string]model.Profile, len(st.Profiles))
+	userHome := filepath.Dir(s.SharedHome)
+	if vis, err := account.Discover(userHome); err == nil {
+		for _, p := range vis {
+			res[p.ID] = p
+		}
+	}
+	for id, p := range st.Profiles {
+		res[id] = p
+	}
+	return res
+}
+
 func (s *Service) Query(ctx context.Context, q Query) (model.Page[model.Session], error) {
 	page := model.Page[model.Session]{Items: []model.Session{}, Offset: max(q.Offset, 0), Limit: q.Limit}
 	if page.Limit <= 0 {
@@ -72,13 +88,14 @@ func (s *Service) Query(ctx context.Context, q Query) (model.Page[model.Session]
 	if err != nil {
 		return page, err
 	}
+	profiles := s.allProfiles(ctx, st)
 	if q.ProfileID != "" {
-		if _, ok := st.Profiles[q.ProfileID]; !ok {
+		if _, ok := profiles[q.ProfileID]; !ok {
 			return page, fault.New("PROFILE_NOT_FOUND", "Profile not found")
 		}
 	}
 	all := []model.Session{}
-	for _, p := range st.Profiles {
+	for _, p := range profiles {
 		if q.ProfileID != "" && p.ID != q.ProfileID {
 			continue
 		}
@@ -374,6 +391,10 @@ func (s *Service) Resolve(ctx context.Context, profileID, id string) (model.Sess
 		return model.Session{}, err
 	}
 	p, ok := st.Profiles[profileID]
+	if !ok {
+		profiles := s.allProfiles(ctx, st)
+		p, ok = profiles[profileID]
+	}
 	if !ok {
 		return model.Session{}, fault.New("PROFILE_NOT_FOUND", "Profile not found")
 	}

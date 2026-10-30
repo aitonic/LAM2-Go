@@ -199,12 +199,18 @@ func Discover(userHome string) ([]model.Profile, error) {
 		if storage.RejectSymlinks(path) != nil || !hasCodexSignal(path) {
 			continue
 		}
-		id := "external-" + storage.Hash([]byte(path))[:16]
-		name := strings.TrimPrefix(entry.Name(), ".")
+		id := strings.TrimPrefix(entry.Name(), ".codex-")
+		name := entry.Name()
 		if entry.Name() == ".codex" {
 			id, name = "main", "main"
+		} else {
+			name = strings.TrimPrefix(entry.Name(), ".")
 		}
-		out = append(out, model.Profile{ID: id, Name: name, Home: path, AuthMode: "profile", Managed: false, Proxy: model.Proxy{Mode: "inherit"}, AuthStatus: "unverified"})
+		authStatus := "no_auth"
+		if _, err := os.Stat(filepath.Join(path, "auth.json")); err == nil {
+			authStatus = "ready"
+		}
+		out = append(out, model.Profile{ID: id, Name: name, Home: path, AuthMode: "profile", Managed: false, Proxy: model.Proxy{Mode: "inherit"}, AuthStatus: authStatus})
 	}
 	return out, nil
 }
