@@ -178,10 +178,10 @@ func TestPATModeAccountCardsExposeActiveBadgeAndSwitchPAT(t *testing.T) {
 	u.basic.State.Profiles["main"] = u.basic.Profiles[0]
 	u.basic.State.Profiles["pat-1"] = u.basic.Profiles[1]
 
-	// Before activation: Team PAT should show "Switch PAT" button
+	// Before activation: Team PAT should show "Switch" button
 	tt := ui.NewTester(u.view, 1280, 850)
-	if !tt.HasText("Switch PAT") {
-		t.Fatalf("expected 'Switch PAT' button on unactivated PAT card: %v", tt.Texts())
+	if !tt.HasText("Switch") {
+		t.Fatalf("expected 'Switch' button on unactivated PAT card: %v", tt.Texts())
 	}
 
 	// After activation: Active PAT should show "ACTIVE" badge

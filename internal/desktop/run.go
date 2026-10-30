@@ -31,6 +31,9 @@ func Run(core *app.Core) error {
 		return e
 	}
 	u.settings = st.Settings
+	if !st.Settings.ExpandedCardActions {
+		u.settings.ExpandedCardActions = true
+	}
 	u.syncSettingsFields()
 	desktopDir := filepath.Join(core.Store.Root, "desktop")
 	if e := storage.EnsurePrivateDir(desktopDir); e != nil {

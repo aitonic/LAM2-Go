@@ -228,6 +228,9 @@ func (u *UI) reload() {
 		}
 		if !u.settingsDirty {
 			u.settings = x.basic.State.Settings
+			if !x.basic.State.Settings.ExpandedCardActions {
+				u.settings.ExpandedCardActions = true
+			}
 			u.syncSettingsFields()
 		}
 		if x.sectionError != nil {

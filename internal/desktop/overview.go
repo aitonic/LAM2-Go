@@ -236,26 +236,24 @@ func (u *UI) accountTile(c *ui.Context, p palette, i int) {
 				})
 			}
 
-			if !u.settings.ExpandedCardActions {
-				anchor := ui.Button(c, "⋮").Tooltip("Account actions").Padding(2, 6)
-				if anchor.Clicked() {
-					if u.profileRow == i {
-						u.accountMenuOpen = !u.accountMenuOpen
-					} else {
-						u.profileRow = i
-						u.accountMenuOpen = true
-					}
-				}
+			anchor := ui.Button(c, "⋮").Tooltip("Account actions").Padding(2, 6)
+			if anchor.Clicked() {
 				if u.profileRow == i {
-					ui.PopoverBase(c, anchor, &u.accountMenuOpen, func(panel ui.Element) {
-						panel.Margin(6, 0, 0, 0).Padding(10).Radius(12).
-							Background(p.Surface).Border(1, p.Border).Shadow(0, 8, 24, 0, p.Shadow)
-						ui.Scroll(c).Width(440).Height(280).Gap(10).Children(func() {
-							cardHeader(c, p, "Account actions · "+acct.Name, "Select a command for this profile")
-							u.accountOperations(c)
-						})
-					})
+					u.accountMenuOpen = !u.accountMenuOpen
+				} else {
+					u.profileRow = i
+					u.accountMenuOpen = true
 				}
+			}
+			if u.profileRow == i {
+				ui.PopoverBase(c, anchor, &u.accountMenuOpen, func(panel ui.Element) {
+					panel.Margin(6, 0, 0, 0).Padding(10).Radius(12).
+						Background(p.Surface).Border(1, p.Border).Shadow(0, 8, 24, 0, p.Shadow)
+					ui.Scroll(c).Width(440).Height(280).Gap(10).Children(func() {
+						cardHeader(c, p, "Account actions · "+acct.Name, "Select a command for this profile")
+						u.accountOperations(c)
+					})
+				})
 			}
 		})
 
@@ -323,10 +321,11 @@ func (u *UI) accountTile(c *ui.Context, p palette, i int) {
 						quotaWindowBar(c, p, label, rem, resetText)
 					}
 				})
-			} else if qok {
-				infoLine(c, p, "Quota snapshot ready (no windows)")
 			} else {
-				infoLine(c, p, "Quota not available — refresh to retry")
+				ui.Column(c).Gap(8).Children(func() {
+					quotaWindowBar(c, p, "Session (5h)", nil, "No quota data")
+					quotaWindowBar(c, p, "Weekly (7d)", nil, "No quota data")
+				})
 			}
 		}
 
@@ -376,10 +375,10 @@ func (u *UI) accountTile(c *ui.Context, p palette, i int) {
 			}
 		} else if isPATMode {
 			// PAT mode buttons
-			// Row 1: Switch PAT (Primary) + Login/Update (Default)
+			// Row 1: Switch (Primary) + Login (Default)
 			ui.Row(c).Gap(8).Children(func() {
 				switchDisabled := acct.ID == "main" || isActiveAccount || u.busy
-				if ui.PrimaryButton(c, "Switch PAT").Disabled(switchDisabled).Grow(1).Clicked() {
+				if ui.PrimaryButton(c, "⟲ Switch").Disabled(switchDisabled).Grow(1).Clicked() {
 					id := acct.ID
 					u.confirm("Switch PAT", "Replace the shared Codex authentication; other running clients may be affected.", func() {
 						u.task("Switch PAT", func(ctx context.Context) (any, error) {
@@ -387,11 +386,7 @@ func (u *UI) accountTile(c *ui.Context, p palette, i int) {
 						}, u.changed)
 					})
 				}
-				loginLabel := "⚿ Login"
-				if acct.AuthStatus == "ready" {
-					loginLabel = "⚿ Update"
-				}
-				if ui.Button(c, loginLabel).Disabled(u.busy).Grow(1).Clicked() {
+				if ui.Button(c, "⚿ Login").Disabled(u.busy).Grow(1).Clicked() {
 					u.clearCredentialDraft()
 					u.authProfile = acct.ID
 					u.authPurpose = "quota-session"

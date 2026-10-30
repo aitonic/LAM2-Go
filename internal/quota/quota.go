@@ -5,15 +5,18 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"os"
+	"path/filepath"
+	"sort"
+	"strconv"
+	"strings"
+	"sync"
+	"time"
+
 	"lam.local/lam2/internal/codex"
 	"lam.local/lam2/internal/fault"
 	"lam.local/lam2/internal/model"
 	"lam.local/lam2/internal/storage"
-	"os"
-	"path/filepath"
-	"sort"
-	"sync"
-	"time"
 )
 
 type quotaWindow struct {
@@ -127,11 +130,25 @@ func (s *Service) Read(ctx context.Context, id string) (model.QuotaSnapshot, err
 	if !ok && storage.ValidID(id) {
 		raw, e := storage.ReadFile(filepath.Join(s.Store.Root, "quota", id+".json"), 1<<20)
 		if e == nil {
-			if json.Unmarshal(raw, &q) == nil && q.ProfileID == id {
+			if json.Unmarshal(raw, &q) == nil && q.ProfileID == id && len(q.Windows) > 0 {
 				ok = true
 				s.mu.Lock()
 				s.cache[id] = q
 				s.mu.Unlock()
+			}
+		}
+	}
+	if !ok {
+		if leg, err := loadLegacyQuotaCache(id); err == nil && len(leg.Windows) > 0 {
+			q = leg
+			ok = true
+			s.mu.Lock()
+			s.cache[id] = q
+			s.mu.Unlock()
+			if storage.ValidID(id) {
+				if raw, err := json.Marshal(q); err == nil {
+					_ = storage.AtomicWrite(ctx, filepath.Join(s.Store.Root, "quota", id+".json"), raw, 0600)
+				}
 			}
 		}
 	}
@@ -143,6 +160,148 @@ func (s *Service) Read(ctx context.Context, id string) (model.QuotaSnapshot, err
 		q.Status = "stale"
 	}
 	return q, ctx.Err()
+}
+
+type legacyQuotaSnapshot struct {
+	ProfileID                   string   `json:"profileId"`
+	Source                      string   `json:"source"`
+	PlanType                    string   `json:"planType"`
+	PrimaryUsedPercent          *float64 `json:"primaryUsedPercent"`
+	PrimaryWindowDurationMins   int64    `json:"primaryWindowDurationMins"`
+	SecondaryUsedPercent        *float64 `json:"secondaryUsedPercent"`
+	SecondaryWindowDurationMins int64    `json:"secondaryWindowDurationMins"`
+	RemainingPercent            *float64 `json:"remainingPercent"`
+	ResetAt                     any      `json:"resetAt"`
+	SecondaryResetAt            any      `json:"secondaryResetAt"`
+	ResetCreditCount            *int     `json:"resetCreditCount"`
+	ResetCreditExpiresAt        *string  `json:"resetCreditExpiresAt"`
+	FetchedAt                   any      `json:"fetchedAt"`
+}
+
+func parseTimeVal(v any) *time.Time {
+	if v == nil {
+		return nil
+	}
+	switch val := v.(type) {
+	case float64:
+		if val > 0 {
+			t := time.Unix(int64(val), 0).Local()
+			return &t
+		}
+	case string:
+		if n, err := strconv.ParseInt(val, 10, 64); err == nil && n > 0 {
+			t := time.Unix(n, 0).Local()
+			return &t
+		}
+		if t, err := time.Parse(time.RFC3339, val); err == nil {
+			loc := t.Local()
+			return &loc
+		}
+	}
+	return nil
+}
+
+func loadLegacyQuotaCache(id string) (model.QuotaSnapshot, error) {
+	home, err := os.UserHomeDir()
+	if err != nil || home == "" {
+		return model.QuotaSnapshot{}, os.ErrNotExist
+	}
+	dirs := []string{
+		filepath.Join(home, ".config", "agent-workspace", "quota-cache"),
+		filepath.Join(home, ".lam", "config", "quota-cache"),
+		filepath.Join(home, ".lam", "quota-cache"),
+	}
+
+	cleanID := strings.TrimPrefix(id, "codex-")
+	candidates := []string{
+		id + ".json",
+		strings.ToLower(id) + ".json",
+		cleanID + ".json",
+		strings.ToLower(cleanID) + ".json",
+	}
+
+	for _, dir := range dirs {
+		for _, name := range candidates {
+			p := filepath.Join(dir, name)
+			data, err := os.ReadFile(p)
+			if err != nil {
+				continue
+			}
+			var leg legacyQuotaSnapshot
+			if err := json.Unmarshal(data, &leg); err != nil {
+				continue
+			}
+			q := model.QuotaSnapshot{
+				ProfileID: id,
+				Source:    leg.Source,
+				Status:    "ready",
+				PlanType:  leg.PlanType,
+				Windows:   make([]model.QuotaWindow, 0, 2),
+				FetchedAt: time.Now(),
+				ExpiresAt: time.Now().Add(3 * time.Minute),
+			}
+			if q.Source == "" {
+				q.Source = "codex-app-server"
+			}
+
+			// Primary Window: Session (5h)
+			if leg.PrimaryUsedPercent != nil || leg.RemainingPercent != nil {
+				rem := 100.0
+				if leg.RemainingPercent != nil {
+					rem = *leg.RemainingPercent
+				} else if leg.PrimaryUsedPercent != nil {
+					rem = 100.0 - *leg.PrimaryUsedPercent
+				}
+				winMins := leg.PrimaryWindowDurationMins
+				if winMins == 0 {
+					winMins = 300
+				}
+				q.Windows = append(q.Windows, model.QuotaWindow{
+					ID:               "Session (5h)",
+					UsedPercent:      leg.PrimaryUsedPercent,
+					RemainingPercent: &rem,
+					WindowMinutes:    winMins,
+					ResetsAt:         parseTimeVal(leg.ResetAt),
+				})
+			}
+
+			// Secondary Window: Weekly (7d)
+			if leg.SecondaryUsedPercent != nil {
+				rem := 100.0 - *leg.SecondaryUsedPercent
+				winMins := leg.SecondaryWindowDurationMins
+				if winMins == 0 {
+					winMins = 10080
+				}
+				q.Windows = append(q.Windows, model.QuotaWindow{
+					ID:               "Weekly (7d)",
+					UsedPercent:      leg.SecondaryUsedPercent,
+					RemainingPercent: &rem,
+					WindowMinutes:    winMins,
+					ResetsAt:         parseTimeVal(leg.SecondaryResetAt),
+				})
+			}
+
+			// Credits
+			if leg.ResetCreditCount != nil {
+				var exp *time.Time
+				if leg.ResetCreditExpiresAt != nil && *leg.ResetCreditExpiresAt != "" {
+					if t, err := time.Parse(time.RFC3339, *leg.ResetCreditExpiresAt); err == nil {
+						loc := t.Local()
+						exp = &loc
+					}
+				}
+				q.Credits = &model.Credits{
+					AvailableCount: leg.ResetCreditCount,
+					ExpiresAt:      exp,
+				}
+			}
+
+			if len(q.Windows) > 0 {
+				return q, nil
+			}
+		}
+	}
+	return model.QuotaSnapshot{}, os.ErrNotExist
 }
 func (s *Service) Refresh(ctx context.Context, id string) (model.QuotaSnapshot, error) {
 	s.mu.Lock()

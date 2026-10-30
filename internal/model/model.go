@@ -186,7 +186,7 @@ type Settings struct {
 }
 
 func DefaultSettings() Settings {
-	return Settings{AccountMode: "profile", ModeAvailability: "profile", TrayOpacity: 1, Theme: "system", Language: "system", Terminal: "terminal", CodexPath: "codex", RefreshSeconds: 180, ShowDock: true, CloseToTray: true, ApprovalPolicy: "on-request", SandboxMode: "workspace-write", Gateway: DefaultLimits()}
+	return Settings{AccountMode: "profile", ModeAvailability: "profile", ExpandedCardActions: true, TrayOpacity: 1, Theme: "system", Language: "system", Terminal: "terminal", CodexPath: "codex", RefreshSeconds: 180, ShowDock: true, CloseToTray: true, ApprovalPolicy: "on-request", SandboxMode: "workspace-write", Gateway: DefaultLimits()}
 }
 
 type PATPeriod struct {
